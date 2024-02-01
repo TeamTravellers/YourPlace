@@ -55,3 +55,22 @@ C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\refint\
 C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.pdb
 C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.genruntimeconfig.cache
 C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\ref\YourPlace.Core.dll
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\bin\Debug\net8.0\YourPlace.Core.deps.json
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\bin\Debug\net8.0\YourPlace.Core.runtimeconfig.json
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\bin\Debug\net8.0\YourPlace.Core.dll
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\bin\Debug\net8.0\YourPlace.Core.pdb
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\bin\Debug\net8.0\YourPlace.Infrastructure.dll
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\bin\Debug\net8.0\YourPlace.Infrastructure.pdb
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\bin\Debug\net8.0\YourPlace.Infrastructure.dll.config
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.csproj.AssemblyReference.cache
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.AssemblyInfoInputs.cache
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.AssemblyInfo.cs
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.csproj.CoreCompileInputs.cache
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.sourcelink.json
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.csproj.CopyComplete
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.dll
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\refint\YourPlace.Core.dll
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.pdb
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.genruntimeconfig.cache
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\ref\YourPlace.Core.dll

@@ -46,3 +46,19 @@ C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8
 C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.pdb
 C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.genruntimeconfig.cache
 C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\ref\YourPlace.Infrastructure.dll
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.dll.config
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.deps.json
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.runtimeconfig.json
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.dll
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.pdb
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.csproj.AssemblyReference.cache
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.AssemblyInfoInputs.cache
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.AssemblyInfo.cs
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.sourcelink.json
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.dll
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\refint\YourPlace.Infrastructure.dll
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.pdb
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.genruntimeconfig.cache
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\ref\YourPlace.Infrastructure.dll

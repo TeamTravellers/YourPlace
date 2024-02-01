@@ -23,15 +23,15 @@ namespace YourPlace.Core.Services
         }
 
         #region SIGN UP
-        public async Task<User> CreateAccountAsync(string firstName, string surname, string email, string password, Roles role)
+        public async Task<Tuple<IdentityResult, User>> CreateAccountAsync(string firstName, string surname, string email, string password, Roles role)
         {
             try
             {
                 User user = new User(firstName, surname, email);
                 IdentityResult result = await _userManager.CreateAsync(user);
                 if (!result.Succeeded)
-                {
-                    throw new ArgumentException(result.Errors.First().Description);
+                { 
+                    return new Tuple<IdentityResult, User>(result, user);
                 }
                 if (role == Roles.HotelManager)
                 {
@@ -41,7 +41,7 @@ namespace YourPlace.Core.Services
                 {
                     await _userManager.AddToRoleAsync(user, Roles.Traveller.ToString());
                 }
-                return user;
+                return new Tuple<IdentityResult, User>(result, user);
             }
             catch (Exception ex)
             {
@@ -51,34 +51,49 @@ namespace YourPlace.Core.Services
         #endregion
 
         #region LOG IN
-        public async Task<User> LogInUserAsync(string username, string password)
+        public async Task<Tuple<IdentityResult, User>> LogInUserAsync(string email, string password)
         {
+            IdentityResult result;
             try
             {
-                User user = await _userManager.FindByNameAsync(username);
+                User user = await _userManager.FindByEmailAsync(email);
 
                 if (user == null)
                 {
                     // create IdentityError => "Username not found!"
-                    CreateAccountAsync(user.FirstName, user.Surname, user.Email, user.Password, user.Role);
+                    result = IdentityResult.Failed(new IdentityError() { Code = "Login", Description = "User with that name does not exist!" });
+                    return new Tuple<IdentityResult, User>(result, user);
                 }
 
-                IdentityResult result = await _userManager.PasswordValidators[0].ValidateAsync(_userManager, user, password);
+                 result = await _userManager.PasswordValidators[0].ValidateAsync(_userManager, user, password);
 
                 if (result.Succeeded)
                 {
-                    return user;
-                    //return await context.Users.FindAsync(user.Id);
+                    await _userManager.ResetAccessFailedCountAsync(user);
+
+                    result = IdentityResult.Success;
+                    return new Tuple<IdentityResult, User>(result, user);
                 }
                 else
                 {
-                    // create IdentityError => "Password is not correct!"
-                    return null;
+                    result = IdentityResult.Failed(new IdentityError()
+                    {
+                        Code = "Login",
+                        Description = $"Password is not correct!" +
+                        $"{_userManager.Options.Lockout.MaxFailedAccessAttempts - user.AccessFailedCount} attempts left!"
+                    });
                 }
+
+                return new Tuple<IdentityResult, User>(result, user);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                result = IdentityResult.Failed(new IdentityError()
+                {
+                    Code = "Login",
+                    Description = ex.Message
+                });
+                return new Tuple<IdentityResult, User>(result, null);
             }
         }
         #endregion
