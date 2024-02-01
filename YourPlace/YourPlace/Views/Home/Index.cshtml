@@ -2,7 +2,17 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="logo">
+    <svg class="logo-svg">
+        <use xlink:href="logo.svg#logo"></use>
+    </svg>
+</div>
+
+<div class="container1">
+    <h1>Choose a language:</h1>
+    <h4>Изберете език:</h4>
+    <form>
+        <button id="english" class="login" asp-action="English" asp-controller="Home">English</button>
+        <button id="bulgarian" class="login" asp-action="Bulgarian" asp-controller="Home">Български</button>
+    </form>
 </div>

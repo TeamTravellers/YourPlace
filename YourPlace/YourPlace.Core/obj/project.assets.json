@@ -8499,19 +8499,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aneli\\.nuget\\packages\\": {}
+    "C:\\Users\\Eli\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aneli\\Desktop\\Team Travellers\\GitHub Project\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
+      "projectUniqueName": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
       "projectName": "YourPlace.Core",
-      "projectPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\GitHub Project\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
-      "packagesPath": "C:\\Users\\aneli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\GitHub Project\\YourPlace\\YourPlace.Core\\obj\\",
+      "projectPath": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
+      "packagesPath": "C:\\Users\\Eli\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Core\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\aneli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Eli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8525,8 +8530,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\aneli\\Desktop\\Team Travellers\\GitHub Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\GitHub Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj"
+            "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj"
             }
           }
         }
@@ -8602,7 +8607,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

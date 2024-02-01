@@ -1,0 +1,90 @@
+﻿html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+}
+
+.logo {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-svg {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo a {
+    font-size: 35px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #222;
+    padding-left: 50px;
+}
+
+.container1 {
+    width: 440px;
+    padding: 40px 32px;
+    border-radius: 8px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+    .container1 h1 {
+        font-size: 1.6rem;
+    }
+
+    .container1 .social-login button i {
+        font-size: 26px;
+    }
+
+    .container1 .social-login button:hover {
+        color: #6b43ff;
+        border-color: #6b43ff;
+    }
+
+    .container1 form .login {
+        width: 100%;
+        margin-top: 30px;
+        background: #6b43ff;
+        color: #fff;
+        border: none;
+        line-height: 50px;
+        font-size: 18px;
+        letter-spacing: 0.025em;
+        cursor: pointer;
+        font-weight: 800;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+
+        .container1 form .login:hover {
+            background: #5222fd;
+        }

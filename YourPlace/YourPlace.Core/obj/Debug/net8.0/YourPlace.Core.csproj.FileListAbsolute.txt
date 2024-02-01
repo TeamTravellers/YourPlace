@@ -36,3 +36,22 @@ C:\Users\aneli\Desktop\Team Travellers\GitHub Project\YourPlace\YourPlace.Core\o
 C:\Users\aneli\Desktop\Team Travellers\GitHub Project\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.pdb
 C:\Users\aneli\Desktop\Team Travellers\GitHub Project\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.genruntimeconfig.cache
 C:\Users\aneli\Desktop\Team Travellers\GitHub Project\YourPlace\YourPlace.Core\obj\Debug\net8.0\ref\YourPlace.Core.dll
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\bin\Debug\net8.0\YourPlace.Core.deps.json
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\bin\Debug\net8.0\YourPlace.Core.runtimeconfig.json
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\bin\Debug\net8.0\YourPlace.Core.dll
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\bin\Debug\net8.0\YourPlace.Core.pdb
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\bin\Debug\net8.0\YourPlace.Infrastructure.dll
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\bin\Debug\net8.0\YourPlace.Infrastructure.pdb
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\bin\Debug\net8.0\YourPlace.Infrastructure.dll.config
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.csproj.AssemblyReference.cache
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.AssemblyInfoInputs.cache
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.AssemblyInfo.cs
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.csproj.CoreCompileInputs.cache
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.sourcelink.json
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.csproj.CopyComplete
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.dll
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\refint\YourPlace.Core.dll
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.pdb
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\YourPlace.Core.genruntimeconfig.cache
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\obj\Debug\net8.0\ref\YourPlace.Core.dll

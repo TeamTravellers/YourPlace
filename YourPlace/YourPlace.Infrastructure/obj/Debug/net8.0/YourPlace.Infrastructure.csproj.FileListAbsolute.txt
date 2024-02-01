@@ -30,3 +30,19 @@ C:\Users\aneli\Desktop\Team Travellers\GitHub Project\YourPlace\YourPlace.Infras
 C:\Users\aneli\Desktop\Team Travellers\GitHub Project\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.pdb
 C:\Users\aneli\Desktop\Team Travellers\GitHub Project\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.genruntimeconfig.cache
 C:\Users\aneli\Desktop\Team Travellers\GitHub Project\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\ref\YourPlace.Infrastructure.dll
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.dll.config
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.deps.json
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.runtimeconfig.json
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.dll
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.pdb
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.AssemblyInfo.cs
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.sourcelink.json
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.dll
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\refint\YourPlace.Infrastructure.dll
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.pdb
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.genruntimeconfig.cache
+C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\ref\YourPlace.Infrastructure.dll
