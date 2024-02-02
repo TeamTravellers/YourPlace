@@ -50,6 +50,7 @@ namespace YourPlace.Controllers
         {
             return View(bgTest);
         }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
