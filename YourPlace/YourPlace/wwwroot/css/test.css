@@ -1,0 +1,113 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800&display=swap');
+
+.logo {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-svg {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo a {
+    font-size: 35px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #222;
+    padding-left: 50px;
+}
+
+.container2 {
+    width: 600px;
+    height: 500px;
+    padding: 40px 32px;
+    border-radius: 8px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.question {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+    .question p {
+        padding: 30px;
+    }
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    position: relative;
+    padding: 10px 20px;
+    border: 2px solid #8868fa;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-size: 16px;
+    color: #333;
+}
+
+input[type="radio"]:checked + label {
+    background-color: #6b43ff;
+    color: #fff;
+    border-color: #6b43ff;
+}
+
+    input[type="radio"]:checked + label::before {
+        content: '\2022';
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        text-align: center;
+        line-height: 20px;
+        font-size: 14px;
+    }
+
+.prev-btn,
+.next-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.prev-btn {
+    background-color: #ccc;
+}
+
+.next-btn {
+    background-color: #6b43ff;
+    color: #fff;
+}
+
+.prev-btn,
+.next-btn {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+    .prev-btn:hover,
+    .next-btn:hover {
+        background-color: #653bff;
+    }

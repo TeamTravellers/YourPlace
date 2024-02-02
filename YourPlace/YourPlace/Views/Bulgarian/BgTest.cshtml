@@ -1,0 +1,168 @@
+﻿@{
+
+    ViewData["Title"] = "Welcome!";
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/test.css" />
+
+<div class="logo">
+    <svg class="logo-svg">
+        <use xlink:href="logo.svg#logo"></use>
+    </svg>
+</div>
+
+<div class="container2">
+    <div class="questions">
+        <form id="quizForm">
+            <div class="question" id="question1">
+                <p>Въпрос 1: Какво предпочитате?</p>
+                <label>
+                    <input type="radio" name="question1" value="Sea">
+                    Море
+                </label>
+                <label>
+                    <input type="radio" name="question1" value="Mountain">
+                    Планина
+                </label>
+                <label>
+                    <input type="radio" name="question1" value="Large city">
+                    Голям град
+                </label>
+                <label>
+                    <input type="radio" name="question1" value="Small village">
+                    Малко село
+                </label>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question" id="question2" style="display: none;">
+                <p>Въпрос 2: Какъв тип почивка предпочитате?</p>
+                <label>
+                    <input type="radio" name="question2" value="Culture">
+                    Култура
+                </label>
+                <label>
+                    <input type="radio" name="question2" value="Shopping">
+                    Пазаруване
+                </label>
+                <label>
+                    <input type="radio" name="question2" value="Adventure">
+                    Приключение
+                </label>
+                <label>
+                    <input type="radio" name="question2" value="Relax">
+                    Релакс
+                </label>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question" id="question3" style="display: none;">
+                <p>Въпрос 3: Кое предпочитате?</p>
+                <label>
+                    <input type="radio" name="question3" value="Calm">
+                    Спокойствие
+                </label>
+                <label>
+                    <input type="radio" name="question3" value="Party">
+                    Парти
+                </label>
+                <label>
+                    <input type="radio" name="question3" value="Both">
+                    И двете
+                </label>
+                <label>
+                    <input type="radio" name="question3" value="Neither">
+                    Нито едното
+                </label>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question" id="question4" style="display: none;">
+                <p>Въпрос 4: Какъв тип пътуване търсите?</p>
+                <label>
+                    <input type="radio" name="question4" value="Family">
+                    Семейно
+                </label>
+                <label>
+                    <input type="radio" name="question4" value="With one partner">
+                    С един човек
+                </label>
+                <label>
+                    <input type="radio" name="question4" value="Individual">
+                    Самостоятелно
+                </label>
+                <label>
+                    <input type="radio" name="question4" value="Group">
+                    Групово
+                </label>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question" id="question5" style="display: none;">
+                <p>Въпрос 5: Кое предпочитате?</p>
+                <label>
+                    <input type="radio" name="question5" value="Luxury">
+                    Луксозно
+                </label>
+                <label>
+                    <input type="radio" name="question5" value="Cheap">
+                    Евтино
+                </label>
+                <label>
+                    <input type="radio" name="question5" value="Something in between">
+                    Нещо по средата
+                </label>
+                <label>
+                    <input type="radio" name="question5" value="Ultra lux">
+                    Модерно
+                </label>
+            </div>
+
+            <button class="prev-btn" style="display: none;">Предишен</button>
+            <button class="next-btn">Следващ</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('quizForm');
+        const prevButton = document.querySelector('.prev-btn');
+        const nextButton = document.querySelector('.next-btn');
+        const questions = Array.from(form.querySelectorAll('.question'));
+        let currentQuestion = 0;
+
+        function showQuestion(index) {
+            questions.forEach((question, i) => {
+                question.style.display = i === index ? 'block' : 'none';
+            });
+
+            prevButton.style.display = index === 0 ? 'none' : 'inline-block';
+            nextButton.textContent = index === questions.length - 1 ? 'Предай' : 'Следващ';
+        }
+
+        showQuestion(currentQuestion);
+
+        prevButton.addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        });
+
+        nextButton.addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const selectedAnswer = form.querySelector(`input[name="question${currentQuestion + 1}"]:checked`);
+
+            if (selectedAnswer || currentQuestion === questions.length - 1) {
+                if (currentQuestion < questions.length - 1) {
+                    currentQuestion++;
+                    showQuestion(currentQuestion);
+                } else {
+                    window.location.href = 'submit-page.html';
+                }
+            } else {
+                alert('Моля изберете отговор.');
+            }
+        });
+
+    </script>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.Diagnostics;
 using YourPlace.Models;
 
@@ -11,6 +12,8 @@ namespace YourPlace.Controllers
         private const string homePage = "Index";
         private const string english = "~/Views/English/Index.cshtml";
         private const string bulgarian = "~/Views/Bulgarian/Index.cshtml";
+        private const string toMainBg = "~/Views/Bulgarian/MainPage.cshtml";
+        private const string bgTest = "~/Views/Bulgarian/BgTest.cshtml"; //bg test, figure out how to make it for both languages
         private const string ImagesPath = "/Images/ProductImages";
 
         public HomeController(ILogger<HomeController> logger)
@@ -38,8 +41,15 @@ namespace YourPlace.Controllers
             return View(bulgarian);
         }
 
+        public IActionResult ToMainBg()
+        {
+            return View(toMainBg);
+        }
 
-
+        public IActionResult Test()
+        {
+            return View(bgTest);
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

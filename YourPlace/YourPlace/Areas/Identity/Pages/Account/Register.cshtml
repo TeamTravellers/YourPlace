@@ -1,5 +1,7 @@
 ﻿@page
 @model RegisterModel
+@using YourPlace.Infrastructure.Data.Enums;
+
 @{
     ViewData["Title"] = "Register";
 }
@@ -38,6 +40,15 @@
                 <label asp-for="Input.ConfirmPassword">Confirm Password</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
+
+            <div class="form-floating mb-3">
+                <select asp-for="Input.Role" asp-items="Html.GetEnumSelectList<Roles>()" class="form-control" autocomplete="role" aria-required="true">
+                    <option value="">Select Role</option>
+                </select>
+                <label asp-for="Input.Role">Role</label>
+                <span asp-validation-for="Input.Role" class="text-danger"></span>
+            </div>
+
             <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>

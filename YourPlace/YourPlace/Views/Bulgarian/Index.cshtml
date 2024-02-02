@@ -2,12 +2,14 @@
     ViewData["Title"] = "Welcome!";
 }
 
+<link rel="stylesheet" type="text/css" href="~/css/homePageBg.css" />
+
 <div class="logo1">
     <svg xmlns="http://www.w3.org/2000/svg" width="147" height="216" viewBox="0 0 147 216" fill="none">
         <use href="logo.svg#logo"></use>
     </svg>
 </div>
-<div class="container">
+<div class="container2">
     <div class="welcome">Добре дошли в</div>
     <div class="yourplace">YourPlace</div>
     <div class="info-container">
@@ -16,10 +18,7 @@
             Уморихте ли се да търсите най-доброто място с часове? Опитайте нашето ново приложение!
         </div>
     </div>
-
-    <div class="button-container">
-        <button id="startButton" class="start">
-            <div class="text-btn">Да започваме!</div>
-        </button>
-    </div>
+    <form>
+        <button id="startButton" class="start" asp-action="toMainBg" asp-controller="Home"> Да започваме!</button>
+    </form>
 </div>
