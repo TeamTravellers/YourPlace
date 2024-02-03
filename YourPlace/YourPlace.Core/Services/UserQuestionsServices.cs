@@ -32,20 +32,20 @@ namespace YourPlace.Core.Services
                 throw;
             }
         }
-        public async Task<Preferences> ReadAsync(string userID, bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<Preferences> ReadAsync(string userId, bool useNavigationalProperties = false, bool isReadOnly = true)
         {
             try
             {
                 IQueryable<Preferences> preferences = _dbContext.Preferences;
                 if (useNavigationalProperties)
                 {
-                    preferences = preferences.Include(x => x.User);
+                    //preferences = preferences.Include(x => x.User);
                 }
                 if (isReadOnly)
                 {
                     preferences = preferences.AsNoTrackingWithIdentityResolution();
                 }
-                return await preferences.SingleOrDefaultAsync(x => x.UserID == userID);
+                return await preferences.SingleOrDefaultAsync(x => x.UserId == userId);
             }
             catch (Exception)
             {
@@ -59,7 +59,7 @@ namespace YourPlace.Core.Services
                 IQueryable<Preferences> preferences = _dbContext.Preferences;
                 if (useNavigationalProperties)
                 {
-                    preferences = preferences.Include(x => x.User);
+                    //preferences = preferences.Include(x => x.User);
                 }
                 if (isReadOnly)
                 {

@@ -17,29 +17,20 @@ namespace YourPlace.Infrastructure.Data.Entities
         
         public string Surname { get; set; }
 
-        
-        public string Email { get; set; }
-
-        
-        public string Password { get; set; }
-
-        
-        public Roles Role { get; set; }
-
-        public Preferences Preferences { get; set; }
+        //public Preferences Preferences { get; set; }
         public User()
         { 
 
         }
-        public User(string firstName, string surname, string email)
+        public User(string username, string email, string firstName, string surname)
         {
-            FirstName = firstName;
-            Surname = surname;
-            Email = email;
-            NormalizedEmail = email.ToUpper();
-            this.Preferences = Preferences;
-            //Password = password;
-            //Role = role;
+            this.UserName = username;
+            this.NormalizedUserName = username.ToUpper();
+            this.Email = email;
+            this.NormalizedEmail = email.ToUpper();
+            this.FirstName = firstName;
+            this.Surname = surname;
+            //this.Preferences = Preferences;
         }
     }
 }

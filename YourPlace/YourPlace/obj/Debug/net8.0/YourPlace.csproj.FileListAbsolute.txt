@@ -1039,7 +1039,6 @@ D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace\obj\Debug\ne
 D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace\obj\Debug\net8.0\YourPlace.AssemblyInfoInputs.cache
 D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace\obj\Debug\net8.0\YourPlace.AssemblyInfo.cs
 D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace\obj\Debug\net8.0\YourPlace.csproj.CoreCompileInputs.cache
-D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace\obj\Debug\net8.0\YourPlace.MvcApplicationPartsAssemblyInfo.cs
 D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace\obj\Debug\net8.0\YourPlace.MvcApplicationPartsAssemblyInfo.cache
 D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace\obj\Debug\net8.0\YourPlace.RazorAssemblyInfo.cache
 D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace\obj\Debug\net8.0\YourPlace.RazorAssemblyInfo.cs
@@ -1060,3 +1059,4 @@ D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace\obj\Debug\ne
 D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace\obj\Debug\net8.0\YourPlace.pdb
 D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace\obj\Debug\net8.0\YourPlace.genruntimeconfig.cache
 D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace\obj\Debug\net8.0\ref\YourPlace.dll
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\YourPlace\obj\Debug\net8.0\YourPlace.MvcApplicationPartsAssemblyInfo.cs

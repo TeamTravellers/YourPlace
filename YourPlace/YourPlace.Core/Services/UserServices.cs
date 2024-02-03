@@ -23,12 +23,12 @@ namespace YourPlace.Core.Services
         }
 
         #region SIGN UP
-        public async Task<Tuple<IdentityResult, User>> CreateAccountAsync(string firstName, string surname, string email, string password, Roles role)
+        public async Task<Tuple<IdentityResult, User>> CreateAccountAsync(string firstName, string surname, string username, string email, string password, Roles role)
         {
             try
             {
-                User user = new User(firstName, surname, email);
-                IdentityResult result = await _userManager.CreateAsync(user);
+                User user = new User(username, email, firstName, surname);
+                IdentityResult result = await _userManager.CreateAsync(user, password);
                 if (!result.Succeeded)
                 { 
                     return new Tuple<IdentityResult, User>(result, user);
@@ -144,12 +144,12 @@ namespace YourPlace.Core.Services
             //userToBeEdited.Role = editedUser.Role;
             
         }
-        public async Task ResetPasswordAsync(string id, string newPassword)
-        {
-            User user = await _userManager.FindByIdAsync(id);
-            user.Password = newPassword;
-            await _userManager.UpdateAsync(user);
-        }
+        //public async Task ResetPasswordAsync(string id, string newPassword)
+        //{
+        //    User user = await _userManager.FindByIdAsync(id);
+        //    await _userManager.ResetPasswordAsync(user, newPassword);
+        //    await _userManager.UpdateAsync(user);
+        //}
         public async Task DeleteAccountAsync(string id)
         {
             try

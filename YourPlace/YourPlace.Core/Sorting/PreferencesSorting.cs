@@ -34,7 +34,7 @@ namespace YourPlace.Core.Sorting
             try
             {
                 User user = await _userManager.FindByIdAsync(userID);
-                user.Preferences = await _userQuestionsServices.ReadAsync(userID);
+                var userPreferences = await _userQuestionsServices.ReadAsync(userID);
                 //var hotels = await _hotelsServices.ReadAllAsync();
                 //var hotels = new List<Hotel>();
                 var hotelsCategories = await _hotelCategoriesServices.ReadAllAsync();
@@ -43,11 +43,11 @@ namespace YourPlace.Core.Sorting
 
                 Tuple<Location, Tourism, Atmosphere, Company, Pricing> preferences = new Tuple<Location, Tourism, Atmosphere, Company, Pricing>
                 (
-                    user.Preferences.Location,
-                    user.Preferences.Tourism,
-                    user.Preferences.Atmosphere,
-                    user.Preferences.Company,
-                    user.Preferences.Pricing
+                    userPreferences.Location,
+                    userPreferences.Tourism,
+                    userPreferences.Atmosphere,
+                    userPreferences.Company,
+                    userPreferences.Pricing
                 );
 
                 Tuple<Location, Tourism, Atmosphere, Company, Pricing, Hotel> categories;

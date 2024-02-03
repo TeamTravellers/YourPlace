@@ -32,11 +32,9 @@ namespace YourPlace.Infrastructure.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -52,24 +50,6 @@ namespace YourPlace.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Categories",
-                columns: table => new
-                {
-                    CategoryID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Tourism = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Atmosphere = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Company = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Pricing = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    HotelID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Categories", x => x.CategoryID);
                 });
 
             migrationBuilder.CreateTable(
@@ -92,87 +72,21 @@ namespace YourPlace.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Images",
+                name: "Preferences",
                 columns: table => new
                 {
-                    ImageID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HotelID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Images", x => x.ImageID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Reservations",
-                columns: table => new
-                {
-                    ReservationID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ArrivalDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    LeavingDate = table.Column<DateOnly>(type: "date", nullable: false),
-                    PeopleCount = table.Column<int>(type: "int", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    RoomID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Reservations", x => x.ReservationID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Rooms",
-                columns: table => new
-                {
-                    RoomID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    MaxPeopleCount = table.Column<int>(type: "int", nullable: false),
-                    HotelID = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Rooms", x => x.RoomID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "RoomsAvailability",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    RoomID = table.Column<int>(type: "int", nullable: false),
-                    HotelID = table.Column<int>(type: "int", nullable: false),
-                    Availability = table.Column<int>(type: "int", nullable: false),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_RoomsAvailability", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Suggestions",
-                columns: table => new
-                {
-                    SuggestionID = table.Column<int>(type: "int", nullable: false)
+                    PreferencesID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Tourism = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Atmosphere = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Company = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Pricing = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    HotelID = table.Column<int>(type: "int", nullable: false)
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Suggestions", x => x.SuggestionID);
+                    table.PrimaryKey("PK_Preferences", x => x.PreferencesID);
                 });
 
             migrationBuilder.CreateTable(
@@ -281,6 +195,124 @@ namespace YourPlace.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    CategoryID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Tourism = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Atmosphere = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Company = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Pricing = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HotelID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.CategoryID);
+                    table.ForeignKey(
+                        name: "FK_Categories_Hotels_HotelID",
+                        column: x => x.HotelID,
+                        principalTable: "Hotels",
+                        principalColumn: "HotelID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Images",
+                columns: table => new
+                {
+                    ImageID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    HotelID = table.Column<int>(type: "int", nullable: false),
+                    HotelID1 = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Images", x => x.ImageID);
+                    table.ForeignKey(
+                        name: "FK_Images_Hotels_HotelID",
+                        column: x => x.HotelID,
+                        principalTable: "Hotels",
+                        principalColumn: "HotelID",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Images_Hotels_HotelID1",
+                        column: x => x.HotelID1,
+                        principalTable: "Hotels",
+                        principalColumn: "HotelID");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Reservations",
+                columns: table => new
+                {
+                    ReservationID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ArrivalDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    LeavingDate = table.Column<DateOnly>(type: "date", nullable: false),
+                    PeopleCount = table.Column<int>(type: "int", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    HotelID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Reservations", x => x.ReservationID);
+                    table.ForeignKey(
+                        name: "FK_Reservations_Hotels_HotelID",
+                        column: x => x.HotelID,
+                        principalTable: "Hotels",
+                        principalColumn: "HotelID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Rooms",
+                columns: table => new
+                {
+                    RoomID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    MaxPeopleCount = table.Column<int>(type: "int", nullable: false),
+                    HotelID = table.Column<int>(type: "int", nullable: false),
+                    ReservationID = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Rooms", x => x.RoomID);
+                    table.ForeignKey(
+                        name: "FK_Rooms_Reservations_ReservationID",
+                        column: x => x.ReservationID,
+                        principalTable: "Reservations",
+                        principalColumn: "ReservationID");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "RoomsAvailability",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    HotelID = table.Column<int>(type: "int", nullable: false),
+                    Availability = table.Column<int>(type: "int", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RoomsAvailability", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_RoomsAvailability_Rooms_HotelID",
+                        column: x => x.HotelID,
+                        principalTable: "Rooms",
+                        principalColumn: "RoomID",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -319,6 +351,36 @@ namespace YourPlace.Infrastructure.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Categories_HotelID",
+                table: "Categories",
+                column: "HotelID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Images_HotelID",
+                table: "Images",
+                column: "HotelID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Images_HotelID1",
+                table: "Images",
+                column: "HotelID1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Reservations_HotelID",
+                table: "Reservations",
+                column: "HotelID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Rooms_ReservationID",
+                table: "Rooms",
+                column: "ReservationID");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RoomsAvailability_HotelID",
+                table: "RoomsAvailability",
+                column: "HotelID");
         }
 
         /// <inheritdoc />
@@ -343,28 +405,28 @@ namespace YourPlace.Infrastructure.Migrations
                 name: "Categories");
 
             migrationBuilder.DropTable(
-                name: "Hotels");
-
-            migrationBuilder.DropTable(
                 name: "Images");
 
             migrationBuilder.DropTable(
-                name: "Reservations");
-
-            migrationBuilder.DropTable(
-                name: "Rooms");
+                name: "Preferences");
 
             migrationBuilder.DropTable(
                 name: "RoomsAvailability");
-
-            migrationBuilder.DropTable(
-                name: "Suggestions");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Rooms");
+
+            migrationBuilder.DropTable(
+                name: "Reservations");
+
+            migrationBuilder.DropTable(
+                name: "Hotels");
         }
     }
 }

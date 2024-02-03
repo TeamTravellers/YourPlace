@@ -12,7 +12,7 @@ namespace YourPlace.Infrastructure.Data.Entities
     public class Preferences
     {
         [Key]
-        public int SuggestionID { get; set; }
+        public int PreferencesID { get; set; }
 
         [Required]
         public Location Location { get; set; }
@@ -29,23 +29,23 @@ namespace YourPlace.Infrastructure.Data.Entities
         [Required]
         public Pricing Pricing { get; set; }
 
-        [ForeignKey("User")]
-        public string UserID { get; set; }
+        
+        public string UserId { get; set; }
 
-        [Required]
-        public User User { get; set; }
+        
+        //public User User { get; set; }
         public Preferences()
         {
 
         }
-        public Preferences(Location location, Tourism tourism, Atmosphere atmosphere, Company company, Pricing pricing, string userID)
+        public Preferences(Location location, Tourism tourism, Atmosphere atmosphere, Company company, Pricing pricing, string userId)
         {
             Location = location;
             Tourism = tourism;
             Atmosphere = atmosphere;
             Company = company;
             Pricing = pricing;
-            UserID = userID;
+            UserId = userId;
         }
     }
 }
