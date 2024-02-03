@@ -39,26 +39,26 @@ UserManager<User> userManager = new UserManager<User>(
 
 UserServices userServices = new UserServices(dbContext, userManager);
 
-try
-{
-    Tuple<IdentityResult, User> result = await userServices.CreateAccountAsync("Maria", "Metrova", "mpetrova", "mimip@gmail.com", "554gdghd", Roles.Traveller);
-    User user = result.Item2;
-    Console.WriteLine($"{user.Id}");
-
-}
-catch (Exception ex)
-{
-    throw;
-}
 //try
 //{
-//    await userServices.CreateRoleAsync(new IdentityRole(Roles.HotelManager.ToString()) { NormalizedName = "HOTEL MANAGER" });
-//    await userServices.CreateRoleAsync(new IdentityRole(Roles.Traveller.ToString()) { NormalizedName = "TRAVELLER" });
+//    Tuple<IdentityResult, User> result = await userServices.CreateAccountAsync("Peshka", "Peshova", "ppeshova", "ppeshova@gmail.com", "fdgdfgh", Roles.HotelManager);
+//    User user = result.Item2;
+//    Console.WriteLine($"{user.Id}");
+
 //}
 //catch (Exception ex)
 //{
 //    throw;
 //}
+try
+{
+    await userServices.CreateRoleAsync(new IdentityRole(Roles.HotelManager.ToString()) { NormalizedName = "HOTELMANAGER" });
+    //await userServices.CreateRoleAsync(new IdentityRole(Roles.Traveller.ToString()) { NormalizedName = "TRAVELLER" });
+}
+catch (Exception ex)
+{
+    throw;
+}
 
 
 

@@ -11,19 +11,23 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using YourPlace.Core.Services;
+using YourPlace.Infrastructure.Data.Entities;
 
 namespace YourPlace.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterConfirmationModel : PageModel
     {
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<User> _userManager;
         private readonly IEmailSender _sender;
+        private readonly UserServices _userServices;
 
-        public RegisterConfirmationModel(UserManager<IdentityUser> userManager, IEmailSender sender)
+        public RegisterConfirmationModel(UserManager<User> userManager, IEmailSender sender, UserServices userservices)
         {
             _userManager = userManager;
             _sender = sender;
+            _userServices = userservices;
         }
 
         /// <summary>
@@ -52,26 +56,38 @@ namespace YourPlace.Areas.Identity.Pages.Account
             }
             returnUrl = returnUrl ?? Url.Content("~/");
 
-            var user = await _userManager.FindByEmailAsync(email);
-            if (user == null)
-            {
-                return NotFound($"Unable to load user with email '{email}'.");
-            }
+            //IEnumerable<User> users = await _userServices.ReadAllUsersAsync();
+            
+            //List<User> usersWithTheSameEmailSearching = users.Where(x => x.Email == email).ToList();
+            //if(usersWithTheSameEmailSearching.Count == 1)
+            //{
+                var user = await _userManager.FindByEmailAsync(email);
+                if (user == null)
+                {
+                    return NotFound($"Unable to load user with email '{email}'.");
+                }
+                Email = email;
+                // Once you add a real email sender, you should remove this code that lets you confirm the account
+                DisplayConfirmAccountLink = true;
+                if (DisplayConfirmAccountLink)
+                {
+                    var userId = await _userManager.GetUserIdAsync(user);
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+                    EmailConfirmationUrl = Url.Page(
+                        "/Account/ConfirmEmail",
+                        pageHandler: null,
+                        values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
+                        protocol: Request.Scheme);
+                }
+            //}
+            //else
+            //{
+            //    return NotFound($"User with '{email}' already exists.");
+            //}
+            
 
-            Email = email;
-            // Once you add a real email sender, you should remove this code that lets you confirm the account
-            DisplayConfirmAccountLink = true;
-            if (DisplayConfirmAccountLink)
-            {
-                var userId = await _userManager.GetUserIdAsync(user);
-                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                EmailConfirmationUrl = Url.Page(
-                    "/Account/ConfirmEmail",
-                    pageHandler: null,
-                    values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
-                    protocol: Request.Scheme);
-            }
+            
 
             return Page();
         }

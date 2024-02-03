@@ -5,6 +5,7 @@ using YourPlace.Infrastructure.Data;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using YourPlace.Infrastructure.Data.Entities;
 using Microsoft.AspNetCore.Identity.UI.Services;
+using YourPlace.Core.Services;
 
 public class Program
 {
@@ -18,12 +19,10 @@ public class Program
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
         builder.Services.AddDbContext<YourPlaceDbContext>(options => options.UseSqlServer(connectionString));
 
-        //builder.Services.AddScoped<IdentityManager, IdentityManager>();
-        //builder.Services.AddScoped<IdentityContext, IdentityContext>();
+        
+        builder.Services.AddScoped<UserServices, UserServices>();
         //builder.Services.AddScoped<IEmailSender, EmailSender>();
-        //    builder.Services.AddIdentity<User, IdentityRole>()
-        //.AddEntityFrameworkStores<YourPlaceDbContext>()
-        //.AddDefaultTokenProviders();
+       
 
         builder.Services.AddIdentity<User, IdentityRole>(options =>
         {

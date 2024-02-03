@@ -33,12 +33,14 @@ namespace YourPlace.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly UserServices _userServices;
+
         public RegisterModel(
             UserManager<User> userManager,
             IUserStore<User> userStore,
             SignInManager<User> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            UserServices userServices)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -46,6 +48,7 @@ namespace YourPlace.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _userServices = userServices;
         }
 
         /// <summary>
@@ -129,8 +132,10 @@ namespace YourPlace.Areas.Identity.Pages.Account
 
                 //await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 //await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
+                Tuple<IdentityResult, User> result; 
                
-                Tuple<IdentityResult, User> result = await _userServices.CreateAccountAsync(Input.FirstName, Input.Surname, Input.Username, Input.Email, Input.Password, Input.Role);
+                   result = await _userServices.CreateAccountAsync(Input.FirstName, Input.Surname, Input.Username, Input.Email, Input.Password, Input.Role);
+                
 
                 if (result.Item1.Succeeded)
                 {
