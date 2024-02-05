@@ -132,10 +132,9 @@ namespace YourPlace.Areas.Identity.Pages.Account
 
                 //await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 //await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-                Tuple<IdentityResult, User> result; 
-               
-                   result = await _userServices.CreateAccountAsync(Input.FirstName, Input.Surname, Input.Username, Input.Email, Input.Password, Input.Role);
+                bool emailExistence = await _userServices.CheckIfEmailExists(Input.Email);
                 
+                Tuple<IdentityResult, User> result = await _userServices.CreateAccountAsync(Input.FirstName, Input.Surname, Input.Username, Input.Email, Input.Password, Input.Role);
 
                 if (result.Item1.Succeeded)
                 {
@@ -174,7 +173,7 @@ namespace YourPlace.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private IdentityUser CreateUser()
+        private User CreateUser()
         {
             try
             {

@@ -25,10 +25,11 @@ namespace YourPlace.Areas.Identity.Pages.Account
         private readonly ILogger<LoginModel> _logger;
         private readonly UserServices _userServices;
 
-        public LoginModel(SignInManager<User> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<User> signInManager, ILogger<LoginModel> logger, UserServices userServices)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _userServices = userServices;
         }
 
         /// <summary>

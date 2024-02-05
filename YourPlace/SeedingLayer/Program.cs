@@ -50,17 +50,17 @@ UserServices userServices = new UserServices(dbContext, userManager);
 //{
 //    throw;
 //}
-try
-{
-    await userServices.CreateRoleAsync(new IdentityRole(Roles.HotelManager.ToString()) { NormalizedName = "HOTELMANAGER" });
-    //await userServices.CreateRoleAsync(new IdentityRole(Roles.Traveller.ToString()) { NormalizedName = "TRAVELLER" });
-}
-catch (Exception ex)
-{
-    throw;
-}
-
-
+//try
+//{
+//    await userServices.CreateRoleAsync(new IdentityRole(Roles.HotelManager.ToString()) { NormalizedName = "HOTELMANAGER" });
+//    //await userServices.CreateRoleAsync(new IdentityRole(Roles.Traveller.ToString()) { NormalizedName = "TRAVELLER" });
+//}
+//catch (Exception ex)
+//{
+//    throw;
+//}
+Tuple<IdentityResult, User> result = await userServices.LogInUserAsync("ppeshova@gmail.com", "fdgdfgh");
+Console.WriteLine(result.Item1);
 
 
 
