@@ -38,7 +38,7 @@ namespace YourPlace.Infrastructure.Data.Entities
         {
 
         }
-        public Hotel(int hotelID, string mainImageURL, string hotelName, string address, string town, string country, double rating, string details, List<Image> images)
+        public Hotel(string mainImageURL, string hotelName, string address, string town, string country, double rating, string details)
         {
             MainImageURL = mainImageURL;
             HotelName = hotelName;
@@ -47,7 +47,12 @@ namespace YourPlace.Infrastructure.Data.Entities
             Country = country;
             Rating = rating;
             Details = details;
-            Images = images;
+            //Images = Images;
         }
-    }
+        public override string ToString()
+        {
+            return $"{this.MainImageURL} {this.HotelName} {this.Address} {this.Town} {this.Country} {this.Rating} {this.Details}";
+        }
+    }   
+   
 }

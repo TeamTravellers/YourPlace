@@ -22,7 +22,9 @@ public class Program
         
         builder.Services.AddScoped<UserServices, UserServices>();
         //builder.Services.AddScoped<IEmailSender, EmailSender>();
-       
+        builder.Services.AddScoped<HotelsServices>();
+
+
 
         builder.Services.AddIdentity<User, IdentityRole>(options =>
         {

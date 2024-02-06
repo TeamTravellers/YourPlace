@@ -52,7 +52,7 @@ namespace YourPlace.Core.Services
                 throw;
             }
         }
-        public async Task<IEnumerable<Preferences>> ReadAllAsync(bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<List<Preferences>> ReadAllAsync(bool useNavigationalProperties = false, bool isReadOnly = true)
         {
             try
             {

@@ -59,9 +59,16 @@ UserServices userServices = new UserServices(dbContext, userManager);
 //{
 //    throw;
 //}
-Tuple<IdentityResult, User> result = await userServices.LogInUserAsync("ppeshova@gmail.com", "fdgdfgh");
-Console.WriteLine(result.Item1);
-
-
+//Tuple<IdentityResult, User> result = await userServices.LogInUserAsync("ppeshova@gmail.com", "fdgdfgh");
+//Console.WriteLine(result.Item1);
+HotelsServices hotelsServices = new HotelsServices(dbContext);
+//Hotel hotel = new Hotel("hdgfgdjf", "Rose apartments", "Flora str.", "Paris", "France", 9.6, "nice hotel");
+//Console.WriteLine(hotel.ToString());
+//hotelsServices.CreateAsync(hotel);
+IEnumerable<Hotel> hotels = await hotelsServices.ReadAllAsync();
+foreach(var hotelche in hotels)
+{
+    Console.WriteLine(hotelche.ToString());
+}
 
 

@@ -1,14 +1,33 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using YourPlace.Core.Services;
+using YourPlace.Infrastructure.Data.Entities;
+using YourPlace.Models;
 
 namespace YourPlace.Controllers
 {
-    public class HotelController : Controller
+    public class HotelsController : Controller
     {
-        // GET: HotelController
-        public ActionResult Index()
+        private readonly HotelsServices _hotelServices;
+        public HotelsController(HotelsServices hotelServices)
         {
-            return View();
+            _hotelServices = hotelServices;
+        }
+     
+
+        // GET: HotelController
+        public async Task<IActionResult> Index()
+        {
+            try
+            {
+                var hotels = await _hotelServices.ReadAllAsync();
+                return View(hotels);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception or handle it appropriately
+                return View("Error");
+            }
         }
 
         // GET: HotelController/Details/5

@@ -56,14 +56,14 @@ namespace YourPlace.Core.Services
             }
         }
  
-        public async Task<IEnumerable<Hotel>> ReadAllAsync(bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<List<Hotel>> ReadAllAsync(bool useNavigationalProperties = false, bool isReadOnly = true)
         {
             try
             {
                 IQueryable<Hotel> hotels = _dbContext.Hotels;
                 if (isReadOnly)
                 {
-                    hotels = hotels.AsNoTrackingWithIdentityResolution();
+                    //hotels = hotels.AsNoTrackingWithIdentityResolution();
                 }
                 return await hotels.ToListAsync();
             }
