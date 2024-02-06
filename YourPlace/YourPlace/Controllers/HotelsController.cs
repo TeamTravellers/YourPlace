@@ -13,21 +13,12 @@ namespace YourPlace.Controllers
         {
             _hotelServices = hotelServices;
         }
-     
+        private const string toIndex = "~/Views/Bulgarian/Hotels/Index.cshtml";
 
         // GET: HotelController
         public async Task<IActionResult> Index()
         {
-            try
-            {
-                var hotels = await _hotelServices.ReadAllAsync();
-                return View(hotels);
-            }
-            catch (Exception ex)
-            {
-                // Log the exception or handle it appropriately
-                return View("Error");
-            }
+            return View();
         }
 
         // GET: HotelController/Details/5

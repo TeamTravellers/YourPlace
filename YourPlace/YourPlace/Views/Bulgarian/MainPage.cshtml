@@ -1,5 +1,4 @@
-﻿@using YourPlace.Infrastructure.Data.Entities;
-@model List<Hotel>
+﻿@model AllHotelsModel
 @{
 
     ViewData["Title"] = "Welcome!";
@@ -13,14 +12,13 @@
     </svg>
 </div>
 <p>
-    
+
 </p>
 <!--To Do: add the info from database-->
 <div class="row">
-    <!-- <a asp-controller="Hotels" asp-action="ViewAll">All Hotels</a>-->
-    @if (Model is not null)
-    { 
-        @foreach (var item in Model)
+    @if (Model != null)
+    {
+        @foreach (var item in Model.Hotels)
         {
             <div class="container3">
                 <!-- <a asp-controller="Hotels" asp-action="ViewAll">All Hotels:</a>-->
@@ -28,15 +26,15 @@
                 <img src="~/Images/image.jpg" alt="image" style="width:50%">
                 <div class="container-text">
                     <h2>@item.HotelName</h2>
-                    <p>@item.Town</p>
+                    <p>@item.Town, @item.Country</p>
                     <p>@item.Rating/10</p><br>
                     <p><button id="openOffers" class="button">Оферти</button></p>
                 </div>
             </div>
         }
-     }
+    }
     else
     {
         <p>No hotels found.</p>
-    } 
+    }
 </div>
