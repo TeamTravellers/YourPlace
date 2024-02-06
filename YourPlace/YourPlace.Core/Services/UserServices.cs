@@ -48,6 +48,7 @@ namespace YourPlace.Core.Services
                 throw new Exception(ex.Message);
             }
         }
+
         public async Task<bool> CheckIfEmailExists(string email)
         {
             bool result = false;
