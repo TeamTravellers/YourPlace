@@ -13,7 +13,6 @@ namespace YourPlace.Controllers
         {
             _hotelServices = hotelServices;
         }
-        private const string toIndex = "~/Views/Bulgarian/Hotels/Index.cshtml";
 
         // GET: HotelController
         public async Task<IActionResult> Index()
@@ -21,10 +20,12 @@ namespace YourPlace.Controllers
             return View();
         }
 
-        // GET: HotelController/Details/5
-        public ActionResult Details(int id)
+        // GET: HotelController/Offer/5
+        public async Task<IActionResult> Offer(int hotelID)
         {
-            return View();
+            Hotel hotel = await _hotelServices.ReadAsync(hotelID);
+            List<Image> images = await _hotelServices.ShowHotelImages(hotelID);
+            return View(hotel);
         }
 
         // GET: HotelController/Create

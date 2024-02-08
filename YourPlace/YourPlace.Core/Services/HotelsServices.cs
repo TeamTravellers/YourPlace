@@ -122,7 +122,7 @@ namespace YourPlace.Core.Services
                 throw;
             }
         }
-        public async Task<IEnumerable<Image>> ShowHotelImages(int hotelID, bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<List<Image>> ShowHotelImages(int hotelID, bool useNavigationalProperties = false, bool isReadOnly = true)
         {
             Hotel hotel = await ReadAsync(hotelID);
             IQueryable<Image> images = _dbContext.Images.Where(x => x.HotelID == hotelID); // may have a problem

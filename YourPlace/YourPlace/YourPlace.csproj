@@ -31,7 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Bulgarian\Hotels\" />
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 

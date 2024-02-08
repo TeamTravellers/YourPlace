@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourPlace.Core", "YourPlace
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourPlace.Infrastructure", "YourPlace.Infrastructure\YourPlace.Infrastructure.csproj", "{75BB6E16-FDE3-4684-BC7B-03F5632976A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeedingLayer", "SeedingLayer\SeedingLayer.csproj", "{21EB29E9-6180-4D1C-9F8D-43AA025A7077}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeedingLayer", "SeedingLayer\SeedingLayer.csproj", "{21EB29E9-6180-4D1C-9F8D-43AA025A7077}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
