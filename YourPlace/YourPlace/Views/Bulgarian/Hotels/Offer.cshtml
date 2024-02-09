@@ -5,3 +5,81 @@
 *@
 @{
 }
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles/style-offer.css">
+    <title>YourPlace</title>
+</head>
+
+<body>
+
+    <div class="logo">
+        <svg class="logo-svg">
+            <use xlink:href="logo.svg#logo"></use>
+        </svg>
+        <a href="index.html" class="logo-text">YourPlace</a>
+    </div>
+
+    <div class="nav-bar">
+        <ul>
+            <!--To Do: Add js for the buttons-->
+            <li><button class="home">начало</button></li>
+            <li><button class="filter">филтър</button></li>
+            <li><button class="map">карта</button></li>
+            <li><button class="profile">профил</button></li>
+        </ul>
+        <div class="underline"></div>
+    </div>
+
+    <div class="row">
+        <div class="container">
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="image.jpg" style="width:100%">
+                    <div class="text">Caption Text</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="image.jpg" style="width:100%">
+                    <div class="text">Caption Two</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="image.jpg" style="width:100%">
+                    <div class="text">Caption Three</div>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+            </div>
+            <br>
+
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+            <div class="container-text">
+                <h2>Rose Apartments</h2>
+                <p>Рим, Италия</p>
+                <p>9.6/10</p>
+                <p>The apartments are located on the beach and near the center of the city.</p><br>
+                <p><button id="book" class="button">Резервирай</button></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/script-book.js"></script>
+    <script src="scripts/script-slideshow.js"></script>
+</body>
+
+</html>

@@ -14,6 +14,8 @@ namespace YourPlace.Controllers
             _hotelServices = hotelServices;
         }
 
+        private const string toOffer = "~/Views/Bulgarian/Hotels/Offer.cshtml";
+
         // GET: HotelController
         public async Task<IActionResult> Index()
         {
@@ -25,7 +27,7 @@ namespace YourPlace.Controllers
         {
             Hotel hotel = await _hotelServices.ReadAsync(hotelID);
             List<Image> images = await _hotelServices.ShowHotelImages(hotelID);
-            return View(hotel);
+            return View(toOffer, new HotelMainViewModel { Hotel = hotel});
         }
 
         // GET: HotelController/Create
