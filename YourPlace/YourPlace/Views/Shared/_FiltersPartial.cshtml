@@ -1,0 +1,11 @@
+﻿<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/About">About</a></li>
+        <!-- Add more menu items as needed -->
+    </ul>
+    @if (ViewContext.RouteData.Values["controller"].ToString() == "YourControllerName")
+    {
+        @await Html.PartialAsync("_FiltersPartial")
+    }
+</nav>

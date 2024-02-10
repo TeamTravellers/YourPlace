@@ -1,10 +1,5 @@
 ﻿@model HotelMainViewModel
-@*
-    Controller: HotelsController | Action: Offer - references in the main page
-    Model: HotelMainViewModel
-*@
-@{
-}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -69,11 +64,21 @@
                 <span class="dot" onclick="currentSlide(3)"></span>
             </div>
             <div class="container-text">
-                <h2>Rose Apartments</h2>
-                <p>Рим, Италия</p>
-                <p>9.6/10</p>
-                <p>The apartments are located on the beach and near the center of the city.</p><br>
-                <p><button id="book" class="button">Резервирай</button></p>
+                @if(Model.Hotel != null)
+                {
+                    <h2>@Model.Hotel.HotelName</h2>
+                    <p>@Model.Hotel.Town, @Model.Hotel.Country</p>
+                    <p>@Model.Hotel.Rating/10</p>
+                    <p>@Model.Hotel.Details</p>
+
+                    <br>
+                    <p><button id="book" class="button">Резервирай</button></p>
+                }
+                else
+                {
+                    <p>Hotel is null.</p>
+                }
+
             </div>
         </div>
     </div>
