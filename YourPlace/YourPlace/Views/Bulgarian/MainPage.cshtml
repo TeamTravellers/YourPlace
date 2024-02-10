@@ -28,7 +28,9 @@
                     <h2>@item.HotelName</h2>
                     <p>@item.Town, @item.Country</p>
                     <p>@item.Rating/10</p><br>
-                    <p><button id="openOffers" class="button" asp-controller="Hotels" asp-action="Offer">Оферти</button></p>
+                    <form>
+                        <button id="openOffers" class="button" asp-controller="Hotels" asp-action="Offer">Оферти</button>
+                    </form>
                 </div>
             </div>
         }

@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics.Metrics;
 using YourPlace.Core.Sorting;
 using YourPlace.Infrastructure.Data.Entities;
-
+using YourPlace.Models;
 
 namespace YourPlace.Controllers
 {
@@ -18,10 +19,25 @@ namespace YourPlace.Controllers
         {
             return View();
         }
-        public async IActionResult FilterByCountry(string country)
+        public async Task<IActionResult> FilterByCountry(string country)
         {
             List<Hotel> hotels = await _filters.FilterByCountry(country);
-            return View(toCountryFilter, new )
+            return View(toCountryFilter, new AllHotelsModel { Hotels = hotels });
+        }
+        public async Task<IActionResult> FilterByPeopleCount(int count)
+        {
+            List<Hotel> hotels = await _filters.FilterByPeopleCount(count);
+            return View(toCountryFilter, new AllHotelsModel { Hotels = hotels });
+        }
+        public async Task<IActionResult> FilterByPrice(decimal price)
+        {
+            List<Hotel> hotels = await _filters.FilterByPrice(price);
+            return View(toCountryFilter, new AllHotelsModel { Hotels = hotels });
+        }
+        public async Task<IActionResult> FilterByDates(DateOnly arrivingDate, DateOnly leavingDate)
+        {
+            List<Hotel> hotels = await _filters.FilterByDates(arrivingDate, leavingDate);
+            return View(toCountryFilter, new AllHotelsModel { Hotels = hotels });
         }
     }
 }
