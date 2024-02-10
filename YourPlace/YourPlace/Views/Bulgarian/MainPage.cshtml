@@ -28,8 +28,9 @@
                     <h2>@item.HotelName</h2>
                     <p>@item.Town, @item.Country</p>
                     <p>@item.Rating/10</p><br>
-                    <form>
-                        <button id="openOffers" class="button" asp-controller="Hotels" asp-route-id="@item.HotelID" asp-action="Offer">Оферти</button>
+                    <form asp-controller="Hotels" asp-action="Offer" method="post">
+                        <input type="hidden" name="hotelID" value="@item.HotelID" />
+                        <button type="submit" class="button">Оферти</button>
                     </form>
                 </div>
             </div>

@@ -64,12 +64,12 @@
                 <span class="dot" onclick="currentSlide(3)"></span>
             </div>
             <div class="container-text">
-                @if(Model.Hotel != null)
+                @if(Model.HotelModel != null)
                 {
-                    <h2>@Model.Hotel.HotelName</h2>
-                    <p>@Model.Hotel.Town, @Model.Hotel.Country</p>
-                    <p>@Model.Hotel.Rating/10</p>
-                    <p>@Model.Hotel.Details</p>
+                    <h2>@Model.HotelModel.HotelName</h2>
+                    <p>@Model.HotelModel.Town, @Model.HotelModel.Country</p>
+                    <p>@Model.HotelModel.Rating/10</p>
+                    <p>@Model.HotelModel.Details</p>
 
                     <br>
                     <p><button id="book" class="button">Резервирай</button></p>
