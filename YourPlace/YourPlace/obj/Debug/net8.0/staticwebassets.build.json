@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oPeoJNX5O6XXJRVrxLnaje0gWMEQNgLtMklN0zStGqM=",
+  "Hash": "z6Lx9QUleYmll5zvjysiGQVMA8N5T/vkCJFsmEAtHbk=",
   "Source": "YourPlace",
   "BasePath": "_content/YourPlace",
   "Mode": "Default",
@@ -1345,6 +1345,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\Elit2.jpg",
+      "SourceId": "YourPlace",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\",
+      "BasePath": "_content/YourPlace",
+      "RelativePath": "Images/Elit2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Elit2.jpg"
     },
     {
       "Identity": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\image.jpg",

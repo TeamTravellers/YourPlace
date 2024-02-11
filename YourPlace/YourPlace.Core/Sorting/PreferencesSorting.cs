@@ -28,7 +28,62 @@ namespace YourPlace.Core.Sorting
             _hotelCategoriesServices = hotelCategoriesServices;
             _userManager = userManager;
         }
+        public async Task<Dictionary<Hotel, int>> GetUserPreferencesCount(Preferences preference)
+        {
+            try
+            {
+                var hotelsCategories = await _hotelCategoriesServices.ReadAllAsync();
+                int commonPreferencesCount = 0;
+                Tuple<Location, Tourism, Atmosphere, Company, Pricing, Hotel> categories;
+                List<Tuple<Location, Tourism, Atmosphere, Company, Pricing, Hotel>> categoriesForHotels = new List<Tuple<Location, Tourism, Atmosphere, Company, Pricing, Hotel>>();
+                foreach (var category in hotelsCategories)
+                {
+                    categories = Tuple.Create
+                    (
+                        category.Location,
+                        category.Tourism,
+                        category.Atmosphere,
+                        category.Company,
+                        category.Pricing,
+                        category.Hotel
+                    );
+                    categoriesForHotels.Add(categories);
+                }
+                Dictionary<Hotel, int> matchingPreferences = new Dictionary<Hotel, int>();
 
+                foreach (var categoryTuple in categoriesForHotels)
+                {
+                    if (categoryTuple.Item1 == preference.Location)
+                    {
+                        commonPreferencesCount++;
+                    }
+                    if (categoryTuple.Item2 == preference.Tourism)
+                    {
+                        commonPreferencesCount++;
+                    }
+                    if (categoryTuple.Item3 == preference.Atmosphere)
+                    {
+                        commonPreferencesCount++;
+                    }
+                    if (categoryTuple.Item4 == preference.Company)
+                    {
+                        commonPreferencesCount++;
+                    }
+                    if (categoryTuple.Item5 == preference.Pricing)
+                    {
+                        commonPreferencesCount++;
+                    }
+                    matchingPreferences.Add(categoryTuple.Item6, commonPreferencesCount);
+
+                }
+                return matchingPreferences.ToDictionary();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
         public async Task<Dictionary<Hotel, int>> GetUserPreferencesCount(string userID)
         {
             try
