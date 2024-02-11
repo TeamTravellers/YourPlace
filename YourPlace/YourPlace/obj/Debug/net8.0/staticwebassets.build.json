@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "z6Lx9QUleYmll5zvjysiGQVMA8N5T/vkCJFsmEAtHbk=",
+  "Hash": "q6Sx+6sUM9sIoXRUsCneH4tpGaTfGy5RPxu+p8Z4ets=",
   "Source": "YourPlace",
   "BasePath": "_content/YourPlace",
   "Mode": "Default",
@@ -1383,6 +1383,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\image.jpg"
+    },
+    {
+      "Identity": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\SerenaResidence.jpg",
+      "SourceId": "YourPlace",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\",
+      "BasePath": "_content/YourPlace",
+      "RelativePath": "Images/SerenaResidence.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\SerenaResidence.jpg"
     },
     {
       "Identity": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\js\\site.js",
