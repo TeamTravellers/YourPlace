@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using YourPlace.Infrastructure.Data.Entities;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using YourPlace.Core.Services;
+using YourPlace.Core.Sorting;
 
 public class Program
 {
@@ -23,6 +24,13 @@ public class Program
         builder.Services.AddScoped<UserServices, UserServices>();
         //builder.Services.AddScoped<IEmailSender, EmailSender>();
         builder.Services.AddScoped<HotelsServices>();
+        builder.Services.AddScoped<HotelCategoriesServices>();
+        builder.Services.AddScoped<PreferencesServices>();
+        builder.Services.AddScoped<ReservationServices>();
+        builder.Services.AddScoped<RoomAvailabiltyServices>();
+        builder.Services.AddScoped<Filters>();
+        builder.Services.AddScoped<PreferencesSorting>();
+
 
 
 

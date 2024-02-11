@@ -190,7 +190,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("HotelID");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Hotel", b =>
@@ -230,7 +230,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasKey("HotelID");
 
-                    b.ToTable("Hotels");
+                    b.ToTable("Hotels", (string)null);
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Image", b =>
@@ -257,7 +257,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("HotelID1");
 
-                    b.ToTable("Images");
+                    b.ToTable("Images", (string)null);
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Preferences", b =>
@@ -294,7 +294,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasKey("PreferencesID");
 
-                    b.ToTable("Preferences");
+                    b.ToTable("Preferences", (string)null);
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Reservation", b =>
@@ -332,7 +332,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("HotelID");
 
-                    b.ToTable("Reservations");
+                    b.ToTable("Reservations", (string)null);
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Room", b =>
@@ -363,7 +363,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("ReservationID");
 
-                    b.ToTable("Rooms");
+                    b.ToTable("Rooms", (string)null);
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.RoomAvailability", b =>
@@ -388,7 +388,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("HotelID");
 
-                    b.ToTable("RoomsAvailability");
+                    b.ToTable("RoomsAvailability", (string)null);
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.User", b =>

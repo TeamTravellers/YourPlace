@@ -33,7 +33,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 currentQuestion++;
                 showQuestion(currentQuestion);
             } else {
-                window.location.href = 'Submit-page.cshtml';
+                console.log('hello');
+                window.location.href = 'Sorting/ToSubmitPage';
+
             }
         } else {
             alert('Моля изберете отговор.');

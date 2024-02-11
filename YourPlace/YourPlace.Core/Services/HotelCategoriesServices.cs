@@ -16,7 +16,7 @@ namespace YourPlace.Core.Services
         private readonly YourPlaceDbContext _dbContext;
         public HotelCategoriesServices(YourPlaceDbContext dbContext)
         {
-            dbContext = _dbContext;
+            _dbContext = dbContext;
         }
         #region CRUD
         public async Task CreateAsync(Categories category)
@@ -91,7 +91,7 @@ namespace YourPlace.Core.Services
                 Categories categories = await ReadAsync(hotelID, false, false);
                 if (categories is null)
                 {
-                    throw new ArgumentException(string.Format($"Category with hotelID {hotelID} does " +
+                    throw new ArgumentException(string.Format($"Category for hotelID {hotelID} does " +
                         $"not exist in the database!"));
                 }
                 _dbContext.Categories.Remove(categories);

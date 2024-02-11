@@ -17,9 +17,11 @@ namespace YourPlace.Core.Sorting
         private readonly HotelsServices _hotelsServices;
         private readonly RoomAvailabiltyServices _roomAvailabiltyServices;
 
-        public Filters(YourPlaceDbContext dbContext)
+        public Filters(YourPlaceDbContext dbContext, HotelsServices hotelsServices, RoomAvailabiltyServices roomAvailabiltyServices)
         {
             _dbContext = dbContext;
+            _hotelsServices = hotelsServices;
+            _roomAvailabiltyServices = roomAvailabiltyServices;
         }
         public async Task<List<Hotel>> FilterByCountry(string country)
         {

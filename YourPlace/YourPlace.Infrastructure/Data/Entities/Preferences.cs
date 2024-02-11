@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace YourPlace.Infrastructure.Data.Entities
         [Required]
         public Pricing Pricing { get; set; }
 
-        
+        [AllowNull]
         public string UserId { get; set; }
 
         
@@ -38,14 +39,14 @@ namespace YourPlace.Infrastructure.Data.Entities
         {
 
         }
-        public Preferences(Location location, Tourism tourism, Atmosphere atmosphere, Company company, Pricing pricing, string userId)
+        public Preferences(Location location, Tourism tourism, Atmosphere atmosphere, Company company, Pricing pricing)
         {
             Location = location;
             Tourism = tourism;
             Atmosphere = atmosphere;
             Company = company;
             Pricing = pricing;
-            UserId = userId;
+            //UserId = UserId;
         }
     }
 }

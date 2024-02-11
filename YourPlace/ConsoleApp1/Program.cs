@@ -4,6 +4,7 @@ using YourPlace.Infrastructure.Data.Enums;
 using YourPlace.Infrastructure.Data.Entities;
 using YourPlace.Core.Services;
 using YourPlace.Infrastructure.Data;
+using YourPlace.Core.Sorting;
 
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
@@ -77,12 +78,42 @@ HotelsServices hotelsServices = new HotelsServices(dbContext);
 //Console.WriteLine("details");
 //string details = Console.ReadLine();
 
-Hotel hotel = new Hotel("Therme.jpg", "Therme", "Gorna Banq str.", "Banya", "Bulgaria", 9.9, "A calm hotel with a lot of pools");
-Console.WriteLine(hotel.ToString());
+//Hotel hotel = new Hotel("Therme.jpg", "Therme", "Gorna Banq str.", "Banya", "Bulgaria", 9.9, "A calm hotel with a lot of pools");
+//Console.WriteLine(hotel.ToString());
 
-await hotelsServices.CreateAsync(hotel);
-IEnumerable<Hotel> hotels = await hotelsServices.ReadAllAsync();
-foreach (var hotelche in hotels)
+//await hotelsServices.CreateAsync(hotel);
+//IEnumerable<Hotel> hotels = await hotelsServices.ReadAllAsync();
+//foreach (var hotelche in hotels)
+//{
+//    Console.WriteLine(hotelche.ToString());
+//}
+
+HotelCategoriesServices hotelCategoriesServices = new HotelCategoriesServices(dbContext);
+
+    //Categories category1 = new Categories(Location.LargeCity, Tourism.Culture, Atmosphere.Neither, Company.OnePerson, Pricing.Modern, 1);
+    //await hotelCategoriesServices.CreateAsync(category1);
+
+    //Categories category2 = new Categories(Location.Village, Tourism.Adventure, Atmosphere.Calm, Company.Group, Pricing.Modern, 4);
+    //await hotelCategoriesServices.CreateAsync(category2);
+
+    //Categories category3 = new Categories(Location.Sea, Tourism.Relax, Atmosphere.Party, Company.Group, Pricing.Lux, 5);
+    //await hotelCategoriesServices.CreateAsync(category3);
+
+    //Categories category4 = new Categories(Location.Sea, Tourism.Relax, Atmosphere.Calm, Company.Group, Pricing.InTheMiddle, 6);
+    //await hotelCategoriesServices.CreateAsync(category4);
+
+    //Categories category5 = new Categories(Location.Mountain, Tourism.Relax, Atmosphere.Calm, Company.Family, Pricing.Lux, 7);
+    //await hotelCategoriesServices.CreateAsync(category5);
+
+PreferencesServices userQuestionsServices = new PreferencesServices(dbContext);
+Preferences preference = new Preferences(Location.Sea, Tourism.Relax, Atmosphere.Calm, Company.Group, Pricing.Lux);
+await userQuestionsServices.CreateAsync(preference);
+
+PreferencesSorting preferencesSorting = new PreferencesSorting(userQuestionsServices, hotelCategoriesServices, hotelsServices, userManager);
+
+await preferencesSorting.GetPreferencesCount(preference);
+List<Hotel> result = await preferencesSorting.GetPreferedHotels(preference);
+foreach(var hotelche in result)
 {
     Console.WriteLine(hotelche.ToString());
 }
