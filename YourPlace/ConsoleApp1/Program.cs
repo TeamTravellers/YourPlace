@@ -79,9 +79,10 @@ string details = Console.ReadLine();
 
 Hotel hotel = new Hotel(imageURL, name, address, town, country, rating, details);
 Console.WriteLine(hotel.ToString());
-hotelsServices.CreateAsync(hotel);
-//IEnumerable<Hotel> hotels = await hotelsServices.ReadAllAsync();
-//foreach (var hotelche in hotels)
-//{
-//    Console.WriteLine(hotelche.ToString());
-//}
+
+await hotelsServices.CreateAsync(hotel);
+IEnumerable<Hotel> hotels = await hotelsServices.ReadAllAsync();
+foreach (var hotelche in hotels)
+{
+    Console.WriteLine(hotelche.ToString());
+}

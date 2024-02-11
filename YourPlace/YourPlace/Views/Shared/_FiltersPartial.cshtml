@@ -1,11 +1,16 @@
-﻿<nav>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/About">About</a></li>
-        <!-- Add more menu items as needed -->
-    </ul>
-    @if (ViewContext.RouteData.Values["controller"].ToString() == "YourControllerName")
+﻿<ul class="navbar-nav">
+    <li class="nav-item">
+        <form id="testForm" class="form-inline">
+            <button id="test" type="submit" class="nav-link btn btn-link text-dark">Filters</button>
+        </form>
+    </li>
+    <li class="nav-item">
+        <form id="testForm" class="form-inline">
+            <button id="test" type="submit" class="nav-link btn btn-link text-dark">Map</button>
+        </form>
+    </li>
+    @if (ViewContext.RouteData.Values["Filters"] != null && ViewContext.RouteData.Values["Filters"].ToString() == "FiltersController")
     {
         @await Html.PartialAsync("_FiltersPartial")
     }
-</nav>
+</ul>

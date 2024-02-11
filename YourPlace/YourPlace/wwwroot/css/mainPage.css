@@ -52,9 +52,10 @@
 
 .row {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-around;
     margin-top: 80px;
+    flex-direction: row;
 }
 
 .card {
@@ -83,7 +84,7 @@ button {
     cursor: pointer;
     font-weight: 800;
     border-radius: 8px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    /*box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);*/
     transition: all 0.3s ease;
 }
 
@@ -110,7 +111,9 @@ button {
     overflow: auto;
     margin-bottom: 20px;
     margin-left: 10px;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
+    width: 50%;
+
 }
