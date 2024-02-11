@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourPlace.Core", "YourPlace
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YourPlace.Infrastructure", "YourPlace.Infrastructure\YourPlace.Infrastructure.csproj", "{75BB6E16-FDE3-4684-BC7B-03F5632976A7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeedingLayer", "SeedingLayer\SeedingLayer.csproj", "{21EB29E9-6180-4D1C-9F8D-43AA025A7077}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeedingLayer", "ConsoleApp1\SeedingLayer.csproj", "{3BFBDE1E-003F-41A9-B6B4-F08B4445ED6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{75BB6E16-FDE3-4684-BC7B-03F5632976A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75BB6E16-FDE3-4684-BC7B-03F5632976A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75BB6E16-FDE3-4684-BC7B-03F5632976A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{21EB29E9-6180-4D1C-9F8D-43AA025A7077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{21EB29E9-6180-4D1C-9F8D-43AA025A7077}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{21EB29E9-6180-4D1C-9F8D-43AA025A7077}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{21EB29E9-6180-4D1C-9F8D-43AA025A7077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BFBDE1E-003F-41A9-B6B4-F08B4445ED6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BFBDE1E-003F-41A9-B6B4-F08B4445ED6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BFBDE1E-003F-41A9-B6B4-F08B4445ED6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BFBDE1E-003F-41A9-B6B4-F08B4445ED6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
