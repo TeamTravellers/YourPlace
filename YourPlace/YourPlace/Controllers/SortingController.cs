@@ -25,7 +25,7 @@ namespace YourPlace.Controllers
 
         private const string toCountryFilter = "~/Views/Bulgarian/Hotels/CountryFilter.cshtml";
         private const string toSubmitPage = "~/Views/Bulgarian/Submit-page.cshtml";
-        private const string toMainBgWithPreferences = "~/Views/Bulgarian/MainPage.cshtml";
+        private const string toPreferedHotels = "~/Views/Bulgarian/PreferedHotels.cshtml";
         
         public IActionResult Index()
         {
@@ -72,7 +72,7 @@ namespace YourPlace.Controllers
         public async Task<IActionResult> PreferencesSorting(Preferences preference)
         {
             List<Hotel> preferedHotels = await _preferencesSorting.GetPreferedHotels(preference);
-            return View(toMainBgWithPreferences, new AllHotelsModel { Hotels = preferedHotels});
+            return View(toPreferedHotels, new AllHotelsModel { Hotels = preferedHotels});
         }
 
     }
