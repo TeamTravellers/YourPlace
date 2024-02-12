@@ -16,13 +16,21 @@
             text-align: center;
             padding: 10px;
         }
+        .logoStyle{
+            width: 50px;
+        }
     </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-#c9d6ff border-bottom box-shadow mb-3 fixed-top">
+            
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">YourPlace</a>
+                
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/Images/Logo.png" class="logoStyle"/>
+                    YourPlace
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -44,9 +52,6 @@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
-            <div class="logo">
-                <img src="~/Images/Logo.png" class="logo">
-            </div>
             @RenderBody()
         </main>
     </div>
