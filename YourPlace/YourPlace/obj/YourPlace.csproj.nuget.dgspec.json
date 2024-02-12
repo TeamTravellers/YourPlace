@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\YourPlace.csproj": {}
+    "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace\\YourPlace.csproj": {}
   },
   "projects": {
-    "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj": {
+    "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
         "projectName": "YourPlace.Core",
-        "projectPath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
-        "packagesPath": "C:\\Users\\aneli\\.nuget\\packages\\",
-        "outputPath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Core\\obj\\",
+        "projectPath": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
+        "packagesPath": "C:\\Users\\Eli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\aneli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Eli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
-                "projectPath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj"
+              "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj"
               }
             }
           }
@@ -105,21 +109,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
+    "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj",
         "projectName": "YourPlace.Infrastructure",
-        "projectPath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\aneli\\.nuget\\packages\\",
-        "outputPath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Eli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\aneli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Eli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -202,21 +210,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\YourPlace.csproj": {
+    "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace\\YourPlace.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\YourPlace.csproj",
+        "projectUniqueName": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace\\YourPlace.csproj",
         "projectName": "YourPlace",
-        "projectPath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\YourPlace.csproj",
-        "packagesPath": "C:\\Users\\aneli\\.nuget\\packages\\",
-        "outputPath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\obj\\",
+        "projectPath": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace\\YourPlace.csproj",
+        "packagesPath": "C:\\Users\\Eli\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\aneli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Eli\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -230,11 +242,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj": {
-                "projectPath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj"
+              "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj": {
+                "projectPath": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj"
               },
-              "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
-                "projectPath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj"
+              "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Eli\\Desktop\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj"
               }
             }
           }
@@ -309,7 +321,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
