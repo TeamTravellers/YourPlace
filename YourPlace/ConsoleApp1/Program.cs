@@ -78,7 +78,7 @@ HotelsServices hotelsServices = new HotelsServices(dbContext);
 //Console.WriteLine("details");
 //string details = Console.ReadLine();
 
-//Hotel hotel = new Hotel("Therme.jpg", "Therme", "Gorna Banq str.", "Banya", "Bulgaria", 9.9, "A calm hotel with a lot of pools");
+//Hotel hotel = new Hotel("Arte.jpg", "Arte Spa Hotel", "ул. Юндола 200", "Велинград", "България", 9.7, "Хотелът е с чудесен изглед към гората. Има неограничен безплатен Wi-Fi и удобен паркинг. Хотелът разполага с три вътрешни басейна и един външен.");
 //Console.WriteLine(hotel.ToString());
 
 //await hotelsServices.CreateAsync(hotel);
@@ -87,6 +87,11 @@ HotelsServices hotelsServices = new HotelsServices(dbContext);
 //{
 //    Console.WriteLine(hotelche.ToString());
 //}
+
+//Image image = new Image("Arte1.jpg", 8);
+await hotelsServices.AddImages(8, "Arte3.jpg");
+//List<Image> images =  await hotelsServices.ShowHotelImages(8);
+//Console.WriteLine(String.Join(",", images));
 
 HotelCategoriesServices hotelCategoriesServices = new HotelCategoriesServices(dbContext);
 
@@ -105,15 +110,15 @@ HotelCategoriesServices hotelCategoriesServices = new HotelCategoriesServices(db
     //Categories category5 = new Categories(Location.Mountain, Tourism.Relax, Atmosphere.Calm, Company.Family, Pricing.Lux, 7);
     //await hotelCategoriesServices.CreateAsync(category5);
 
-PreferencesServices userQuestionsServices = new PreferencesServices(dbContext);
-Preferences preference = new Preferences(Location.Sea, Tourism.Relax, Atmosphere.Calm, Company.Group, Pricing.Lux);
-await userQuestionsServices.CreateAsync(preference);
+//PreferencesServices userQuestionsServices = new PreferencesServices(dbContext);
+//Preferences preference = new Preferences(Location.Sea, Tourism.Relax, Atmosphere.Calm, Company.Group, Pricing.Lux);
+//await userQuestionsServices.CreateAsync(preference);
 
-PreferencesSorting preferencesSorting = new PreferencesSorting(userQuestionsServices, hotelCategoriesServices, hotelsServices, userManager);
+//PreferencesSorting preferencesSorting = new PreferencesSorting(userQuestionsServices, hotelCategoriesServices, hotelsServices, userManager);
 
-await preferencesSorting.GetPreferencesCount(preference);
-List<Hotel> result = await preferencesSorting.GetPreferedHotels(preference);
-foreach(var hotelche in result)
-{
-    Console.WriteLine(hotelche.ToString());
-}
+//await preferencesSorting.GetPreferencesCount(preference);
+//List<Hotel> result = await preferencesSorting.GetPreferedHotels(preference);
+//foreach(var hotelche in result)
+//{
+//    Console.WriteLine(hotelche.ToString());
+//}

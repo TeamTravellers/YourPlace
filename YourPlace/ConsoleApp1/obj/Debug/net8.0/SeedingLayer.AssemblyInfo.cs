@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SeedingLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+624952d6365d34c2bd798a332214d6676de9895e")]
 [assembly: System.Reflection.AssemblyProductAttribute("SeedingLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SeedingLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

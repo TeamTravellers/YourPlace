@@ -113,7 +113,7 @@ namespace YourPlace.Core.Services
             {
                 Image image = new Image(imagePath, hotelID);
                 Hotel hotel = await ReadAsync(hotelID);
-                hotel.Images.Add(image);
+                //hotel.Images.Add(image);
                 _dbContext.Images.Add(image);
                 await _dbContext.SaveChangesAsync();
             }

@@ -5,20 +5,40 @@
       "PackagePath": "staticwebassets\\YourPlace.bundle.scp.css"
     },
     {
-      "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\Elit2.jpg",
-      "PackagePath": "staticwebassets\\Images\\Elit2.jpg"
+      "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\AdditionalImages\\Arte1.jpg",
+      "PackagePath": "staticwebassets\\Images\\AdditionalImages\\Arte1.jpg"
+    },
+    {
+      "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\AdditionalImages\\Arte2.jpg",
+      "PackagePath": "staticwebassets\\Images\\AdditionalImages\\Arte2.jpg"
+    },
+    {
+      "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\AdditionalImages\\Arte3.jpg",
+      "PackagePath": "staticwebassets\\Images\\AdditionalImages\\Arte3.jpg"
+    },
+    {
+      "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\AdditionalImages\\Arte4.jpg",
+      "PackagePath": "staticwebassets\\Images\\AdditionalImages\\Arte4.jpg"
     },
     {
       "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\Logo.png",
       "PackagePath": "staticwebassets\\Images\\Logo.png"
     },
     {
-      "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\SerenaResidence.jpg",
-      "PackagePath": "staticwebassets\\Images\\SerenaResidence.jpg"
+      "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\MainImages\\Arte.jpg",
+      "PackagePath": "staticwebassets\\Images\\MainImages\\Arte.jpg"
     },
     {
-      "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\Therme.jpg",
-      "PackagePath": "staticwebassets\\Images\\Therme.jpg"
+      "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\MainImages\\Elit2.jpg",
+      "PackagePath": "staticwebassets\\Images\\MainImages\\Elit2.jpg"
+    },
+    {
+      "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\MainImages\\SerenaResidence.jpg",
+      "PackagePath": "staticwebassets\\Images\\MainImages\\SerenaResidence.jpg"
+    },
+    {
+      "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\MainImages\\Therme.jpg",
+      "PackagePath": "staticwebassets\\Images\\MainImages\\Therme.jpg"
     },
     {
       "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\image.jpg",
