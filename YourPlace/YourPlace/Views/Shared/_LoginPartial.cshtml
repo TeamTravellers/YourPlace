@@ -9,11 +9,11 @@
     {
         <li class="nav-item">
             <form id="testForm" class="form-inline" asp-action="Test" asp-controller="Home">
-                <button id="test" type="submit" class="nav-link btn btn-link text-dark">Take the test</button>
+                <button id="test" type="submit" class="nav-link btn btn-link text-dark">Направете теста</button>
             </form>
         </li>
         <li class="nav-item">
-            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Здравей, @UserManager.GetUserName(User)!</a>
         </li>
         <li class="nav-item">
             <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
@@ -26,14 +26,14 @@
     {
         <li class="nav-item">
             <form id="testForm" class="form-inline" asp-action="Test" asp-controller="Home">
-                <button id="test" type="submit" class="nav-link btn btn-link text-dark">Take the test</button>
+                <button id="test" type="submit" class="nav-link btn btn-link text-dark">Направете теста</button>
             </form>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Регистрация</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+            <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Вход</a>
         </li>
         
     }

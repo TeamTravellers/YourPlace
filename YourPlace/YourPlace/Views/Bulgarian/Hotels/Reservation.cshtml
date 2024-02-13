@@ -1,0 +1,58 @@
+﻿@{
+
+    ViewData["Title"] = "Welcome!";
+}
+
+<div class="row">
+    <div class="container3">
+        <div class="container-text">
+            <h2>Rose Apartments</h2>
+            <p>Рим, Италия</p>
+            <p>9.6/10</p>
+            <p>The apartments are located on the beach and near the center of the city.</p><br>
+
+            <label for="date-from">From:</label>
+            <input class="date-input" type="date" id="date-from" min="" onchange="setMinDate('date-to', this.value)">
+            <label for="date-to">To:</label>
+            <input class="date-input" type="date" id="date-to" min="" onchange="setMaxDate('date-from', this.value)">
+
+            <label class="filter-label" for="num-of-people">Number of People:</label>
+            <div>
+                <button clsss="btn" onclick="changeNumberOfPeople(-1)">-</button>
+                <input class="number-input" type="number" id="num-of-people" value="1">
+                <button clsss="btn" onclick="changeNumberOfPeople(1)">+</button>
+            </div>
+
+            <p>Price: </p>
+            <p><button id="book" class="button">Резервирай</button></p>
+        </div>
+    </div>
+</div>
+<script>
+    const numOfPeopleInput = document.getElementById('num-of-people');
+
+    priceInput.addEventListener('input', (event) => {
+        selectedPrice.textContent = event.target.value;
+    });
+
+    function changeNumberOfPeople(change) {
+        let currentValue = parseInt(numOfPeopleInput.value, 10);
+        currentValue += change;
+
+        if (currentValue < 1) {
+            currentValue = 1;
+        }
+
+        numOfPeopleInput.value = currentValue;
+    }
+
+    function setMinDate(elementId, minValue) {
+        const element = document.getElementById(elementId);
+        element.setAttribute('min', minValue);
+    }
+
+    function setMaxDate(elementId, maxValue) {
+        const element = document.getElementById(elementId);
+        element.setAttribute('max', maxValue);
+    }
+</script>

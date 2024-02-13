@@ -194,6 +194,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVsZ2FyaWFuXEhvdGVsc1xPZmZlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Aneliya/My Projects/TeamTravellers/YourPlace/YourPlace/YourPlace/Views/Bulgarian/Hotels/Reservation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVsZ2FyaWFuXEhvdGVsc1xSZXNlcnZhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Aneliya/My Projects/TeamTravellers/YourPlace/YourPlace/YourPlace/Views/Bulgarian/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVsZ2FyaWFuXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -228,6 +232,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Aneliya/My Projects/TeamTravellers/YourPlace/YourPlace/YourPlace/Views/Shared/_FiltersPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9GaWx0ZXJzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Aneliya/My Projects/TeamTravellers/YourPlace/YourPlace/YourPlace/Views/Shared/_LayoutNoFilter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXROb0ZpbHRlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Aneliya/My Projects/TeamTravellers/YourPlace/YourPlace/YourPlace/Views/Shared/_LayoutNoNav.cshtml]
