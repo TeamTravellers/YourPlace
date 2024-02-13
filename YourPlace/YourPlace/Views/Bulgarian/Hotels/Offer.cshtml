@@ -1,38 +1,16 @@
-﻿@model HotelMainViewModel
+﻿@using Microsoft.CodeAnalysis.Differencing
+@using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor
+@model HotelMainViewModel
 
-<!DOCTYPE html>
-<html lang="en">
+@{
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="styles/style-offer.css">
-    <title>YourPlace</title>
-</head>
+    ViewData["Title"] = Model.HotelModel.HotelName;
+}
 
-<body>
-
-    <div class="logo">
-        <svg class="logo-svg">
-            <use xlink:href="logo.svg#logo"></use>
-        </svg>
-        <a href="index.html" class="logo-text">YourPlace</a>
-    </div>
-
-    <div class="nav-bar">
-        <ul>
-            <!--To Do: Add js for the buttons-->
-            <li><button class="home">начало</button></li>
-            <li><button class="filter">филтър</button></li>
-            <li><button class="map">карта</button></li>
-            <li><button class="profile">профил</button></li>
-        </ul>
-        <div class="underline"></div>
-    </div>
+<link rel="stylesheet" type="text/css" href="~/css/offers.css" />
 
     <div class="row">
-        <div class="container">
+        <div class="container3">
             <div class="slideshow-container">
 
                 <div class="mySlides fade">
@@ -82,9 +60,3 @@
             </div>
         </div>
     </div>
-
-    <script src="scripts/script-book.js"></script>
-    <script src="scripts/script-slideshow.js"></script>
-</body>
-
-</html>

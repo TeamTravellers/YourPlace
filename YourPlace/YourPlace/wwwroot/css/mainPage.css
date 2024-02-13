@@ -102,18 +102,4 @@ button {
     background: #73c3f8;
 }
 
-.container3 {
-    display: flex;
-    padding: 40px 32px;
-    border-radius: 8px;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    background-color: transparent;
-    overflow: auto;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-    width: 50%;
 
-}
