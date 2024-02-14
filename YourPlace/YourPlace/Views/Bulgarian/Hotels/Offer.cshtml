@@ -11,6 +11,19 @@
 
     <div class="row">
         <div class="container3">
+                <div class="slideshow-container">
+                    @foreach (var image in Model.HotelImages)
+                    {
+                        <div class="mySlides fade">
+                            <div class="numbertext">@(Model.HotelImages.IndexOf(image) + 1)/ @Model.HotelImages.Count()</div>
+                            <img src="~/Images/AdditionalImages/@image.ImageURL" style="width:100%">
+                            <div class="text">@image.ImageURL</div>
+                        </div>
+                    }
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+                </div>
+
             @* <div class="slideshow-container">
 
                 <div class="mySlides fade">
@@ -36,11 +49,6 @@
             </div> *@
             <br>
 
-            <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-            </div>
             <div class="container-text">
                 @if(Model.HotelModel != null)
                 {
@@ -48,19 +56,6 @@
                     <p>@Model.HotelModel.Town, @Model.HotelModel.Country</p>
                     <p>@Model.HotelModel.Rating/10</p>
                     <p>@Model.HotelModel.Details</p>
-                    @foreach(var image in Model.HotelImages)
-                    {
-                        <div class="slideshow-container">
-
-                            <div class="mySlides fade">
-                                <div class="numbertext">@(Model.HotelImages.IndexOf(image) + 1)/ @Model.HotelImages.Count()</div>
-                                <img src="~/Images/AdditionalImages/@image.ImageURL" style="width:100%">
-                                <div class="text">@image.ImageURL</div>
-                            </div>  
-                        </div>
-                    }
-                <a class="prev" onclick="plusSlides(-1)">❮</a>
-                <a class="next" onclick="plusSlides(1)">❯</a>
                     <br>
                         <p><button id="book" class="button">Резервирай</button></p>
                 }
@@ -68,7 +63,6 @@
                 {
                     <p>Hotel is null.</p>
                 }
-
             </div>
         </div>
     </div>
