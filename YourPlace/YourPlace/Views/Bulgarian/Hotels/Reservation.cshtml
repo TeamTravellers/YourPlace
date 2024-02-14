@@ -1,58 +1,85 @@
-﻿@{
+﻿<!DOCTYPE html>
+<html lang="en">
 
-    ViewData["Title"] = "Welcome!";
-}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles/style-offer.css">
+    <title>YourPlace</title>
+</head>
 
-<div class="row">
-    <div class="container3">
-        <div class="container-text">
-            <h2>Rose Apartments</h2>
-            <p>Рим, Италия</p>
-            <p>9.6/10</p>
-            <p>The apartments are located on the beach and near the center of the city.</p><br>
+<body>
 
-            <label for="date-from">From:</label>
-            <input class="date-input" type="date" id="date-from" min="" onchange="setMinDate('date-to', this.value)">
-            <label for="date-to">To:</label>
-            <input class="date-input" type="date" id="date-to" min="" onchange="setMaxDate('date-from', this.value)">
+    <div class="logo">
+        <svg class="logo-svg">
+            <use xlink:href="logo.svg#logo"></use>
+        </svg>
+        <a href="index.html" class="logo-text">YourPlace</a>
+    </div>
 
-            <label class="filter-label" for="num-of-people">Number of People:</label>
-            <div>
-                <button clsss="btn" onclick="changeNumberOfPeople(-1)">-</button>
-                <input class="number-input" type="number" id="num-of-people" value="1">
-                <button clsss="btn" onclick="changeNumberOfPeople(1)">+</button>
+    <div class="nav-bar">
+        <ul>
+            <li><button class="home">начало</button></li>
+            <li><button class="filter">филтър</button></li>
+            <li><button class="map">карта</button></li>
+            <li><button class="profile">профил</button></li>
+        </ul>
+        <div class="underline"></div>
+    </div>
+
+    <div class="row">
+        <div class="container">
+            <div class="container-text">
+                <h2>Rose Apartments</h2>
+                <p>Рим, Италия</p>
+                <p>9.6/10</p>
+                <p>The apartments are located on the beach and near the center of the city.</p><br>
+
+                <label for="date-from">From:</label>
+                <input class="date-input" type="date" id="date-from" min="" onchange="setMinDate('date-to', this.value)">
+                <label for="date-to">To:</label>
+                <input class="date-input" type="date" id="date-to" min="" onchange="setMaxDate('date-from', this.value)">
+
+                <label class="filter-label" for="num-of-people">Number of People:</label>
+                <div>
+                    <button clsss="btn" onclick="changeNumberOfPeople(-1)">-</button>
+                    <input class="number-input" type="number" id="num-of-people" value="1">
+                    <button clsss="btn" onclick="changeNumberOfPeople(1)">+</button>
+                </div>
+
+                <p>Price: </p>
+                <p><button id="book" class="button">Резервирай</button></p>
             </div>
-
-            <p>Price: </p>
-            <p><button id="book" class="button">Резервирай</button></p>
         </div>
     </div>
-</div>
-<script>
-    const numOfPeopleInput = document.getElementById('num-of-people');
+    <script>
+        const numOfPeopleInput = document.getElementById('num-of-people');
 
-    priceInput.addEventListener('input', (event) => {
-        selectedPrice.textContent = event.target.value;
-    });
+        priceInput.addEventListener('input', (event) => {
+          selectedPrice.textContent = event.target.value;
+        });
 
-    function changeNumberOfPeople(change) {
-        let currentValue = parseInt(numOfPeopleInput.value, 10);
-        currentValue += change;
+        function changeNumberOfPeople(change) {
+          let currentValue = parseInt(numOfPeopleInput.value, 10);
+          currentValue += change;
 
-        if (currentValue < 1) {
+          if (currentValue < 1) {
             currentValue = 1;
+          }
+
+          numOfPeopleInput.value = currentValue;
         }
 
-        numOfPeopleInput.value = currentValue;
-    }
+        function setMinDate(elementId, minValue) {
+          const element = document.getElementById(elementId);
+          element.setAttribute('min', minValue);
+        }
 
-    function setMinDate(elementId, minValue) {
-        const element = document.getElementById(elementId);
-        element.setAttribute('min', minValue);
-    }
-
-    function setMaxDate(elementId, maxValue) {
-        const element = document.getElementById(elementId);
-        element.setAttribute('max', maxValue);
-    }
-</script>
+        function setMaxDate(elementId, maxValue) {
+          const element = document.getElementById(elementId);
+          element.setAttribute('max', maxValue);
+        }
+    </script>
+    </body>
+</html>

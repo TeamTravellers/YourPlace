@@ -11,10 +11,11 @@ namespace YourPlace.Controllers
         {
             _reservationServices = reservationServices;
         }
+        private const string toReservation = "~/Views/Bulgarian/Hotels/Reservation.cshtml";
         public IActionResult Index()
         {
 
-            return View();
+            return View(toReservation);
         }
     }
 }

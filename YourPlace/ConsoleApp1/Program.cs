@@ -78,7 +78,7 @@ HotelsServices hotelsServices = new HotelsServices(dbContext);
 //Console.WriteLine("details");
 //string details = Console.ReadLine();
 
-//Hotel hotel = new Hotel("Arte.jpg", "Arte Spa Hotel", "ул. Юндола 200", "Велинград", "България", 9.7, "Хотелът е с чудесен изглед към гората. Има неограничен безплатен Wi-Fi и удобен паркинг. Хотелът разполага с три вътрешни басейна и един външен.");
+//Hotel hotel = new Hotel("RoseGarden.jpg", "Rose Garden", "ул. Ропотамо 12", "Поморие", "България", 8.5, "Апартаменти Роуз Гардънс се намират на 50 метра от плажа. Включват сезонен външен басейн и сезонен ресторант, безплатен Wi-Fi и сезонен спа център.");
 //Console.WriteLine(hotel.ToString());
 
 //await hotelsServices.CreateAsync(hotel);
@@ -89,7 +89,7 @@ HotelsServices hotelsServices = new HotelsServices(dbContext);
 //}
 
 //Image image = new Image("Arte1.jpg", 8);
-await hotelsServices.AddImages(8, "Arte3.jpg");
+//await hotelsServices.AddImages(9, "RoseGarden4.jpg");
 //List<Image> images =  await hotelsServices.ShowHotelImages(8);
 //Console.WriteLine(String.Join(",", images));
 

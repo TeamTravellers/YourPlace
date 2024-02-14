@@ -17,7 +17,6 @@
                         <div class="mySlides fade">
                             <div class="numbertext">@(Model.HotelImages.IndexOf(image) + 1)/ @Model.HotelImages.Count()</div>
                             <img src="~/Images/AdditionalImages/@image.ImageURL" style="width:100%">
-                            <div class="text">@image.ImageURL</div>
                         </div>
                     }
                     <a class="prev" onclick="plusSlides(-1)">❮</a>
