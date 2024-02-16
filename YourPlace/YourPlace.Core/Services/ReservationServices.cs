@@ -24,9 +24,12 @@ namespace YourPlace.Core.Services
         private readonly Filters _filters;
 
         private readonly List<Family> CreatedFamilies = new List<Family>();
-        public ReservationServices(YourPlaceDbContext dbContext)
+        public ReservationServices(YourPlaceDbContext dbContext, HotelsServices hotelsServices, RoomAvailabiltyServices roomAvailabiltyServices, Filters filters)
         {
             _dbContext = dbContext;
+            _hotelsServices = hotelsServices;
+            _roomAvailabiltyServices = roomAvailabiltyServices;
+            _filters = filters;
         }
         #region CRUD For Reservations
         public async Task CreateAsync(Reservation item)
@@ -55,7 +58,7 @@ namespace YourPlace.Core.Services
                 {
                     reservations.AsNoTrackingWithIdentityResolution();
                 }
-                return await reservations.SingleOrDefaultAsync(x => x.ReservationID == key);
+                return await reservations.SingleOrDefaultAsync(x => x.HotelID == key);
             }
             catch (Exception)
             {
@@ -111,6 +114,19 @@ namespace YourPlace.Core.Services
                 throw;
             }
         }
+        public async Task<List<Reservation>> FindReservationsForHotel(int hotelID)
+        {
+            try
+            {
+                List<Reservation> reservations = await ReadAllAsync();
+                List<Reservation> reservationsForHotel = reservations.Where(x => x.HotelID == hotelID).ToList();
+                return reservationsForHotel;
+            }
+            catch
+            {
+                throw;
+            }
+        }
         #endregion
 
 
@@ -142,16 +158,14 @@ namespace YourPlace.Core.Services
             }
         }
 
-      
-
         public async Task<bool> CheckForTotalRoomAvailability(int hotelID, int peopleCount) // == filters
         {
             try
             {
                 bool result = false;
                 Hotel hotel = await _hotelsServices.ReadAsync(hotelID);
-                List<Hotel> appropriateHotels = await _filters.FilterByPeopleCount(peopleCount);
-                if (appropriateHotels.Contains(hotel))
+                int maxCountOfPeopleInHotel = await _roomAvailabiltyServices.GetMaxCountOfPeopleInHotel(hotelID);
+                if(maxCountOfPeopleInHotel >= peopleCount)
                 {
                     result = true;
                 }
@@ -170,19 +184,32 @@ namespace YourPlace.Core.Services
         {
             try
             {
-                List<Hotel> hotelsWithFreeRooms = await _filters.FilterByDates(arrivalDate, leavingDate);
-                Hotel hotel = await _hotelsServices.ReadAsync(hotelID);
-                List<Room> roomsInHotel = await _roomAvailabiltyServices.GetAllRoomsInHotel(hotelID);
+                //List<Hotel> hotelsWithFreeRooms = await _filters.FilterByDates(arrivalDate, leavingDate);
+                //Hotel hotel = await _hotelsServices.ReadAsync(hotelID);
+                //List<Room> roomsInHotel = await _roomAvailabiltyServices.GetAllRoomsInHotel(hotelID);
+                //List<Room> freeRoomsInHotel = new List<Room>();
                 List<Room> freeRoomsInHotel = new List<Room>();
+                List<Room> roomsInHotel = await _roomAvailabiltyServices.GetAllRoomsInHotel(hotelID);
+                List<Reservation> reservationsForHotel = await FindReservationsForHotel(hotelID);
 
-                if (hotelsWithFreeRooms.Contains(hotel))
+                foreach (var reservation in reservationsForHotel)
                 {
-                    foreach (var room in roomsInHotel)
+                    if (leavingDate < reservation.ArrivalDate && arrivalDate < leavingDate || arrivalDate > reservation.LeavingDate && leavingDate > arrivalDate)
                     {
-                        freeRoomsInHotel.Add(room);
+                        foreach(var room in roomsInHotel)
+                        {
+                            freeRoomsInHotel.Add(room);
+                        }
                     }
-
                 }
+                //if (hotelsWithFreeRooms.Contains(hotel))
+                //{
+                //    foreach (var room in roomsInHotel)
+                //    {
+                //        freeRoomsInHotel.Add(room);
+                //    }
+
+                //}
                 return freeRoomsInHotel;
             }
             catch (Exception)

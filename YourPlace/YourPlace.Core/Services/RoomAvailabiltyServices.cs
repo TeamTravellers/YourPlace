@@ -15,18 +15,19 @@ namespace YourPlace.Core.Services
     {
         private readonly YourPlaceDbContext _dbContext;
         private readonly HotelsServices _hotelsServices;
-        public RoomAvailabiltyServices(YourPlaceDbContext dbContext)
+        public RoomAvailabiltyServices(YourPlaceDbContext dbContext, HotelsServices hotelsServices)
         {
             _dbContext = dbContext;
+            _hotelsServices = hotelsServices;
         }
 
         #region Some CRUD methods
-        public async Task CreateAsync(int hotelID, RoomTypes type, int count)
+        public async Task CreateAsync(RoomAvailability roomAvailability)
         {
             try
             {
                 
-                _dbContext.RoomsAvailability.Add(new RoomAvailability(hotelID, type, count)); 
+                _dbContext.RoomsAvailability.Add(roomAvailability); 
                 await _dbContext.SaveChangesAsync();
             }
             catch (Exception)
@@ -42,7 +43,7 @@ namespace YourPlace.Core.Services
                 IQueryable<RoomAvailability> availability = _dbContext.RoomsAvailability;
                 if (useNavigationalProperties)
                 {
-                    availability = availability.Include(x => x.Room);
+                    availability = availability.Include(x => x.Hotel);
                 }
                 if (isReadOnly)
                 {
@@ -62,22 +63,30 @@ namespace YourPlace.Core.Services
             try { 
             
                 List<Room> roomsInHotel = _dbContext.Rooms.Where(x=>x.HotelID == hotelID).ToList();
-                List<RoomTypes> roomTypes = new List<RoomTypes>();
-                List<Room> roomsOfTheSameType = new List<Room>();
-                int count = 0;
-                foreach(Room room in roomsInHotel)
-                {
-                    roomTypes.Add(room.Type);
-                    roomTypes.Distinct();
 
-                }
-                foreach(var type in roomTypes)
+                //List<RoomTypes> roomTypes = new List<RoomTypes>();
+                //List<Room> roomsOfTheSameType = new List<Room>();
+                ////int count = 0;
+                //foreach(Room room in roomsInHotel)
+                //{
+                //    roomTypes.Add(room.Type);
+                //    roomTypes.Distinct();
+                //}
+                //foreach(var type in roomTypes)
+                //{
+                //    roomsOfTheSameType = roomsInHotel.Where(x => x.Type.ToString().ToLower() == type.ToString().ToLower()).ToList();
+                //    //count = roomsOfTheSameType.Count;
+                //    await CreateAsync(hotelID, type, count);
+                //}
+                foreach(var room in roomsInHotel)
                 {
-                    roomsOfTheSameType = roomsInHotel.Where(x => x.Type.ToString().ToLower() == type.ToString().ToLower()).ToList();
-                    count++;
-                    CreateAsync(hotelID, type, count);
+                    RoomAvailability roomAvailability = new RoomAvailability(room.HotelID, room.Type, room.CountInHotel);
+                    if(!_dbContext.RoomsAvailability.Contains(roomAvailability))
+                    {
+                        await CreateAsync(roomAvailability);
+                    }
+                    
                 }
-                
             }
             catch(Exception)
             {

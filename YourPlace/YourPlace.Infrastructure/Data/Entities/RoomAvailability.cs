@@ -23,7 +23,7 @@ namespace YourPlace.Infrastructure.Data.Entities
         public RoomTypes Type { get; set; }
 
         [NotMapped]
-        public Room Room { get; set; }
+        public Hotel Hotel { get; set; }
 
         public RoomAvailability()
         {

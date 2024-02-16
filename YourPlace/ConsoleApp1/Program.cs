@@ -15,6 +15,7 @@ using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Data;
 
+#region manage seeding layer
 IdentityOptions options = new IdentityOptions();
 options.Password.RequireDigit = false;
 options.Password.RequireLowercase = false;
@@ -37,6 +38,9 @@ UserManager<User> userManager = new UserManager<User>(
     new IdentityErrorDescriber(), new ServiceCollection().BuildServiceProvider(),
     new Logger<UserManager<User>>(new LoggerFactory())
     );
+#endregion
+
+#region seeding
 
 UserServices userServices = new UserServices(dbContext, userManager);
 
@@ -95,20 +99,20 @@ HotelsServices hotelsServices = new HotelsServices(dbContext);
 
 HotelCategoriesServices hotelCategoriesServices = new HotelCategoriesServices(dbContext);
 
-    //Categories category1 = new Categories(Location.LargeCity, Tourism.Culture, Atmosphere.Neither, Company.OnePerson, Pricing.Modern, 1);
-    //await hotelCategoriesServices.CreateAsync(category1);
+//Categories category1 = new Categories(Location.LargeCity, Tourism.Culture, Atmosphere.Neither, Company.OnePerson, Pricing.Modern, 1);
+//await hotelCategoriesServices.CreateAsync(category1);
 
-    //Categories category2 = new Categories(Location.Village, Tourism.Adventure, Atmosphere.Calm, Company.Group, Pricing.Modern, 4);
-    //await hotelCategoriesServices.CreateAsync(category2);
+//Categories category2 = new Categories(Location.Village, Tourism.Adventure, Atmosphere.Calm, Company.Group, Pricing.Modern, 4);
+//await hotelCategoriesServices.CreateAsync(category2);
 
-    //Categories category3 = new Categories(Location.Sea, Tourism.Relax, Atmosphere.Party, Company.Group, Pricing.Lux, 5);
-    //await hotelCategoriesServices.CreateAsync(category3);
+//Categories category3 = new Categories(Location.Sea, Tourism.Relax, Atmosphere.Party, Company.Group, Pricing.Lux, 5);
+//await hotelCategoriesServices.CreateAsync(category3);
 
-    //Categories category4 = new Categories(Location.Sea, Tourism.Relax, Atmosphere.Calm, Company.Group, Pricing.InTheMiddle, 6);
-    //await hotelCategoriesServices.CreateAsync(category4);
+//Categories category4 = new Categories(Location.Sea, Tourism.Relax, Atmosphere.Calm, Company.Group, Pricing.InTheMiddle, 6);
+//await hotelCategoriesServices.CreateAsync(category4);
 
-    //Categories category5 = new Categories(Location.Mountain, Tourism.Relax, Atmosphere.Calm, Company.Family, Pricing.Lux, 7);
-    //await hotelCategoriesServices.CreateAsync(category5);
+//Categories category5 = new Categories(Location.Mountain, Tourism.Relax, Atmosphere.Calm, Company.Family, Pricing.Lux, 7);
+//await hotelCategoriesServices.CreateAsync(category5);
 
 //PreferencesServices userQuestionsServices = new PreferencesServices(dbContext);
 //Preferences preference = new Preferences(Location.Sea, Tourism.Relax, Atmosphere.Calm, Company.Group, Pricing.Lux);
@@ -122,3 +126,66 @@ HotelCategoriesServices hotelCategoriesServices = new HotelCategoriesServices(db
 //{
 //    Console.WriteLine(hotelche.ToString());
 //}
+#endregion
+RoomAvailabiltyServices roomAvailabilityServices = new RoomAvailabiltyServices(dbContext, hotelsServices);
+Filters filters = new Filters(dbContext, hotelsServices, roomAvailabilityServices);
+ReservationServices reservationServices = new ReservationServices(dbContext, hotelsServices, roomAvailabilityServices, filters);
+
+#region CompareTotalCountWithFamilyMembersCount
+
+//Console.WriteLine("People total count:");
+//int peopleCount = int.Parse(Console.ReadLine());
+//Console.WriteLine("Family count:");
+//int familyCount = int.Parse(Console.ReadLine());
+
+//List<Family> familiesForReservation = new List<Family>();
+
+//for (int i = 0; i < familyCount; i++)
+//{
+//    Console.WriteLine("Enter count of family members: ");
+//    int familyMembersCount = int.Parse(Console.ReadLine());
+//    Family family = new Family(familyMembersCount);
+//    familiesForReservation.Add(family);
+//}
+
+
+//    bool result;
+//    result = await reservationServices.CompareTotalCountWithFamilyMembersCount(familiesForReservation, peopleCount);
+//    Console.WriteLine(result);
+#endregion
+//FIRST METHOD TESTED: WORKS
+#region Rooms seeding
+//RoomServices roomServices = new RoomServices(dbContext);
+//Room room = new Room(RoomTypes.maisonette, (decimal)200, 6, 3, 9);
+//await roomServices.CreateAsync(room);
+#endregion
+
+#region CheckForTotalRoomAvailability
+//RoomAvailabiltyServices roomAvailabiltyServices = new RoomAvailabiltyServices(dbContext);
+//await roomAvailabiltyServices.FillAvailability(9);
+
+
+//bool result1;
+//result1 = await reservationServices.CheckForTotalRoomAvailability(9, peopleCount);
+
+//bool result1;
+//result1 = await reservationServices.CheckForTotalRoomAvailability(9, 17);
+//Console.WriteLine(result1);
+
+//WORKS
+#endregion
+//SECOND METHOD TESTED: WORKS
+
+//Family family = new Family(4);
+//family = await reservationServices.CreateFamily(4);
+
+//Reservation reservation = new Reservation("Bistra", "Taneva", new DateOnly(2024, 4, 20), new DateOnly(2024, 4, 25), 2, 350, 9);
+//await reservationServices.CreateAsync(reservation);
+
+//РЕГИСТРИРАНЕ С ИМЕЙЛ
+
+List<Room> freeRooms = await reservationServices.FreeRoomCheck(new DateOnly(2024, 6, 20), new DateOnly(2024, 6, 25), 9);
+foreach(var room in freeRooms)
+{
+    Console.WriteLine(room.ToString());
+}

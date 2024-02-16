@@ -43,6 +43,17 @@ namespace YourPlace.Infrastructure.Data.Entities
         {
 
         }
+
+        public Reservation(string firstName, string surname, DateOnly arrivalDate, DateOnly leavingDate, int peopleCount, decimal price, int hotelID)
+        {
+            FirstName = firstName;
+            Surname = surname;
+            ArrivalDate = arrivalDate;
+            LeavingDate = leavingDate;
+            PeopleCount = peopleCount;
+            Price = price;
+            HotelID = hotelID;
+        }
         public Reservation(string firstName, string surname, DateOnly arrivalDate, DateOnly leavingDate, int peopleCount, decimal price, int hotelID, List<Room> reservedRooms, List<Family> families)
         {
             FirstName = firstName;

@@ -190,7 +190,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("HotelID");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Hotel", b =>
@@ -230,7 +230,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasKey("HotelID");
 
-                    b.ToTable("Hotels", (string)null);
+                    b.ToTable("Hotels");
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Image", b =>
@@ -257,7 +257,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("HotelID1");
 
-                    b.ToTable("Images", (string)null);
+                    b.ToTable("Images");
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Preferences", b =>
@@ -294,7 +294,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasKey("PreferencesID");
 
-                    b.ToTable("Preferences", (string)null);
+                    b.ToTable("Preferences");
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Reservation", b =>
@@ -332,7 +332,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("HotelID");
 
-                    b.ToTable("Reservations", (string)null);
+                    b.ToTable("Reservations");
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Room", b =>
@@ -342,6 +342,9 @@ namespace YourPlace.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoomID"));
+
+                    b.Property<int>("CountInHotel")
+                        .HasColumnType("int");
 
                     b.Property<int>("HotelID")
                         .HasColumnType("int");
@@ -363,7 +366,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("ReservationID");
 
-                    b.ToTable("Rooms", (string)null);
+                    b.ToTable("Rooms");
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.RoomAvailability", b =>
@@ -388,7 +391,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("HotelID");
 
-                    b.ToTable("RoomsAvailability", (string)null);
+                    b.ToTable("RoomsAvailability");
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.User", b =>
@@ -561,13 +564,13 @@ namespace YourPlace.Infrastructure.Migrations
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.RoomAvailability", b =>
                 {
-                    b.HasOne("YourPlace.Infrastructure.Data.Entities.Room", "Room")
+                    b.HasOne("YourPlace.Infrastructure.Data.Entities.Hotel", "Hotel")
                         .WithMany()
                         .HasForeignKey("HotelID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Room");
+                    b.Navigation("Hotel");
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Hotel", b =>
