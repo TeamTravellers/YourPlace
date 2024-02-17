@@ -3,9 +3,12 @@
 @model HotelMainViewModel
 
 @{
-
+    int i = 0;
     ViewData["Title"] = Model.HotelModel.HotelName;
 }
+
+<input type="hidden" id="hotelImages" value="@Model.HotelImages.Count" />
+
 
 <link rel="stylesheet" type="text/css" href="~/css/offers.css" />
 
@@ -14,38 +17,17 @@
                 <div class="slideshow-container">
                     @foreach (var image in Model.HotelImages)
                     {
-                        <div class="mySlides fade">
+                        <div id="@("mySlides" + i.ToString())">
+                    <a class="prev" onclick="plusSlides(@(i - 1))">❮</a>
                             <div class="numbertext">@(Model.HotelImages.IndexOf(image) + 1)/ @Model.HotelImages.Count()</div>
-                            <img src="~/Images/AdditionalImages/@image.ImageURL" style="width:100%">
+                            <img src="~/Images/AdditionalImages/@image.ImageURL" style="width:100%"/>
+                        
+                        <a class="next" onclick="plusSlides(@(i + 1))">❯</a>
                         </div>
+                    <!-- @(i++); -->
                     }
-                    <a class="prev" onclick="plusSlides(-1)">❮</a>
-                    <a class="next" onclick="plusSlides(1)">❯</a>
+                    
                 </div>
-
-            @* <div class="slideshow-container">
-
-                <div class="mySlides fade">
-                    <div class="numbertext">1 / 3</div>
-                    <img src="image.jpg" style="width:100%">
-                    <div class="text">Caption Text</div>
-                </div>
-
-                <div class="mySlides fade">
-                    <div class="numbertext">2 / 3</div>
-                    <img src="image.jpg" style="width:100%">
-                    <div class="text">Caption Two</div>
-                </div>
-
-                <div class="mySlides fade">
-                    <div class="numbertext">3 / 3</div>
-                    <img src="image.jpg" style="width:100%">
-                    <div class="text">Caption Three</div>
-                </div>
-
-                <a class="prev" onclick="plusSlides(-1)">❮</a>
-                <a class="next" onclick="plusSlides(1)">❯</a>
-            </div> *@
             <br>
 
             <div class="container-text">
@@ -66,30 +48,42 @@
         </div>
     </div>
     <script>
-    let slideIndex = 1;
-    showSlides(slideIndex);
+        let slidesCount = document.getElementById("hotelImages").value;
+        let slides = [];
 
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
+        document.addEventListener("DOMContentLoaded", function () 
+        {
+            loadSlides();
+            showSlides(0);
+        });
 
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("mySlides");
-        let dots = document.getElementsByClassName("dot");
-        if (n > slides.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = slides.length }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+        function loadSlides() 
+        {
+            for (let i = 0; i < slidesCount; i++) 
+            {
+                slides.push(document.getElementById("mySlides" + i));
+            }
         }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
+
+        function plusSlides(n) 
+        {
+            showSlides(n);
         }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-    }
+
+        function showSlides(n) 
+        {
+            if (n >= slides.length) { n = 0; }
+            if (n < 0) { n = slides.length - 1; }
+
+            for (let i = 0; i < slides.length; i++) 
+            {
+                if (i != n) {
+                    slides[i].style.display = "none";
+                }
+                else 
+                {
+                    slides[n].style.display = "block";
+                }
+            }
+        }
     </script>
