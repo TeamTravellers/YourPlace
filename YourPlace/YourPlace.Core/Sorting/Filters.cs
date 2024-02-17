@@ -60,7 +60,7 @@ namespace YourPlace.Core.Sorting
 
             foreach (var reservation in reservations)
             {
-                if (leavingDate < reservation.ArrivalDate && arrivingDate < leavingDate || arrivingDate > reservation.LeavingDate && leavingDate > arrivingDate)
+                if (arrivingDate < leavingDate && leavingDate < reservation.ArrivalDate || leavingDate > arrivingDate && arrivingDate > reservation.LeavingDate)
                 {
                     filteredHotels = await _dbContext.Hotels.Where(x => x.HotelID == reservation.HotelID).ToListAsync();
                 }

@@ -27,7 +27,7 @@ namespace YourPlace.Controllers
         {
             Hotel hotel = await _hotelServices.ReadAsync(hotelID);
             List<Image> images = await _hotelServices.ShowHotelImages(hotelID);
-            return View(toOffer, new HotelMainViewModel { HotelModel = hotel, HotelImages = images});
+            return View(toOffer, new AllHotelsModel { HotelModel = hotel, HotelImages = images});
         }
 
         // GET: HotelController/Create
