@@ -1,11 +1,68 @@
-﻿<style>
-    .filter-container {
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filters Menu</title>
+    <style>
+        
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 60px; 
+}
+
+  
+  .fade-out {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.fade-out.hide {
+    opacity: 0;
+}
+
+button{
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid #6667b0;
+    background: #6b43ff;
+    color: #fff;
+    line-height: 50px;
+    font-size: 18px;
+    letter-spacing: 0.025em;
+    cursor: pointer;
+    font-weight: 800;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    padding: 12px, 8px, 12px, 8px;
+}
+
+.button:hover{
+    text-decoration: underline;
+}
+
+.filter-container {
         position: fixed;
         top: 70px;
         left: 50%;
         transform: translateX(-50%);
-        width: 30%;
-        background-color: gray;
+        width: 60%;
+        background-color: rgb(151, 150, 184);
         border-radius: 8px;
         z-index: 1000;
         padding: 10px;
@@ -17,102 +74,116 @@
     flex-direction: column;
     align-items: stretch;
 }
-</style>
+    </style>
+</head>
+<body>
 
-<ul class="navbar-nav">
-    <li class="nav-item">
-        <form id="testForm" class="form-inline">
-            <button id="filter" type="submit" class="nav-link btn btn-link text-dark filter" onclick="showFliters()">Филтриране</button>
-        </form>
-    </li>
-    <li class="nav-item">
-        <form id="testForm" class="form-inline">
-            <button id="map" type="submit" class="nav-link btn btn-link text-dark">Карта</button>
-        </form>
-    </li>
-    @if (ViewContext.RouteData.Values["Filters"] != null && ViewContext.RouteData.Values["Filters"].ToString() == "FiltersController")
-    {
-        @await Html.PartialAsync("_FiltersPartial")
-    }
-</ul>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <form id="testForm" class="form-inline">
+                <button id="filter" type="button" class="nav-link btn btn-link text-dark filter">Филтриране</button>
+            </form>
+        </li>
+        <li class="nav-item">
+            <form id="testForm" class="form-inline">
+                <button id="map" type="submit" class="nav-link btn btn-link text-dark">Карта</button>
+            </form>
+        </li>
+    </ul>
 
-<div class="filter-container" style="display: none;">
-    <div class="filters">
-        <label class="filter-label" for="price">Price:</label>
-        <input class="filter-input" type="range" id="price" min="0" max="10000" step="100" value="0">
-        <span id="selected-price">0</span> lv
-        <br>
+    <div class="filter-container" style="display: none;">
+        <div class="filters">
+            <label class="filter-label" for="price">Price:</label>
+            <input class="filter-input" type="range" id="price" min="0" max="10000" step="100" value="0">
+            <span id="selected-price">0</span> lv
+            <br>
 
-        <label class="filter-label" for="country">Country:</label>
-        <input class="filter-input" type="text" id="country">
+            <label class="filter-label" for="country">Country:</label>
+            <input class="filter-input" type="text" id="country">
 
-        <label class="filter-label" for="num-of-people">Number of People:</label>
-        <div>
-            <button class="btn" onclick="changeNumberOfPeople(-1)">-</button>
-            <input class="number-input" type="number" id="num-of-people" value="1">
-            <button class="btn" onclick="changeNumberOfPeople(1)">+</button>
+            <label class="filter-label" for="num-of-people">Number of People:</label>
+            <div>
+                <button class="btn" onclick="changeNumberOfPeople(-1)">-</button>
+                <input class="number-input" type="number" id="num-of-people" value="1">
+                <button class="btn" onclick="changeNumberOfPeople(1)">+</button>
+            </div>
+
+            <label for="date-from">From:</label>
+            <input class="date-input" type="date" id="date-from" min="" onchange="setMinDate('date-to', this.value)">
+            <label for="date-to">To:</label>
+            <input class="date-input" type="date" id="date-to" min="" onchange="setMaxDate('date-from', this.value)">
+            <br>
+            <button class="clear" onclick="clearFilters()">Изчисти</button>
+            <button class="apply">Приложи</button>
         </div>
-
-        <label for="date-from">From:</label>
-        <input class="date-input" type="date" id="date-from" min="" onchange="setMinDate('date-to', this.value)">
-        <label for="date-to">To:</label>
-        <input class="date-input" type="date" id="date-to" min="" onchange="setMaxDate('date-from', this.value)">
-
-        <button class="clear" onclick="clearFilters()">Изчисти</button>
-        <button class="apply">Приложи</button>
     </div>
-</div>
 
-<script>
-    function clearFilters() {
-        document.getElementById('price').value = 0;
-        document.getElementById('selected-price').innerText = '0';
-        document.getElementById('country').value = '';
-        document.getElementById('num-of-people').value = 1;
-        document.getElementById('date-from').value = '';
-        document.getElementById('date-to').value = '';
-    }
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var filterButton = document.querySelector('.filter');
+            var filterContainer = document.querySelector('.filter-container');
 
-    var filterButton = document.querySelector('.filter');
-    var filterContainer = document.querySelector('.filter-container');
+            filterButton.addEventListener('click', function (event) {
+                event.stopPropagation(); 
+                toggleFilters();
+            });
 
-    // filterButton.addEventListener('click', function () {
-        
-    // });
-    function showFliters() {
-        if (filterContainer.style.display === 'none') {
-            filterContainer.style.display = 'block';
-        } else {
-            filterContainer.style.display = 'none';
-        }
-    }
+            function toggleFilters() {
+                if (filterContainer.style.display === 'none') {
+                    filterContainer.style.display = 'block';
+                    document.addEventListener('click', closeFiltersOnClickOutside);
+                } else {
+                    filterContainer.style.display = 'none';
+                    document.removeEventListener('click', closeFiltersOnClickOutside);
+                }
+            }
 
-    const priceInput = document.getElementById('price');
-    const selectedPrice = document.getElementById('selected-price');
-    const numOfPeopleInput = document.getElementById('num-of-people');
+            function closeFiltersOnClickOutside(event) {
+                if (!filterContainer.contains(event.target) && event.target !== filterButton) {
+                    filterContainer.style.display = 'none';
+                    document.removeEventListener('click', closeFiltersOnClickOutside);
+                }
+            }
+        });
 
-    priceInput.addEventListener('input', (event) => {
-        selectedPrice.textContent = event.target.value;
-    });
-
-    function changeNumberOfPeople(change) {
-        let currentValue = parseInt(numOfPeopleInput.value, 10);
-        currentValue += change;
-
-        if (currentValue < 1) {
-            currentValue = 1;
+        function clearFilters() {
+            document.getElementById('price').value = 0;
+            document.getElementById('selected-price').innerText = '0';
+            document.getElementById('country').value = '';
+            document.getElementById('num-of-people').value = 1;
+            document.getElementById('date-from').value = '';
+            document.getElementById('date-to').value = '';
         }
 
-        numOfPeopleInput.value = currentValue;
-    }
+        const priceInput = document.getElementById('price');
+        const selectedPrice = document.getElementById('selected-price');
+        const numOfPeopleInput = document.getElementById('num-of-people');
 
-    function setMinDate(elementId, minValue) {
-        const element = document.getElementById(elementId);
-        element.setAttribute('min', minValue);
-    }
+        priceInput.addEventListener('input', (event) => {
+            selectedPrice.textContent = event.target.value;
+        });
 
-    function setMaxDate(elementId, maxValue) {
-        const element = document.getElementById(elementId);
-        element.setAttribute('max', maxValue);
-    }
-</script>
+        function changeNumberOfPeople(change) {
+            let currentValue = parseInt(numOfPeopleInput.value, 10);
+            currentValue += change;
+
+            if (currentValue < 1) {
+                currentValue = 1;
+            }
+
+            numOfPeopleInput.value = currentValue;
+        }
+
+        function setMinDate(elementId, minValue) {
+            const element = document.getElementById(elementId);
+            element.setAttribute('min', minValue);
+        }
+
+        function setMaxDate(elementId, maxValue) {
+            const element = document.getElementById(elementId);
+            element.setAttribute('max', maxValue);
+        }
+    </script>
+
+</body>
+</html>
