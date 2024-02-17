@@ -22,12 +22,12 @@
 <ul class="navbar-nav">
     <li class="nav-item">
         <form id="testForm" class="form-inline">
-            <button id="test" type="submit" class="nav-link btn btn-link text-dark filter">Филтриране</button>
+            <button id="filter" type="submit" class="nav-link btn btn-link text-dark filter" onclick="showFliters()">Филтриране</button>
         </form>
     </li>
     <li class="nav-item">
         <form id="testForm" class="form-inline">
-            <button id="test" type="submit" class="nav-link btn btn-link text-dark">Карта</button>
+            <button id="map" type="submit" class="nav-link btn btn-link text-dark">Карта</button>
         </form>
     </li>
     @if (ViewContext.RouteData.Values["Filters"] != null && ViewContext.RouteData.Values["Filters"].ToString() == "FiltersController")
@@ -76,18 +76,16 @@
     var filterButton = document.querySelector('.filter');
     var filterContainer = document.querySelector('.filter-container');
 
-    filterButton.addEventListener('click', function () {
-        if (filterContainer.style.display === 'none' || filterContainer.style.display === '') {
+    // filterButton.addEventListener('click', function () {
+        
+    // });
+    function showFliters() {
+        if (filterContainer.style.display === 'none') {
             filterContainer.style.display = 'block';
         } else {
             filterContainer.style.display = 'none';
         }
-    });
-
-    var redirectButton = document.getElementById('openOffers');
-    redirectButton.addEventListener('click', function() {
-        window.location.href = 'offer.html';
-    });
+    }
 
     const priceInput = document.getElementById('price');
     const selectedPrice = document.getElementById('selected-price');
