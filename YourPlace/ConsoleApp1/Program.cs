@@ -184,8 +184,13 @@ ReservationServices reservationServices = new ReservationServices(dbContext, hot
 
 //РЕГИСТРИРАНЕ С ИМЕЙЛ
 
-List<Room> freeRooms = await reservationServices.FreeRoomCheck(new DateOnly(2024, 6, 20), new DateOnly(2024, 6, 25), 9);
-foreach(var room in freeRooms)
+//List<Room> freeRooms = await reservationServices.FreeRoomCheck(new DateOnly(2024, 6, 20), new DateOnly(2024, 6, 25), 9);
+//foreach(var room in freeRooms)
+//{
+//    Console.WriteLine(room.ToString());
+//}
+List<Hotel> hotels = await filters.FilterByCountry("France");
+foreach(var hotel in hotels)
 {
-    Console.WriteLine(room.ToString());
+    Console.WriteLine(hotel.ToString());
 }

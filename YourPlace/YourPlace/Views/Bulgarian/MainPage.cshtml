@@ -2,6 +2,7 @@
 @{
 
     ViewData["Title"] = "Welcome!";
+    Layout = "_LayoutNoFooter";
 }
 
 @* <link rel="stylesheet" type="text/css" href="~/css/mainPage.css" /> *@
@@ -126,17 +127,8 @@
     width: 50%;
 
 }
-
 </style>
 
-<div class="logo">
-    <svg class="logo-svg">
-        <use xlink:href="logo.svg#logo"></use>
-    </svg>
-</div>
-<p>
-
-</p>
 
 <div class="row">
     @if (Model != null)

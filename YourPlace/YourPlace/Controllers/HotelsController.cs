@@ -23,7 +23,7 @@ namespace YourPlace.Controllers
         }
 
         // GET: HotelController/Offer/5
-        public async Task<IActionResult> Offer([Bind("Id")] int hotelID) //взима го за 0
+        public async Task<IActionResult> Offer([Bind("Id")] int hotelID) 
         {
             Hotel hotel = await _hotelServices.ReadAsync(hotelID);
             List<Image> images = await _hotelServices.ShowHotelImages(hotelID);

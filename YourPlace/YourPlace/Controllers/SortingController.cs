@@ -23,34 +23,39 @@ namespace YourPlace.Controllers
             _preferencesServices = preferencesServices;
         }
 
-        private const string toCountryFilter = "~/Views/Bulgarian/Hotels/CountryFilter.cshtml";
+        private const string toFilter = "~/Views/Bulgarian/SortingViews/Filters.cshtml";
         private const string toSubmitPage = "~/Views/Bulgarian/Submit-page.cshtml";
         private const string toPreferedHotels = "~/Views/Bulgarian/PreferedHotels.cshtml";
-        
+        private const string toMain = "~/Views/Bulgarian/MainPage.cshtml";
         public IActionResult Index()
         {
             return View(toSubmitPage);
         }
-        public async Task<IActionResult> Filter(string country, int count, decimal price, DateOnly arrivingDate, DateOnly leavingDate)
+        public async Task<IActionResult> Filter(AllHotelsModel model)
         {
             List<Hotel> hotels = new List<Hotel>();
-            if (country != null)
+
+            if (model.Country != null)
             {
-                hotels = await _filters.FilterByCountry(country);
+                List<Hotel> filteredByCountry = await _filters.FilterByCountry(model.Country);
+                hotels.AddRange(filteredByCountry);
             }
-            if (count != 0)
+            if (model.PeopleCount != 0)
             {
-                hotels = await _filters.FilterByPeopleCount(count);
+                List<Hotel> filteredByPeopleCount = await _filters.FilterByPeopleCount(model.PeopleCount);
+                hotels.AddRange(filteredByPeopleCount);
             }
-            if (price != 0)
+            if (model.Price != 0)
             {
-                hotels = await _filters.FilterByPrice(price);
+                List<Hotel> filteredByPrice= await _filters.FilterByPrice(model.Price);
+                hotels.AddRange(filteredByPrice);
             }
-            if (arrivingDate != null && leavingDate != null)
+            if (model.ArrivalDate != null && model.LeavingDate != null)
             {
-                hotels = await _filters.FilterByDates(arrivingDate, leavingDate);
+                List<Hotel> filteredByDates = await _filters.FilterByDates(model.ArrivalDate, model.LeavingDate);
+                hotels.AddRange(filteredByDates);
             }
-            return View(toCountryFilter, new AllHotelsModel { Hotels = hotels });
+            return View(toMain, new AllHotelsModel { Hotels = hotels });
         }
         public IActionResult ToSubmitPage()
         {

@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@model AllHotelsModel
+@{
+    ViewData["Title"] = "Filter";
+}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,73 +11,76 @@
     <style>
         
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Mulish', sans-serif;
-}
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Mulish', sans-serif;
+    }
 
-body{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-top: 60px; 
-}
+    body{
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding-top: 60px; 
+    }
 
   
-  .fade-out {
-    opacity: 1;
-    transition: opacity 0.4s ease;
-}
+      .fade-out {
+        opacity: 1;
+        transition: opacity 0.4s ease;
+    }
 
-.fade-out.hide {
-    opacity: 0;
-}
+    .fade-out.hide {
+        opacity: 0;
+    }
 
-button{
-    width: fit-content;
-    height: fit-content;
-    border: 1px solid #6667b0;
-    background: #6b43ff;
-    color: #fff;
-    line-height: 50px;
-    font-size: 18px;
-    letter-spacing: 0.025em;
-    cursor: pointer;
-    font-weight: 800;
-    border-radius: 8px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-    padding: 12px, 8px, 12px, 8px;
-}
-
-.button:hover{
-    text-decoration: underline;
-}
-
-.filter-container {
-        position: fixed;
-        top: 70px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 60%;
-        background-color: rgb(151, 150, 184);
+    button{
+        width: fit-content;
+        height: fit-content;
+        border: 1px solid #6667b0;
+        background: #6b43ff;
+        color: #fff;
+        line-height: 50px;
+        font-size: 18px;
+        letter-spacing: 0.025em;
+        cursor: pointer;
+        font-weight: 800;
         border-radius: 8px;
-        z-index: 1000;
-        padding: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-.filters{
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: stretch;
-}
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        padding: 12px, 8px, 12px, 8px;
+    }
+
+    .button:hover{
+        text-decoration: underline;
+    }
+
+    .filter-container {
+            position: fixed;
+            top: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            background-color: rgb(151, 150, 184);
+            border-radius: 8px;
+            z-index: 1000;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .filters{
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .clear{
+        margin-bottom: 1%;
+    }
     </style>
 </head>
 <body>
@@ -93,28 +100,38 @@ button{
 
     <div class="filter-container" style="display: none;">
         <div class="filters">
-            <label class="filter-label" for="price">Price:</label>
-            <input class="filter-input" type="range" id="price" min="0" max="10000" step="100" value="0">
-            <span id="selected-price">0</span> lv
-            <br>
+            
+                <label class="filter-label" for="price" @* asp-for="Price" *@>Цена:</label>
+                <input class="filter-input" type="range" id="price" min="0" max="10000" step="100" value="0" value="@(Model == null ? "" : Model.Price)">
+                <span id="selected-price">0</span> 
+                <div class="lv">лв.</div>
+            
+                <label class="filter-label" for="country" @* asp-for="Country" *@>Country:</label>
+                <input class="filter-input" type="text" id="country" value="@(Model == null ? "" : Model.Country)">
 
-            <label class="filter-label" for="country">Country:</label>
-            <input class="filter-input" type="text" id="country">
+                <label class="filter-label" for="num-of-people" @* asp-for="PeopleCount" *@>Брой хора:</label>
+                <div>
+                    <button class="btn" onclick="changeNumberOfPeople(-1)">-</button>
+                    <input class="number-input" type="number" id="num-of-people" value="1" value="@(Model == null ? "" : Model.PeopleCount)">
+                    <button class="btn" onclick="changeNumberOfPeople(1)">+</button>
+                </div>
 
-            <label class="filter-label" for="num-of-people">Number of People:</label>
-            <div>
-                <button class="btn" onclick="changeNumberOfPeople(-1)">-</button>
-                <input class="number-input" type="number" id="num-of-people" value="1">
-                <button class="btn" onclick="changeNumberOfPeople(1)">+</button>
-            </div>
+                <label for="date-from" @* asp-for="ArrivalDate" *@>Дата на настаняване:</label>
+                <input class="date-input" type="date" id="date-from" min="" onchange="setMinDate('date-to', this.value)" value="@(Model == null ? "" : Model.ArrivalDate)">
+                <label for="date-to" @* asp-for="LeavingDate" *@>Дата на напускане:</label>
+                <input class="date-input" type="date" id="date-to" min="" onchange="setMaxDate('date-from', this.value)" value="@(Model == null ? "" : Model.LeavingDate)">
+                <br>
+                <button class="clear" onclick="clearFilters()">Изчисти</button>
 
-            <label for="date-from">From:</label>
-            <input class="date-input" type="date" id="date-from" min="" onchange="setMinDate('date-to', this.value)">
-            <label for="date-to">To:</label>
-            <input class="date-input" type="date" id="date-to" min="" onchange="setMaxDate('date-from', this.value)">
-            <br>
-            <button class="clear" onclick="clearFilters()">Изчисти</button>
-            <button class="apply">Приложи</button>
+                <form class="filters" asp-controller="Sorting" asp-action="Filter" method="post">
+                        <input type="hidden" id="hidden-price" name="price">
+                        <input type="hidden" id="hidden-country" name="country">
+                        <input type="hidden" id="hidden-peopleCount" name="peopleCount">
+                        <input type="hidden" id="hidden-date-from" name="date-from">
+                        <input type="hidden" id="hidden-date-to" name="date-to">
+                        <button type="submit" class="apply">Приложи</button>
+                   
+                 </form> 
         </div>
     </div>
 
@@ -157,12 +174,22 @@ button{
 
         const priceInput = document.getElementById('price');
         const selectedPrice = document.getElementById('selected-price');
-        const numOfPeopleInput = document.getElementById('num-of-people');
+        
+        const hiddenPriceInput = document.getElementById('hidden-price');
 
         priceInput.addEventListener('input', (event) => {
             selectedPrice.textContent = event.target.value;
+            hiddenPriceInput.value = event.target.value;
         });
 
+        const countryInput = document.getElementById('country');
+        const hiddenCountryInput = document.getElementById('hidden-country');
+
+        countryInput.addEventListener('input', (event) => {
+            hiddenCountryInput.value = event.target.value;
+        })
+
+        const numOfPeopleInput = document.getElementById('num-of-people');
         function changeNumberOfPeople(change) {
             let currentValue = parseInt(numOfPeopleInput.value, 10);
             currentValue += change;
@@ -173,6 +200,25 @@ button{
 
             numOfPeopleInput.value = currentValue;
         }
+        const hiddenPeopleCountInput = document.getElementById('hidden-peopleCount');
+
+        numOfPeopleInput.addEventListener('input', (event) => {
+            hiddenPeopleCountInput.value = event.target.value;
+        })
+
+        const dateFromInput = document.getElementById('date-from');
+        const hiddenDateFromInput = document.getElementById('hidden-date-from');
+
+        const dateToInput = document.getElementById('date-to');
+        const hiddenDateToInput = document.getElementById('hidden-date-to');
+
+        dateFromInput.addEventListener('input', (event) => {
+            hiddenDateFromInput.value = event.target.value;
+        });
+
+        dateToInput.addEventListener('input', (event) => {
+            hiddenDateToInput.value = event.target.value;
+        });
 
         function setMinDate(elementId, minValue) {
             const element = document.getElementById(elementId);
@@ -183,7 +229,10 @@ button{
             const element = document.getElementById(elementId);
             element.setAttribute('max', maxValue);
         }
-    </script>
 
+        
+
+      
+    </script>
 </body>
 </html>

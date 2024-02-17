@@ -210,6 +210,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVsZ2FyaWFuXFByZWZlcmVkSG90ZWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Aneliya/My Projects/TeamTravellers/YourPlace/YourPlace/YourPlace/Views/Bulgarian/SortingViews/Filters.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVsZ2FyaWFuXFNvcnRpbmdWaWV3c1xGaWx0ZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Aneliya/My Projects/TeamTravellers/YourPlace/YourPlace/YourPlace/Views/Bulgarian/Submit-page.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVsZ2FyaWFuXFN1Ym1pdC1wYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -236,6 +240,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Aneliya/My Projects/TeamTravellers/YourPlace/YourPlace/YourPlace/Views/Shared/_LayoutNoFilter.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXROb0ZpbHRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Aneliya/My Projects/TeamTravellers/YourPlace/YourPlace/YourPlace/Views/Shared/_LayoutNoFooter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXROb0Zvb3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Aneliya/My Projects/TeamTravellers/YourPlace/YourPlace/YourPlace/Views/Shared/_LayoutNoNav.cshtml]
