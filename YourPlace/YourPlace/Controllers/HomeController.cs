@@ -44,7 +44,7 @@ namespace YourPlace.Controllers
             return View(bulgarian);
         }
 
-        public async Task<IActionResult> ToMainBgAsync()
+        public async Task<IActionResult> ToMainBg()
         {
             try
             {

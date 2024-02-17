@@ -13,6 +13,7 @@
 
 <div class="container1">
     <div class="questions">
+        <div class="test">
         <form id="quizForm">
             <div class="question" id="question1">
                 <p>Въпрос 1: Какво предпочитате?</p>
@@ -117,10 +118,15 @@
                     Модерно
                 </label>
             </div>
-
             <button class="prev-btn" style="display: none;">Предишен</button>
-            <button class="next-btn">Следващ</button>
+            <button class="next-btn" id="next">Следващ</button>
+                <button class="next-btn" id="submit" style="display: none;" asp-action="ToSubmitPage" asp-controller="Sorting">Предай</button>
+            
         </form>
+            @* <form asp-action="ToSubmitPage" asp-controller="Sorting">
+                <button class="next-btn1" id="submit" style="display: none;">Предай</button>
+            </form> *@
+        </div>
     </div>
 
     <script>
@@ -129,6 +135,7 @@
             const prevButton = document.querySelector('.prev-btn');
             const nextButton = document.querySelector('.next-btn');
             const questions = Array.from(form.querySelectorAll('.question'));
+            const quest4 = document.getElementById("question4");
             let currentQuestion = 0;
 
             function showQuestion(index) {
@@ -137,7 +144,7 @@
                 });
 
                 prevButton.style.display = index === 0 ? 'none' : 'inline-block';
-                nextButton.textContent = index === questions.length - 1 ? 'Предай' : 'Следващ';
+                //nextButton.textContent = index === questions.length - 1 ? 'Предай' : 'Следващ';
             }
 
             showQuestion(currentQuestion);
@@ -149,7 +156,6 @@
                 }
             });
 
-
             nextButton.addEventListener('click', (e) => {
                 e.preventDefault();
 
@@ -159,9 +165,10 @@
                     if (currentQuestion < questions.length - 1) {
                         currentQuestion++;
                         showQuestion(currentQuestion);
-                    } else {
-                        window.location.href = 'Bulgarian/Submit-page.cshtml';
-
+                    } 
+                    else {
+                        document.getElementById("next").style.display = "none";
+                        document.getElementById("submit").style.display = "inline-block";
                     }
                 } else {
                     alert('Моля изберете отговор.');
