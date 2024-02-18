@@ -1,4 +1,5 @@
-﻿@{
+﻿@model AllHotelsModel
+@{
 
     ViewData["Title"] = "Welcome!";
 }
@@ -137,7 +138,8 @@
     <div class="text1">
         <b>Можете да ги разгледате тук: </b>
     </div> <br />
-    <form>
-        <button id="offers" class="offers" asp-action="PreferencesSorting" asp-controller="Sorting">Оферти</button>
+    <form asp-action="PreferencesSorting" asp-controller="Sorting">
+        <button id="offers" class="offers">Оферти</button>
+        <input type="hidden" name="preferenceID" value="@Model.Preferences.PreferencesID" />
     </form>
 </div>

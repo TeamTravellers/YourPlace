@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace YourPlace.Core.Services
 {
-    public class PreferencesServices : IDbCRUD<Preferences, string>
+    public class PreferencesServices : IDbCRUD<Preferences, int>
     {
         private readonly YourPlaceDbContext _dbContext;
         //private readonly UserManager<User> _userManager;
@@ -32,7 +32,7 @@ namespace YourPlace.Core.Services
                 throw;
             }
         }
-        public async Task<Preferences> ReadAsync(string userId, bool useNavigationalProperties = false, bool isReadOnly = true)
+        public async Task<Preferences> ReadAsync(int preferenceID, bool useNavigationalProperties = false, bool isReadOnly = true)
         {
             try
             {
@@ -45,7 +45,27 @@ namespace YourPlace.Core.Services
                 {
                     preferences = preferences.AsNoTrackingWithIdentityResolution();
                 }
-                return await preferences.SingleOrDefaultAsync(x => x.UserId == userId);
+                return await preferences.SingleOrDefaultAsync(x => x.PreferencesID == preferenceID);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public async Task<Preferences> ReadByUserAsync(string userID, bool useNavigationalProperties = false, bool isReadOnly = true)
+        {
+            try
+            {
+                IQueryable<Preferences> preferences = _dbContext.Preferences;
+                if (useNavigationalProperties)
+                {
+                    //preferences = preferences.Include(x => x.User);
+                }
+                if (isReadOnly)
+                {
+                    preferences = preferences.AsNoTrackingWithIdentityResolution();
+                }
+                return await preferences.SingleOrDefaultAsync(x => x.UserId == userID);
             }
             catch (Exception)
             {
@@ -86,14 +106,14 @@ namespace YourPlace.Core.Services
             }
         }
 
-        public async Task DeleteAsync(string userID)
+        public async Task DeleteAsync(int preferenceID)
         {
             try
             {
-                Preferences preferences = await ReadAsync(userID, false, false);
+                Preferences preferences = await ReadAsync(preferenceID, false, false);
                 if (preferences is null)
                 {
-                    throw new ArgumentException(string.Format($"Suggestion with userID {userID} does " +
+                    throw new ArgumentException(string.Format($"Preferences with ID {preferenceID} does " +
                         $"not exist in the database!"));
                 }
                 _dbContext.Preferences.Remove(preferences);

@@ -5,16 +5,15 @@
 
 <link rel="stylesheet" type="text/css" href="~/css/test.css" />
 
-<div class="logo">
-    <svg class="logo-svg">
-        <use xlink:href="logo.svg#logo"></use>
-    </svg>
-</div>
-
 <div class="container1">
     <div class="questions">
         <div class="test">
-        <form id="quizForm">
+            <form id="quizForm" asp-controller="Sorting" asp-action="CreatePreferences">
+                <input type="hidden" name="question1Value" value="">
+                <input type="hidden" name="question2Value" value="">
+                <input type="hidden" name="question3Value" value="">
+                <input type="hidden" name="question4Value" value="">
+                <input type="hidden" name="question5Value" value="">
             <div class="question" id="question1">
                 <p>Въпрос 1: Какво предпочитате?</p>
                 <label>
@@ -120,8 +119,8 @@
             </div>
             <button class="prev-btn" style="display: none;">Предишен</button>
             <button class="next-btn" id="next">Следващ</button>
-                <button class="next-btn" id="submit" style="display: none;" asp-action="ToSubmitPage" asp-controller="Sorting">Предай</button>
-            
+            <button class="next-btn" type="submit" id="submit" style="display: none;">Предай</button>
+                
         </form>
             @* <form asp-action="ToSubmitPage" asp-controller="Sorting">
                 <button class="next-btn1" id="submit" style="display: none;">Предай</button>
@@ -134,8 +133,8 @@
             const form = document.getElementById('quizForm');
             const prevButton = document.querySelector('.prev-btn');
             const nextButton = document.querySelector('.next-btn');
+            const submitButton = document.getElementById('submit');
             const questions = Array.from(form.querySelectorAll('.question'));
-            const quest4 = document.getElementById("question4");
             let currentQuestion = 0;
 
             function showQuestion(index) {
@@ -144,7 +143,7 @@
                 });
 
                 prevButton.style.display = index === 0 ? 'none' : 'inline-block';
-                //nextButton.textContent = index === questions.length - 1 ? 'Предай' : 'Следващ';
+                submitButton.style.display = index === questions.length - 1 ? 'inline-block' : 'none';
             }
 
             showQuestion(currentQuestion);
@@ -165,15 +164,26 @@
                     if (currentQuestion < questions.length - 1) {
                         currentQuestion++;
                         showQuestion(currentQuestion);
-                    } 
-                    else {
-                        document.getElementById("next").style.display = "none";
-                        document.getElementById("submit").style.display = "inline-block";
+                    } else {
+                        submitForm();
                     }
                 } else {
                     alert('Моля изберете отговор.');
                 }
             });
-        });
 
+            function submitForm() {
+                // Update hidden inputs with selected values
+                const selectedAnswers = Array.from(form.querySelectorAll(`input[name="question${currentQuestion + 1}"]:checked`));
+                selectedAnswers.forEach(answer => {
+                    const questionNumber = answer.getAttribute('name').replace('question', '');
+                    form.querySelector(`input[name="question${questionNumber}Value"]`).value = answer.value;
+                });
+
+                // Submit the form
+                form.submit();
+            }
+        });
     </script>
+
+

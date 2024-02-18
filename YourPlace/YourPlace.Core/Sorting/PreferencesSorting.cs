@@ -115,7 +115,7 @@ namespace YourPlace.Core.Sorting
             try
             {
                 User user = await _userManager.FindByIdAsync(userID);
-                var userPreferences = await _userQuestionsServices.ReadAsync(userID);
+                var userPreferences = await _userQuestionsServices.ReadByUserAsync(userID);
                 //var hotels = await _hotelsServices.ReadAllAsync();
                 //var hotels = new List<Hotel>();
                 var hotelsCategories = await _hotelCategoriesServices.ReadAllAsync();

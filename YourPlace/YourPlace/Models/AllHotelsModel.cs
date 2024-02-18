@@ -13,5 +13,6 @@ namespace YourPlace.Models
         public List<Hotel> Hotels { get; set; }
         public Hotel HotelModel { get; set; }
         public List<Image> HotelImages { get; set; } = new List<Image>();
+        public Preferences Preferences { get; set; }
     }
 }

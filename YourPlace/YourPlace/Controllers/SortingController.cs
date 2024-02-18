@@ -61,21 +61,22 @@ namespace YourPlace.Controllers
         {
             return View(toSubmitPage);
         }
-        public async Task<IActionResult> CreatePreferences(Preferences preference)
+        public async Task<IActionResult> CreatePreferences(AllHotelsModel model)
         {
             try
             {
-                await _preferencesServices.CreateAsync(preference);
+                await _preferencesServices.CreateAsync(model.Preferences);
             }
             catch
             {
                 return StatusCode(404, "Operation was not successful!");
             }
-            RedirectToAction("PreferencesSorting");
-            return View();
+            //RedirectToAction("PreferencesSorting");
+            return View(toSubmitPage, model.Preferences);
         }
-        public async Task<IActionResult> PreferencesSorting(Preferences preference)
+        public async Task<IActionResult> PreferencesSorting(AllHotelsModel model)
         {
+            Preferences preference = await _preferencesServices.ReadAsync(model.Preferences.PreferencesID);
             List<Hotel> preferedHotels = await _preferencesSorting.GetPreferedHotels(preference);
             return View(toPreferedHotels, new AllHotelsModel { Hotels = preferedHotels});
         }
