@@ -76,11 +76,11 @@ namespace YourPlace.Controllers
             //RedirectToAction("PreferencesSorting");
             return View(toSubmitPage, new AllHotelsModel { Preferences = preferences});
         }
-        public async Task<IActionResult> PreferencesSorting(AllHotelsModel model)
+        public async Task<IActionResult> PreferencesSorting([Bind("Preference")] Preferences preferences)
         {
-            Preferences preference = await _preferencesServices.ReadAsync(model.Preferences.PreferencesID);
-            List<Hotel> preferedHotels = await _preferencesSorting.GetPreferedHotels(preference);
-            return View(toPreferedHotels, new AllHotelsModel { Hotels = preferedHotels});
+            //Preferences preference = await _preferencesServices.ReadAsync(preferences.PreferencesID);
+            List<Hotel> preferedHotels = await _preferencesSorting.GetPreferedHotels(preferences);
+            return View(toMain, new AllHotelsModel { Hotels = preferedHotels});
         }
 
     }

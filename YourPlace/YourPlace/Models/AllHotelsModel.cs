@@ -17,6 +17,7 @@ namespace YourPlace.Models
         public List<Image> HotelImages { get; set; } = new List<Image>();
         public Preferences Preferences { get; set; }
 
+        public int PreferencesID { get; set; }
         public Location Location { get; set; }
         public Tourism Tourism { get; set; }
         public Atmosphere Atmosphere { get; set; }  
