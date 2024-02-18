@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
 using YourPlace.Infrastructure.Data.Entities;
 using YourPlace.Core.Services;
+using YourPlace.Infrastructure.Data.Enums;
+
 namespace YourPlace.Models
 {
     public class AllHotelsModel
@@ -14,5 +16,12 @@ namespace YourPlace.Models
         public Hotel HotelModel { get; set; }
         public List<Image> HotelImages { get; set; } = new List<Image>();
         public Preferences Preferences { get; set; }
+
+        public Location Location { get; set; }
+        public Tourism Tourism { get; set; }
+        public Atmosphere Atmosphere { get; set; }  
+        public Company Company { get; set; }
+        public Pricing Pricing { get; set; }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
 
     ViewData["Title"] = "Welcome!";
 }
@@ -8,123 +9,128 @@
 <div class="container1">
     <div class="questions">
         <div class="test">
-            <form id="quizForm" asp-controller="Sorting" asp-action="CreatePreferences">
+            <form id="quizForm">
+                @* <input type="hidden" name="question1Value" value="">
+                <input type="hidden" name="question2Value" value="">
+                <input type="hidden" name="question3Value" value="">
+                <input type="hidden" name="question4Value" value="">
+                <input type="hidden" name="question5Value" value=""> *@
+                <div class="question" id="question1">
+                    <p>Въпрос 1: Какво предпочитате?</p>
+                    <label>
+                        <input type="radio" name="question1" value="Sea">
+                        Море
+                    </label>
+                    <label>
+                        <input type="radio" name="question1" value="Mountain">
+                        Планина
+                    </label>
+                    <label>
+                        <input type="radio" name="question1" value="Large city">
+                        Голям град
+                    </label>
+                    <label>
+                        <input type="radio" name="question1" value="Small village">
+                        Малко село
+                    </label>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question" id="question2" style="display: none;">
+                    <p>Въпрос 2: Какъв тип почивка предпочитате?</p>
+                    <label>
+                        <input type="radio" name="question2" value="Culture">
+                        Култура
+                    </label>
+                    <label>
+                        <input type="radio" name="question2" value="Shopping">
+                        Пазаруване
+                    </label>
+                    <label>
+                        <input type="radio" name="question2" value="Adventure">
+                        Приключение
+                    </label>
+                    <label>
+                        <input type="radio" name="question2" value="Relax">
+                        Релакс
+                    </label>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question" id="question3" style="display: none;">
+                    <p>Въпрос 3: Кое предпочитате?</p>
+                    <label>
+                        <input type="radio" name="question3" value="Calm">
+                        Спокойствие
+                    </label>
+                    <label>
+                        <input type="radio" name="question3" value="Party">
+                        Парти
+                    </label>
+                    <label>
+                        <input type="radio" name="question3" value="Both">
+                        И двете
+                    </label>
+                    <label>
+                        <input type="radio" name="question3" value="Neither">
+                        Нито едното
+                    </label>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question" id="question4" style="display: none;">
+                    <p>Въпрос 4: Какъв тип пътуване търсите?</p>
+                    <label>
+                        <input type="radio" name="question4" value="Family">
+                        Семейно
+                    </label>
+                    <label>
+                        <input type="radio" name="question4" value="With one partner">
+                        С един човек
+                    </label>
+                    <label>
+                        <input type="radio" name="question4" value="Individual">
+                        Самостоятелно
+                    </label>
+                    <label>
+                        <input type="radio" name="question4" value="Group">
+                        Групово
+                    </label>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question" id="question5" style="display: none;">
+                    <p>Въпрос 5: Кое предпочитате?</p>
+                    <label>
+                        <input type="radio" name="question5" value="Luxury">
+                        Луксозно
+                    </label>
+                    <label>
+                        <input type="radio" name="question5" value="Cheap">
+                        Евтино
+                    </label>
+                    <label>
+                        <input type="radio" name="question5" value="Something in between">
+                        Нещо по средата
+                    </label>
+                    <label>
+                        <input type="radio" name="question5" value="Ultra lux">
+                        Модерно
+                    </label>
+                </div>
+            <button class="prev-btn" style="display: none;">Предишен</button>
+            <button class="next-btn" id="next">Следващ</button>
+            @* <button class="next-btn" type="submit" id="submit" style="display: none;">Предай</button> *@
+                
+        </form>
+            <form asp-controller="Sorting" asp-action="CreatePreferences" method="post">
                 <input type="hidden" name="question1Value" value="">
                 <input type="hidden" name="question2Value" value="">
                 <input type="hidden" name="question3Value" value="">
                 <input type="hidden" name="question4Value" value="">
                 <input type="hidden" name="question5Value" value="">
-            <div class="question" id="question1">
-                <p>Въпрос 1: Какво предпочитате?</p>
-                <label>
-                    <input type="radio" name="question1" value="Sea">
-                    Море
-                </label>
-                <label>
-                    <input type="radio" name="question1" value="Mountain">
-                    Планина
-                </label>
-                <label>
-                    <input type="radio" name="question1" value="Large city">
-                    Голям град
-                </label>
-                <label>
-                    <input type="radio" name="question1" value="Small village">
-                    Малко село
-                </label>
-            </div>
-
-            <!-- Question 2 -->
-            <div class="question" id="question2" style="display: none;">
-                <p>Въпрос 2: Какъв тип почивка предпочитате?</p>
-                <label>
-                    <input type="radio" name="question2" value="Culture">
-                    Култура
-                </label>
-                <label>
-                    <input type="radio" name="question2" value="Shopping">
-                    Пазаруване
-                </label>
-                <label>
-                    <input type="radio" name="question2" value="Adventure">
-                    Приключение
-                </label>
-                <label>
-                    <input type="radio" name="question2" value="Relax">
-                    Релакс
-                </label>
-            </div>
-
-            <!-- Question 3 -->
-            <div class="question" id="question3" style="display: none;">
-                <p>Въпрос 3: Кое предпочитате?</p>
-                <label>
-                    <input type="radio" name="question3" value="Calm">
-                    Спокойствие
-                </label>
-                <label>
-                    <input type="radio" name="question3" value="Party">
-                    Парти
-                </label>
-                <label>
-                    <input type="radio" name="question3" value="Both">
-                    И двете
-                </label>
-                <label>
-                    <input type="radio" name="question3" value="Neither">
-                    Нито едното
-                </label>
-            </div>
-
-            <!-- Question 4 -->
-            <div class="question" id="question4" style="display: none;">
-                <p>Въпрос 4: Какъв тип пътуване търсите?</p>
-                <label>
-                    <input type="radio" name="question4" value="Family">
-                    Семейно
-                </label>
-                <label>
-                    <input type="radio" name="question4" value="With one partner">
-                    С един човек
-                </label>
-                <label>
-                    <input type="radio" name="question4" value="Individual">
-                    Самостоятелно
-                </label>
-                <label>
-                    <input type="radio" name="question4" value="Group">
-                    Групово
-                </label>
-            </div>
-
-            <!-- Question 5 -->
-            <div class="question" id="question5" style="display: none;">
-                <p>Въпрос 5: Кое предпочитате?</p>
-                <label>
-                    <input type="radio" name="question5" value="Luxury">
-                    Луксозно
-                </label>
-                <label>
-                    <input type="radio" name="question5" value="Cheap">
-                    Евтино
-                </label>
-                <label>
-                    <input type="radio" name="question5" value="Something in between">
-                    Нещо по средата
-                </label>
-                <label>
-                    <input type="radio" name="question5" value="Ultra lux">
-                    Модерно
-                </label>
-            </div>
-            <button class="prev-btn" style="display: none;">Предишен</button>
-            <button class="next-btn" id="next">Следващ</button>
-            <button class="next-btn" type="submit" id="submit" style="display: none;">Предай</button>
-                
-        </form>
-            @* <form asp-action="ToSubmitPage" asp-controller="Sorting">
-                <button class="next-btn1" id="submit" style="display: none;">Предай</button>
-            </form> *@
+                <button class="next-btn" type="submit" id="submit" onclick="submitForm()" style="display: none;">Предай</button>
+            </form> 
         </div>
     </div>
 
@@ -136,6 +142,7 @@
             const submitButton = document.getElementById('submit');
             const questions = Array.from(form.querySelectorAll('.question'));
             let currentQuestion = 0;
+            const secondForm = document.querySelector('form[asp-action="CreatePreferences"]');
 
             function showQuestion(index) {
                 questions.forEach((question, i) => {
@@ -164,8 +171,6 @@
                     if (currentQuestion < questions.length - 1) {
                         currentQuestion++;
                         showQuestion(currentQuestion);
-                    } else {
-                        submitForm();
                     }
                 } else {
                     alert('Моля изберете отговор.');
@@ -173,15 +178,32 @@
             });
 
             function submitForm() {
-                // Update hidden inputs with selected values
-                const selectedAnswers = Array.from(form.querySelectorAll(`input[name="question${currentQuestion + 1}"]:checked`));
-                selectedAnswers.forEach(answer => {
-                    const questionNumber = answer.getAttribute('name').replace('question', '');
-                    form.querySelector(`input[name="question${questionNumber}Value"]`).value = answer.value;
-                });
+                const answers = {
+                    q1: getSelectedAnswer("question1"),
+                    q2: getSelectedAnswer("question2"),
+                    q3: getSelectedAnswer("question3"),
+                    q4: getSelectedAnswer("question4"),
+                    q5: getSelectedAnswer("question5"),
+                };
 
-                // Submit the form
-                form.submit();
+                for (const question in answers) {
+                    const hiddenInput = form.querySelector(`input[name="question${question}Value"]`);
+                    if (hiddenInput) {
+                        hiddenInput.value = answers[question];
+                    }
+                }
+
+                secondForm.submit();
+            }
+
+            function getSelectedAnswer(questionName) {
+                const radioButtons = document.getElementsByName(questionName);
+                for (const radioButton of radioButtons) {
+                    if (radioButton.checked) {
+                        return radioButton.value;
+                    }
+                }
+                return null;
             }
         });
     </script>

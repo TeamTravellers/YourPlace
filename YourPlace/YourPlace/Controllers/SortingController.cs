@@ -5,6 +5,7 @@ using System.Diagnostics.Metrics;
 using YourPlace.Core.Services;
 using YourPlace.Core.Sorting;
 using YourPlace.Infrastructure.Data.Entities;
+using YourPlace.Infrastructure.Data.Enums;
 using YourPlace.Models;
 
 namespace YourPlace.Controllers
@@ -61,18 +62,19 @@ namespace YourPlace.Controllers
         {
             return View(toSubmitPage);
         }
-        public async Task<IActionResult> CreatePreferences(AllHotelsModel model)
+        public async Task<IActionResult> CreatePreferences([Bind("Location")] Location location, [Bind("Tourism")] Tourism tourism, [Bind("Atmosphere")] Atmosphere atmosphere, [Bind("Company")] Company company, [Bind("Pricing")] Pricing pricing)
         {
+            Preferences preferences = new Preferences(location, tourism, atmosphere, company, pricing);
             try
             {
-                await _preferencesServices.CreateAsync(model.Preferences);
+                await _preferencesServices.CreateAsync(preferences);
             }
             catch
             {
                 return StatusCode(404, "Operation was not successful!");
             }
             //RedirectToAction("PreferencesSorting");
-            return View(toSubmitPage, model.Preferences);
+            return View(toSubmitPage, new AllHotelsModel { Preferences = preferences});
         }
         public async Task<IActionResult> PreferencesSorting(AllHotelsModel model)
         {
