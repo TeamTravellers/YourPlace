@@ -48,7 +48,7 @@ namespace YourPlace.Controllers
             }
             if (model.Price != 0)
             {
-                List<Hotel> filteredByPrice= await _filters.FilterByPrice(model.Price);
+                List<Hotel> filteredByPrice = await _filters.FilterByPrice(model.Price);
                 hotels.AddRange(filteredByPrice);
             }
             if (model.ArrivalDate != null && model.LeavingDate != null)
@@ -65,22 +65,27 @@ namespace YourPlace.Controllers
         public async Task<IActionResult> CreatePreferences([Bind("Location")] Location location, [Bind("Tourism")] Tourism tourism, [Bind("Atmosphere")] Atmosphere atmosphere, [Bind("Company")] Company company, [Bind("Pricing")] Pricing pricing)
         {
             Preferences preferences = new Preferences(location, tourism, atmosphere, company, pricing);
+            List<Preferences> allPreferences = await _preferencesServices.ReadAllAsync();
+            Preferences createdPreference = new Preferences();
             try
             {
                 await _preferencesServices.CreateAsync(preferences);
+                createdPreference = allPreferences.Where(allPreferences.Contains).FirstOrDefault();
+                Console.WriteLine($"{preferences.Location.ToString()}, {preferences.Tourism.ToString()}, {preferences.Atmosphere.ToString()}, {preferences.Company.ToString()}, {preferences.Pricing.ToString()}");
             }
             catch
             {
                 return StatusCode(404, "Operation was not successful!");
             }
             //RedirectToAction("PreferencesSorting");
-            return View(toSubmitPage, new AllHotelsModel { Preferences = preferences});
+            return View(toSubmitPage, new AllHotelsModel { Preferences = preferences });
         }
-        public async Task<IActionResult> PreferencesSorting([Bind("Preference")] Preferences preferences)
+        public async Task<IActionResult> PreferencesSorting([Bind("PreferenceID")] int preferencesID)
         {
-            //Preferences preference = await _preferencesServices.ReadAsync(preferences.PreferencesID);
-            List<Hotel> preferedHotels = await _preferencesSorting.GetPreferedHotels(preferences);
-            return View(toMain, new AllHotelsModel { Hotels = preferedHotels});
+            Preferences preference = await _preferencesServices.ReadAsync(preferencesID);
+            Console.WriteLine(preference.PreferencesID);
+            List<Hotel> preferedHotels = await _preferencesSorting.GetPreferedHotels(preference);
+            return View(toMain, new AllHotelsModel { Hotels = preferedHotels });
         }
 
     }

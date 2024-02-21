@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿
+@model AllHotelsModel
+
+@{
+    ViewData["Title"] = Model.HotelModel.HotelName;
+    //Layout = "_LayoutWithFilters";
+}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,14 +17,6 @@
 </head>
 
 <body>
-
-    <div class="logo">
-        <svg class="logo-svg">
-            <use xlink:href="logo.svg#logo"></use>
-        </svg>
-        <a href="index.html" class="logo-text">YourPlace</a>
-    </div>
-
     <div class="nav-bar">
         <ul>
             <li><button class="home">начало</button></li>

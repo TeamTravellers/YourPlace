@@ -58,6 +58,7 @@
     flex-direction: column;
     transform: translateX(-50%);
 }
+
 .info1 {
     color: #222;
     font-size: 20px;
@@ -74,6 +75,7 @@
     flex-direction: column;
     transform: translateX(-50%);
 }
+
 .info2 {
     color: #222;
     font-size: 20px;
@@ -91,6 +93,7 @@
     flex-direction: column;
     transform: translateX(-50%);
 }
+
 .info-container {
     display: flex;
     flex-direction: column;

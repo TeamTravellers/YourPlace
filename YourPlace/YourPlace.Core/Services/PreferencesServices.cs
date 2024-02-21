@@ -32,6 +32,7 @@ namespace YourPlace.Core.Services
                 throw;
             }
         }
+
         public async Task<Preferences> ReadAsync(int preferenceID, bool useNavigationalProperties = false, bool isReadOnly = true)
         {
             try

@@ -20,7 +20,7 @@ namespace YourPlace.Models
         public int PreferencesID { get; set; }
         public Location Location { get; set; }
         public Tourism Tourism { get; set; }
-        public Atmosphere Atmosphere { get; set; }  
+        public Atmosphere Atmosphere { get; set; }
         public Company Company { get; set; }
         public Pricing Pricing { get; set; }
 

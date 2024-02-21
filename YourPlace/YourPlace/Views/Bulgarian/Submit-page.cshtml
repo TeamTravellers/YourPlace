@@ -8,7 +8,7 @@
 
 <style>
     /* import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800&display=swap');
-     */
+         */
     * {
         padding: 0;
         margin: 0;
@@ -53,11 +53,11 @@
     }
 
     /* media screen and (max-width: 650px) {
-        .column {
-            width: 100%;
-            display: block;
-        }
-    } */
+            .column {
+                width: 100%;
+                display: block;
+            }
+        } */
 
     .row {
         display: flex;
@@ -125,7 +125,6 @@
         width: 50%;
     }
 
-
 </style>
 
 
@@ -139,7 +138,7 @@
         <b>Можете да ги разгледате тук: </b>
     </div> <br />
     <form asp-action="PreferencesSorting" asp-controller="Sorting">
-        <input type="hidden" name="preferenceID" value="@Model.Preferences.PreferencesID" />
+        <input type="hidden" name="PreferencesID" value="@Model.Preferences.PreferencesID" asp-for="PreferencesID" />
         <button id="offers" class="offers">Оферти</button>
     </form>
 </div>

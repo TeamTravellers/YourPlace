@@ -6,12 +6,50 @@
 }
 
 <link rel="stylesheet" type="text/css" href="~/css/test.css" />
+<style>
+    #submit,
+    #no-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #no-btn {
+        background-color: #ccc;
+    }
+
+    #submit {
+        background-color: #6b43ff;
+        color: #fff;
+    }
+
+    #no-btn,
+    #submit {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+        #no-btn:hover,
+        #submit:hover {
+            background-color: #653bff;
+        }
+
+    .buttons-class {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+</style>
 
 <div class="container1">
     <div class="questions">
         <div class="test">
             <div id="quizForm">
-                <div class="question" id="question1" asp-for="Location">
+                <div class="question" id="question1" value=getSelectedAnswers('question1')>
                     <p>Въпрос 1: Какво предпочитате?</p>
                     <label>
                         <input type="radio" name="question1" value="@Location.Sea">
@@ -32,7 +70,7 @@
                 </div>
 
                 <!-- Question 2 -->
-                <div class="question" id="question2" style="display: none;" asp-for="Tourism">
+                <div class="question" id="question2" style="display: none;">
                     <p>Въпрос 2: Какъв тип почивка предпочитате?</p>
                     <label>
                         <input type="radio" name="question2" value="@Tourism.Culture">
@@ -53,7 +91,7 @@
                 </div>
 
                 <!-- Question 3 -->
-                <div class="question" id="question3" style="display: none;" asp-for="Atmosphere">
+                <div class="question" id="question3" style="display: none;">
                     <p>Въпрос 3: Кое предпочитате?</p>
                     <label>
                         <input type="radio" name="question3" value="@Atmosphere.Calm">
@@ -74,7 +112,7 @@
                 </div>
 
                 <!-- Question 4 -->
-                <div class="question" id="question4" style="display: none;" asp-for="Company">
+                <div class="question" id="question4" style="display: none;">
                     <p>Въпрос 4: Какъв тип пътуване търсите?</p>
                     <label>
                         <input type="radio" name="question4" value="@Company.Family">
@@ -95,7 +133,7 @@
                 </div>
 
                 <!-- Question 5 -->
-                <div class="question" id="question5" style="display: none;" asp-for="Pricing">
+                <div class="question" id="question5" style="display: none;">
                     <p>Въпрос 5: Кое предпочитате?</p>
                     <label>
                         <input type="radio" name="question5" value="@Pricing.Lux">
@@ -114,31 +152,56 @@
                         Модерно
                     </label>
                 </div>
+
+                <div class="question" id="question6" style="display: none;">
+                    <p>Желаете ли да предадете теста?</p>
+                    <form asp-controller="Sorting" asp-action="CreatePreferences">
+                        <input type="hidden" id="hidden-question1" name="Location" asp-for="Location">
+                        <input type="hidden" id="hidden-question2" name="Tourism" asp-for="Tourism">
+                        <input type="hidden" id="hidden-question3" name="Atmosphere" asp-for="Atmosphere">
+                        <input type="hidden" id="hidden-question4" name="Company" asp-for="Company">
+                        <input type="hidden" id="hidden-question5" name="Pricing" asp-for="Pricing">
+                        <div class="buttons-class">
+                            <button type="submit" id="submit">Да</button>
+                            <button type="button" id="no-btn">Не</button>
+                        </div>
+                    </form>
+                </div>
                 <button class="prev-btn" style="display: none;">Предишен</button>
                 <button class="next-btn" id="next">Следващ</button>
-                <form asp-controller="Sorting" asp-action="CreatePreferences">
-                    <input type="hidden" id="hidden-question1" name="question1Value" asp-for="Location">
-                    <input type="hidden" id="hidden-question2" name="question2Value" asp-for="Tourism">
-                    <input type="hidden" id="hidden-question3" name="question3Value" asp-for="Atmosphere">
-                    <input type="hidden" id="hidden-question4" name="question4Value" asp-for="Company">
-                    <input type="hidden" id="hidden-question5" name="question5Value" asp-for="Pricing">
-                    <button class="next-btn" type="submit" id="submit">Предай</button>
-                </form>
+
             </div>
-          
+
         </div>
     </div>
 
     <script>
+
         document.addEventListener('DOMContentLoaded', function () {
             const form = document.getElementById('quizForm');
             const prevButton = document.querySelector('.prev-btn');
             const nextButton = document.querySelector('.next-btn');
             const submitButton = document.getElementById('submit');
             const questions = Array.from(form.querySelectorAll('.question'));
+            const noButton = document.getElementById('no-btn');
+
             let currentQuestion = 0;
-            const secondForm = document.querySelector('form[asp-action="CreatePreferences"]');
             const resultDiv = document.getElementById('result');
+
+            const question1 = document.getElementById('question1');
+            const hidden1 = document.getElementById('hidden-question1');
+
+            const question2 = document.getElementById('question2');
+            const hidden2 = document.getElementById('hidden-question2');
+
+            const question3 = document.getElementById('question3');
+            const hidden3 = document.getElementById('hidden-question3');
+
+            const question4 = document.getElementById('question4');
+            const hidden4 = document.getElementById('hidden-question4');
+
+            const question5 = document.getElementById('question5');
+            const hidden5 = document.getElementById('hidden-question5');
 
             function showQuestion(index) {
                 questions.forEach((question, i) => {
@@ -146,7 +209,10 @@
                 });
 
                 prevButton.style.display = index === 0 ? 'none' : 'inline-block';
+                prevButton.style.display = index === questions.length - 1 ? 'none' : 'inline-block';
+                nextButton.style.display = index === questions.length - 1 ? 'none' : 'inline-block';
                 submitButton.style.display = index === questions.length - 1 ? 'inline-block' : 'none';
+
             }
 
             showQuestion(currentQuestion);
@@ -158,82 +224,59 @@
                 }
             });
 
+            noButton.addEventListener('click', () => {
+                if (currentQuestion > 0) {
+                    currentQuestion--;
+                    showQuestion(currentQuestion);
+                }
+            });
+
             nextButton.addEventListener('click', (e) => {
                 e.preventDefault();
 
-                const selectedAnswer = form.querySelector(`input[name="question${currentQuestion + 1}"]:checked`);
-
+                const selectedAnswer = form.querySelector(`input[name="question${currentQuestion + 1}"]:checked`).value;
+                //console.log(selectedAnswer);
                 if (selectedAnswer || currentQuestion === questions.length - 1) {
                     if (currentQuestion < questions.length - 1) {
                         currentQuestion++;
                         showQuestion(currentQuestion);
+                        if (currentQuestion === 1) {
+                            question1.value = selectedAnswer;
+                            hidden1.value = selectedAnswer;
+                            console.log(hidden1.value);
+                        }
+                        if (currentQuestion === 2) {
+                            question2.value = selectedAnswer;
+                            hidden2.value = selectedAnswer;
+                            console.log(hidden2.value);
+                        }
+                        if (currentQuestion === 3) {
+                            question3.value = selectedAnswer;
+                            hidden3.value = selectedAnswer;
+                            console.log(hidden3.value);
+                        }
+                        if (currentQuestion === 4) {
+                            question4.value = selectedAnswer;
+                            hidden4.value = selectedAnswer;
+                            console.log(hidden4.value);
+                        }
+                        if (currentQuestion === 5) {
+                            question5.value = selectedAnswer;
+                            hidden5.value = selectedAnswer;
+                            console.log(hidden5.value);
+                        }
+                        if (currentQuestion === 6) {
+                            prevButton.style.display = 'none';
+                            nextButton.style.display = 'none';
+                        }
+
                     }
-                    displaySelectedAnswer(currentQuestion, selectedAnswer.value);
-                } else {
+                }
+                else {
                     alert('Моля изберете отговор.');
                 }
             });
-
-            // // submitButton.addEventListener('click', function (e) {
-            // //     e.preventDefault();
-            // //     submitForm();
-            // //     console.log("I AM HERE");
-            // // });
-            
-            
-                // const question1 = document.getElementById('question1');
-                // const hidden1 = document.getElementById('hidden-question1');
-
-                // const question2 = document.getElementById('question2');
-                // const hidden2 = document.getElementById('hidden-question2');
-
-                // const question3 = document.getElementById('question3');
-                // const hidden3 = document.getElementById('hidden-question3');
-
-                // const question4 = document.getElementById('question4');
-                // const hidden4 = document.getElementById('hidden-question4');
-
-                // const question5 = document.getElementById('question5');
-                // const hidden5 = document.getElementById('hidden-question5');
-
-                // // submitButton.addEventListener('click', (event) => {
-                //     hidden1.value = getSelectedAnswer('question1');
-                //     hidden2.value = getSelectedAnswer('question2');
-                //     hidden3.value = getSelectedAnswer('question3');
-                //     hidden4.value = getSelectedAnswer('question4');
-                //     hidden5.value = getSelectedAnswer('question5');
-                // });
-           
-            
-
-            //     };
-            //     // for (const answer of answers) {
-
-            //     // }
-            //     // resultDiv.innerHTML = "<h2>Selected Answers:</h2>";
-            //     // for (const question in answers) {
-            //     //     resultDiv.innerHTML += `<p>${question}: ${answers[question]}</p>`;
-            //     // }
-
-            //     //secondForm.submit();
-            // //}
-
-            // function getSelectedAnswer(questionId) {
-            //     const radioButtons = document.getElementById(questionId);
-            //     let radioButtonValue = 0;
-            //     for (const radioButton of radioButtons) {
-            //         if (radioButton.checked) {
-            //             radioButtonValue = radioButton.value;
-            //         }
-            //     }
-            //     console.log("MEOWWWW");
-            //     return radioButtonValue;
-            // }
-
-            // function displaySelectedAnswer(questionIndex, answer) {
-            //     const answerDiv = document.getElementById(`answer${questionIndex + 1}`);
-            //     answerDiv.innerHTML = `<p>Избран отговор: ${answer}</p>`;
-            //}
         });
     </script>
-    <script src="~/js/test-script.js"/> 
+
+

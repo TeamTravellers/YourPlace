@@ -3,7 +3,6 @@
 body {
     display: flex;
     justify-content: center;
-
 }
 
 .logo {
@@ -117,4 +116,3 @@ input[type="radio"]:checked + label {
     .next-btn:hover {
         background-color: #653bff;
     }
-

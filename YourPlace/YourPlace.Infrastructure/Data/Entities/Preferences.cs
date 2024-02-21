@@ -31,9 +31,10 @@ namespace YourPlace.Infrastructure.Data.Entities
         public Pricing Pricing { get; set; }
 
         [AllowNull]
+        [NotMapped]
         public string UserId { get; set; }
 
-        
+
         //public User User { get; set; }
         public Preferences()
         {
