@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "szsb2KZjgUkVxw3/UXR79C4cFuw/w1N6Y1ZpnYFrf0Q=",
+  "Hash": "iUkBdDOX4aB8A5jjzSVwUl2GjZUVUvhk4JNpuRWnX5A=",
   "Source": "YourPlace",
   "BasePath": "_content/YourPlace",
   "Mode": "Default",
@@ -1307,6 +1307,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\offers.css"
+    },
+    {
+      "Identity": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\css\\reservation.css",
+      "SourceId": "YourPlace",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\",
+      "BasePath": "_content/YourPlace",
+      "RelativePath": "css/reservation.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\reservation.css"
     },
     {
       "Identity": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\css\\site.css",

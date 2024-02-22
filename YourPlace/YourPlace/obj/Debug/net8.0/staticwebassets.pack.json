@@ -81,6 +81,10 @@
       "PackagePath": "staticwebassets\\css\\offers.css"
     },
     {
+      "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\css\\reservation.css",
+      "PackagePath": "staticwebassets\\css\\reservation.css"
+    },
+    {
       "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

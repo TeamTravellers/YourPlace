@@ -1,12 +1,12 @@
-﻿
-@model AllHotelsModel
+﻿@model AllHotelsModel
 
 @{
-    ViewData["Title"] = Model.HotelModel.HotelName;
-    //Layout = "_LayoutWithFilters";
+    int i = 0;
+    Layout = "_LayoutWithFilters";
 }
-<!DOCTYPE html>
-<html lang="en">
+<input type="hidden" id="hotelImages" value="@Model.HotelImages.Count" />
+<link rel="stylesheet" type="text/css" href="~/css/reservation.css" />
+
 
 <head>
     <meta charset="UTF-8">
@@ -17,24 +17,24 @@
 </head>
 
 <body>
-    <div class="nav-bar">
-        <ul>
-            <li><button class="home">начало</button></li>
-            <li><button class="filter">филтър</button></li>
-            <li><button class="map">карта</button></li>
-            <li><button class="profile">профил</button></li>
-        </ul>
-        <div class="underline"></div>
-    </div>
-
     <div class="row">
-        <div class="container">
-            <div class="container-text">
-                <h2>Rose Apartments</h2>
-                <p>Рим, Италия</p>
-                <p>9.6/10</p>
-                <p>The apartments are located on the beach and near the center of the city.</p><br>
+        <div class="container3">
 
+            <div class="container-text">
+                @if (Model.HotelModel != null)
+                {
+                    <h2>@Model.HotelModel.HotelName</h2>
+                    <p>@Model.HotelModel.Town, @Model.HotelModel.Country</p>
+                    <p>@Model.HotelModel.Rating/10</p>
+                    <p>@Model.HotelModel.Details</p>
+                    <br />
+                }
+                else
+                {
+                    <p>Hotel is null.</p>
+                }
+            </div>
+            <div class="offer-info">
                 <label for="date-from">From:</label>
                 <input class="date-input" type="date" id="date-from" min="" onchange="setMinDate('date-to', this.value)">
                 <label for="date-to">To:</label>
@@ -52,7 +52,7 @@
             </div>
         </div>
     </div>
-    <script>
+@*    <script>
         const numOfPeopleInput = document.getElementById('num-of-people');
 
         priceInput.addEventListener('input', (event) => {
@@ -79,6 +79,31 @@
           const element = document.getElementById(elementId);
           element.setAttribute('max', maxValue);
         }
+    </script> *@
+    <script>
+        const numOfPeopleInput = document.getElementById('num-of-people');
+
+        function changeNumberOfPeople(change) {
+            let currentValue = parseInt(numOfPeopleInput.value, 10);
+            currentValue += change;
+
+            if (currentValue < 1) {
+                currentValue = 1;
+            }
+
+            numOfPeopleInput.value = currentValue;
+        }
+
+        function setMinDate(elementId, minValue) {
+            const element = document.getElementById(elementId);
+            element.setAttribute('min', minValue);
+        }
+
+        function setMaxDate(elementId, maxValue) {
+            const element = document.getElementById(elementId);
+            element.setAttribute('max', maxValue);
+        }
     </script>
+
     </body>
 </html>

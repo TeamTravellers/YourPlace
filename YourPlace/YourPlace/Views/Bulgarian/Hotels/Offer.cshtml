@@ -35,8 +35,12 @@
                     <p>@Model.HotelModel.Town, @Model.HotelModel.Country</p>
                     <p>@Model.HotelModel.Rating/10</p>
                     <p>@Model.HotelModel.Details</p>
-                    <br>
-                        <p><button id="book" class="button">Резервирай</button></p>
+                    <br />
+                    
+                <form asp-controller="Reservations" asp-action="Index" method="post">
+                    <input type="hidden" name="hotelID" value="@Model.HotelModel.HotelID" />
+                    <button type="submit" class="button">Резервирай</button>
+                </form>
                 }
                 else
                 {
