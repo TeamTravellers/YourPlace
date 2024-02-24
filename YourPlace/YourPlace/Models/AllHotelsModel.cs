@@ -10,7 +10,7 @@ namespace YourPlace.Models
         public decimal Price { get; set; }
         public string Country { get; set; }
         public int PeopleCount { get; set; }
-        public DateOnly ArrivalDate { get; set; }
+        public DateOnly ArrivalDate { get; set; } 
         public DateOnly LeavingDate { get; set; }
         public List<Hotel> Hotels { get; set; }
         public Hotel HotelModel { get; set; }
@@ -23,6 +23,13 @@ namespace YourPlace.Models
         public Atmosphere Atmosphere { get; set; }
         public Company Company { get; set; }
         public Pricing Pricing { get; set; }
+
+        public List<Room> Rooms { get; set; }
+        public decimal TotalPrice { get; set; }
+
+        public string FirstName { get; set; }
+        public string Surname { get; set; }
+        public Reservation Reservation { get; set; }
 
     }
 }

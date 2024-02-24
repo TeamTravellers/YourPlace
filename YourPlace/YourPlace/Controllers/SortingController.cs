@@ -56,6 +56,7 @@ namespace YourPlace.Controllers
                 List<Hotel> filteredByDates = await _filters.FilterByDates(model.ArrivalDate, model.LeavingDate);
                 hotels.AddRange(filteredByDates);
             }
+            hotels = hotels.Distinct().ToList();
             return View(toMain, new AllHotelsModel { Hotels = hotels });
         }
         public IActionResult ToSubmitPage()

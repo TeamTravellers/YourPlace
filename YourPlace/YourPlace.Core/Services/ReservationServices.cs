@@ -191,17 +191,25 @@ namespace YourPlace.Core.Services
                 List<Room> freeRoomsInHotel = new List<Room>();
                 List<Room> roomsInHotel = await _roomAvailabiltyServices.GetAllRoomsInHotel(hotelID);
                 List<Reservation> reservationsForHotel = await FindReservationsForHotel(hotelID);
-
+                List<Room> availableRooms = new List<Room>();
+                List<int> reservedRoomsIDs = new List<int>();
                 foreach (var reservation in reservationsForHotel)
                 {
-                    if (leavingDate < reservation.ArrivalDate && arrivalDate < leavingDate || arrivalDate > reservation.LeavingDate && leavingDate > arrivalDate)
+                    reservedRoomsIDs.Add(reservation.ReservationID);
+                    if (leavingDate <= reservation.ArrivalDate && arrivalDate < leavingDate || arrivalDate >= reservation.LeavingDate && leavingDate > arrivalDate)
                     {
-                        foreach(var room in roomsInHotel)
-                        {
-                            freeRoomsInHotel.Add(room);
-                        }
+                        //reservedRoomsIDs.Add(reservation.RoomID);
+                        //foreach(var room in roomsInHotel)
+                        //{
+                        freeRoomsInHotel = roomsInHotel.Where(x=>x.RoomID != reservation.RoomID).ToList();
+                            
+                        //}
+
                     }
                 }
+                availableRooms.AddRange(freeRoomsInHotel);
+
+
                 //if (hotelsWithFreeRooms.Contains(hotel))
                 //{
                 //    foreach (var room in roomsInHotel)
@@ -210,13 +218,88 @@ namespace YourPlace.Core.Services
                 //    }
 
                 //}
-                return freeRoomsInHotel;
+                return availableRooms;
             }
             catch (Exception)
             {
                 throw;
             }
         }
+
+        public async Task<bool> CompleteReservationAsync(string firstName, string surname, DateOnly arrivalDate, DateOnly leavingDate, int peopleCount, int hotelID, int roomID)
+        {
+            bool success;
+            try
+            {
+                await CreateAsync(new Reservation(firstName, surname, arrivalDate, leavingDate, peopleCount, hotelID, roomID));
+                success = true;
+
+            }
+            catch
+            {
+                success = false;
+            }
+            return success;
+        }
+        public async Task<List<Tuple<int, RoomTypes>>> FreeRoomsAccordingToTypeAsync(DateOnly arrivalDate, DateOnly leavingDate, List<Room> freeRooms)
+        {
+            try
+            {
+                //Hotel hotel = await _hotelsServices.ReadAsync(hotelID);
+                //List<Room> freeRooms = await FreeRoomCheck(arrivalDate, leavingDate, hotelID);
+                List<RoomTypes> roomTypesForHotel = new List<RoomTypes>();
+                List<Room> roomsFromOneType = new List<Room>();
+                Tuple<int, RoomTypes> countRoom;
+                List<Tuple<int, RoomTypes>> result = new List<Tuple<int, RoomTypes>>();
+
+                int count = 0;
+                //List<Room> roomsInHotel = freeRooms.Where(x => x.HotelID == hotelID).ToList();
+                foreach (Room room in freeRooms)
+                {
+                    roomTypesForHotel.Add(room.Type);
+                    roomTypesForHotel = roomTypesForHotel.Distinct().ToList();
+                }
+                foreach (var type in roomTypesForHotel)
+                {
+                    count = 0;
+                    roomsFromOneType = freeRooms.Where(x => x.Type == type).ToList();
+                    count = roomsFromOneType.Count;
+                    //countRooms.Add(count, type);
+
+                    countRoom = Tuple.Create(count, type);
+                    result.Add(countRoom);
+                }
+
+                return result;
+                //if (count == 0)
+                //{
+                //    throw new Exception($"No free rooms for this number of people!");
+                //}
+                //else
+                //{
+                //    return count;
+                //}
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<List<Room>> GetRoomsByTypes(int hotelID, List<Tuple<int, RoomTypes>> countType)
+        {
+            List<Room> roomsInHotel = await _roomAvailabiltyServices.GetAllRoomsInHotel(hotelID);
+            List<Room> roomsByType = new List<Room>();
+            List<Room> result = new List<Room>();
+            foreach(var tuple in countType)
+            {
+                  roomsByType = roomsInHotel.Where(x => x.Type == tuple.Item2).ToList();
+                  result.AddRange(roomsByType);
+            }
+            return result;
+        }
+
+
         public async Task<Family> CreateFamily(int totalCount)
         {
             try
@@ -245,7 +328,9 @@ namespace YourPlace.Core.Services
                 throw;
             }
             
-        }        
+        }
+
+        
         public async Task<int> CountOfFreeRoomsAccordingToType(int hotelID, Family family, DateOnly arrivalDate, DateOnly leavingDate)
         {
             try
@@ -332,7 +417,7 @@ namespace YourPlace.Core.Services
                     currentlyReservedRooms.Add(room);
                 }
                 decimal totalPrice = await CalculatePrices(currentlyReservedRooms);
-                CreateAsync(new Reservation(firstName, surname, arrivalDate, leavingDate, peopleCount, totalPrice, hotelID, currentlyReservedRooms, CreatedFamilies));
+                //CreateAsync(new Reservation(firstName, surname, arrivalDate, leavingDate, peopleCount, totalPrice, hotelID, currentlyReservedRooms, CreatedFamilies));
                 success = true;
 
             }

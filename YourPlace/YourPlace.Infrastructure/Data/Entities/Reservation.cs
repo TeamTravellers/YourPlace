@@ -37,35 +37,47 @@ namespace YourPlace.Infrastructure.Data.Entities
         [Required]
         public Hotel Hotel { get; set; }
 
+        [Required]
+        public int RoomID { get; set; }
         public List<Room> ReservedRooms { get; set; }
         public List<Family> Families { get; set; }
         public Reservation()
         {
 
         }
-
-        public Reservation(string firstName, string surname, DateOnly arrivalDate, DateOnly leavingDate, int peopleCount, decimal price, int hotelID)
+        public Reservation(string firstName, string surname, DateOnly arrivalDate, DateOnly leavingDate, int peopleCount, int hotelID, int roomID)
         {
             FirstName = firstName;
             Surname = surname;
             ArrivalDate = arrivalDate;
             LeavingDate = leavingDate;
             PeopleCount = peopleCount;
-            Price = price;
             HotelID = hotelID;
+            RoomID = roomID;
         }
-        public Reservation(string firstName, string surname, DateOnly arrivalDate, DateOnly leavingDate, int peopleCount, decimal price, int hotelID, List<Room> reservedRooms, List<Family> families)
-        {
-            FirstName = firstName;
-            Surname = surname;
-            ArrivalDate = arrivalDate;
-            LeavingDate = leavingDate;
-            PeopleCount = peopleCount;
-            Price = price;
-            HotelID = hotelID;
-            ReservedRooms = reservedRooms;
-            Families = families;
-        }
+        //public Reservation(string firstName, string surname, DateOnly arrivalDate, DateOnly leavingDate, int peopleCount, decimal price, int hotelID, int roomID)
+        //{
+        //    FirstName = firstName;
+        //    Surname = surname;
+        //    ArrivalDate = arrivalDate;
+        //    LeavingDate = leavingDate;
+        //    PeopleCount = peopleCount;
+        //    Price = price;
+        //    HotelID = hotelID;
+        //    RoomID = roomID;
+        //}
+        //public Reservation(string firstName, string surname, DateOnly arrivalDate, DateOnly leavingDate, int peopleCount, decimal price, int hotelID, List<Room> reservedRooms, List<Family> families)
+        //{
+        //    FirstName = firstName;
+        //    Surname = surname;
+        //    ArrivalDate = arrivalDate;
+        //    LeavingDate = leavingDate;
+        //    PeopleCount = peopleCount;
+        //    Price = price;
+        //    HotelID = hotelID;
+        //    ReservedRooms = reservedRooms;
+        //    Families = families;
+        //}
 
     }
 }

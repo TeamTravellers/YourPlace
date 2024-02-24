@@ -16,6 +16,6 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = YourPlace.Core
-build_property.ProjectDir = C:\Users\Eli\Desktop\YourPlace\YourPlace\YourPlace.Core\
+build_property.ProjectDir = C:\Users\aneli\Desktop\Team Travellers\Project\YourPlace\YourPlace.Core\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

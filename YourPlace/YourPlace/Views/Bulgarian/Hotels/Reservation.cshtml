@@ -1,10 +1,10 @@
 ﻿@model AllHotelsModel
 
 @{
-    int i = 0;
     Layout = "_LayoutWithFilters";
+    DateTime tomorrow = DateTime.Today.AddDays(1);
+    string tomorrowDateString = tomorrow.ToString("yyyy-MM-dd");
 }
-<input type="hidden" id="hotelImages" value="@Model.HotelImages.Count" />
 <link rel="stylesheet" type="text/css" href="~/css/reservation.css" />
 
 
@@ -26,7 +26,6 @@
                     <h2>@Model.HotelModel.HotelName</h2>
                     <p>@Model.HotelModel.Town, @Model.HotelModel.Country</p>
                     <p>@Model.HotelModel.Rating/10</p>
-                    <p>@Model.HotelModel.Details</p>
                     <br />
                 }
                 else
@@ -34,76 +33,45 @@
                     <p>Hotel is null.</p>
                 }
             </div>
-            <div class="offer-info">
-                <label for="date-from">From:</label>
-                <input class="date-input" type="date" id="date-from" min="" onchange="setMinDate('date-to', this.value)">
-                <label for="date-to">To:</label>
-                <input class="date-input" type="date" id="date-to" min="" onchange="setMaxDate('date-from', this.value)">
+            <div>
+                @using (Html.BeginForm("CheckAvailability", "Reservations", FormMethod.Post))
+                {
+                    <input type="hidden" value="@Model.HotelModel.HotelID" />
+                    <div class="form-group">
+                        <label asp-for="FirstName">Име</label>
+                        <input asp-for="FirstName" class="form-control" type="text" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Surname">Фамилия</label>
+                        <input asp-for="Surname" class="form-control" type="text" />
+                        <span asp-validation-for="Surname" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="PeopleCount">Брой хора:</label>
+                        <input asp-for="PeopleCount" class="form-control" type="text" value="1" />
+                        <span asp-validation-for="PeopleCount" class="text-danger"></span>
+                    </div>
 
-                <label class="filter-label" for="num-of-people">Number of People:</label>
-                <div>
-                    <button clsss="btn" onclick="changeNumberOfPeople(-1)">-</button>
-                    <input class="number-input" type="number" id="num-of-people" value="1">
-                    <button clsss="btn" onclick="changeNumberOfPeople(1)">+</button>
-                </div>
+                    <div class="form-group">
+                        <label asp-for="ArrivalDate">Дата на пристигане:</label>
+                        <input asp-for="ArrivalDate" class="form-control" type="date" min="@DateTime.Today.ToString("yyyy-MM-dd")" value="@DateTime.Today.ToString("yyyy-MM-dd")" placeholder="Select Arrival Date" />
+                        <span asp-validation-for="ArrivalDate" class="text-danger"></span>
+                    </div>
 
-                <p>Price: </p>
-                <p><button id="book" class="button">Резервирай</button></p>
+                    <div class="form-group">
+                        <label asp-for="LeavingDate">Дата на напускане:</label>
+                        <input asp-for="LeavingDate" class="form-control" type="date" min="@tomorrowDateString" value="@tomorrowDateString" placeholder="Select Leaving Date" />
+                        <span asp-validation-for="LeavingDate" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-primary">Резервирай</button>
+                }
             </div>
+
         </div>
     </div>
-@*    <script>
-        const numOfPeopleInput = document.getElementById('num-of-people');
 
-        priceInput.addEventListener('input', (event) => {
-          selectedPrice.textContent = event.target.value;
-        });
-
-        function changeNumberOfPeople(change) {
-          let currentValue = parseInt(numOfPeopleInput.value, 10);
-          currentValue += change;
-
-          if (currentValue < 1) {
-            currentValue = 1;
-          }
-
-          numOfPeopleInput.value = currentValue;
-        }
-
-        function setMinDate(elementId, minValue) {
-          const element = document.getElementById(elementId);
-          element.setAttribute('min', minValue);
-        }
-
-        function setMaxDate(elementId, maxValue) {
-          const element = document.getElementById(elementId);
-          element.setAttribute('max', maxValue);
-        }
-    </script> *@
-    <script>
-        const numOfPeopleInput = document.getElementById('num-of-people');
-
-        function changeNumberOfPeople(change) {
-            let currentValue = parseInt(numOfPeopleInput.value, 10);
-            currentValue += change;
-
-            if (currentValue < 1) {
-                currentValue = 1;
-            }
-
-            numOfPeopleInput.value = currentValue;
-        }
-
-        function setMinDate(elementId, minValue) {
-            const element = document.getElementById(elementId);
-            element.setAttribute('min', minValue);
-        }
-
-        function setMaxDate(elementId, maxValue) {
-            const element = document.getElementById(elementId);
-            element.setAttribute('max', maxValue);
-        }
-    </script>
 
     </body>
 </html>
