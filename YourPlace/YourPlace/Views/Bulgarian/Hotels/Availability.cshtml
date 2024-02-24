@@ -1,0 +1,52 @@
+﻿@model AllHotelsModel
+
+@{
+    Layout = "_LayoutWithFilters";
+}
+<link rel="stylesheet" type="text/css" href="~/css/reservation.css" />
+<link rel="stylesheet" type="text/css" href="~/css/availability.css" />
+<style>
+    .check-mark{
+        display:flex;
+        align-content: center;
+        justify-content: center;
+        width: 150px;
+        height: 150px;
+    }
+    h2{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+    .container4{
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>YourPlace</title>
+</head>
+
+<body>
+    <div class="row">
+        <div class="container3">
+            <img src="~/Images/check-mark (1).png" class="check-mark"/>
+            <br />
+            <h2><b>Completed Reservation</b></h2>
+            <label>Име</label>
+            <p>@Model.FirstName @Model.Surname</p>
+            <label>Дата на пристигане</label>
+            <p>@Model.ArrivalDate</p>
+            <label>Дата на напускане</label>
+            <p>@Model.LeavingDate</p>
+            <label>Брой хора</label>
+            <p>@Model.PeopleCount</p>
+        </div>
+    </div>
+</body>
+</html>
