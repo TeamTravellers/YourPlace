@@ -23,6 +23,7 @@ namespace YourPlace.Controllers
         }
 
         // GET: HotelController/Offer/5
+        //binds offer id with the hotel so it can display the correct hotel data 
         public async Task<IActionResult> Offer([Bind("Id")] int hotelID) 
         {
             Hotel hotel = await _hotelServices.ReadAsync(hotelID);

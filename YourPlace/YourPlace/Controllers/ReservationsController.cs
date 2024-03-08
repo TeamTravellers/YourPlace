@@ -12,6 +12,7 @@ namespace YourPlace.Controllers
         private readonly HotelsServices _hotelsServices;
         private readonly RoomAvailabiltyServices _roomAvailabiltyServices;
 
+        //handles the reservations
         public ReservationsController(ReservationServices reservationServices, HotelsServices hotelsServices, RoomAvailabiltyServices roomAvailabiltyServices)
         {
             _reservationServices = reservationServices;
@@ -50,6 +51,8 @@ namespace YourPlace.Controllers
             //}
             return View(toAvailability, new AllHotelsModel { Rooms = rooms, ArrivalDate = arrivalDate, LeavingDate = leavingDate });
         }
+
+        //checks if a room is available
         public async Task<IActionResult> CheckAvailability([Bind("FirstName")] string firstName, [Bind("Surname")] string surname, [Bind("ArrivalDate")] DateOnly arrivalDate, [Bind("LeavingDate")] DateOnly leavingDate, [Bind("peopleCount")] int peopleCount, [Bind("hotelID")] int hotelID)
         {
             //bool result = await _reservationServices.CheckForTotalRoomAvailability(hotelID, peopleCount);

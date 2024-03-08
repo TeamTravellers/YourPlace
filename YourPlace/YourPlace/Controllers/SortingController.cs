@@ -28,10 +28,13 @@ namespace YourPlace.Controllers
         private const string toSubmitPage = "~/Views/Bulgarian/Submit-page.cshtml";
         private const string toPreferedHotels = "~/Views/Bulgarian/PreferedHotels.cshtml";
         private const string toMain = "~/Views/Bulgarian/MainPage.cshtml";
+
         public IActionResult Index()
         {
             return View(toSubmitPage);
         }
+
+        //filters the hotels according the set filters in the filters menu
         public async Task<IActionResult> Filter(AllHotelsModel model)
         {
             List<Hotel> hotels = new List<Hotel>();
@@ -59,6 +62,7 @@ namespace YourPlace.Controllers
             hotels = hotels.Distinct().ToList();
             return View(toMain, new AllHotelsModel { Hotels = hotels });
         }
+        //returns the submit page view
         public IActionResult ToSubmitPage()
         {
             return View(toSubmitPage);

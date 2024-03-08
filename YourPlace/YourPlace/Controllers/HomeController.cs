@@ -15,7 +15,7 @@ namespace YourPlace.Controllers
         private const string english = "~/Views/English/Index.cshtml";
         private const string bulgarian = "~/Views/Bulgarian/Index.cshtml";
         private const string toMainBg = "~/Views/Bulgarian/MainPage.cshtml";
-        private const string bgTest = "~/Views/Bulgarian/BgTest.cshtml"; //bg test, figure out how to make it for both languages
+        private const string bgTest = "~/Views/Bulgarian/BgTest.cshtml"; 
         private const string ImagesPath = "/Images/ProductImages";
 
         public HomeController(ILogger<HomeController> logger, HotelsServices hotelsServices)
@@ -24,26 +24,31 @@ namespace YourPlace.Controllers
             _hotelsServices = hotelsServices;
         }
 
+        //returns main page view
         public IActionResult Index()
         {
             return View();
         }
 
+        //returns privacy view
         public IActionResult Privacy()
         {
             return View();
         }
 
+        //returns english view - main page
         public IActionResult English()
         {
             return View(english);
         }
 
+        //returns bulgarian view - main page
         public IActionResult Bulgarian()
         {
             return View(bulgarian);
         }
 
+        //returns bulgarian index page - all offers
         public async Task<IActionResult> ToMainBg()
         {
             try
@@ -57,7 +62,8 @@ namespace YourPlace.Controllers
                 return View("Error");
             }
         }
-
+        
+        //bg test view
         public IActionResult Test()
         {
             return View(bgTest);
