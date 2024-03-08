@@ -26,6 +26,7 @@ namespace YourPlace.Controllers
         {
             Hotel hotel = await _hotelsServices.ReadAsync(hotelID);
             //List<Image> images = await _hotelsServices.ShowHotelImages(hotelID);
+            Console.WriteLine(hotelID);
             return View(toReservation, new AllHotelsModel { HotelModel = hotel});
         }
         public async Task<IActionResult> Availability([Bind("hotelID")] int hotelID, [Bind("peopleCount")] int peopleCount, [Bind("ArrivalDate")] DateOnly arrivalDate, [Bind("LeavingDate")] DateOnly leavingDate)
@@ -65,16 +66,17 @@ namespace YourPlace.Controllers
             ////availableRooms = await _reservationServices.FreeRoomCheck(arrivalDate, leavingDate, hotelID);
             //Room room = roomsInHotel.Where(x => x.Type.ToString() == type.ToString()).FirstOrDefault();
             //int roomID = room.RoomID;
+            Console.WriteLine(hotelID);
             Reservation reservation = new Reservation(firstName, surname, arrivalDate, leavingDate, peopleCount, hotelID, 1);
             
-            //await _reservationServices.CreateAsync(reservation);
+            await _reservationServices.CreateAsync(reservation);
             //countRooms = await _reservationServices.FreeRoomsAccordingToTypeAsync(arrivalDate, leavingDate, availableRooms);
             //rooms = await _reservationServices.GetRoomsByTypes(hotelID, countRooms);
             //return View(); // Return your view here
             //}
             //return View(toAvailability, new AllHotelsModel { Rooms = availableRooms, ArrivalDate = arrivalDate, LeavingDate = leavingDate });
             //return View(toAvailability);
-            return View(toAvailability, new AllHotelsModel { FirstName = firstName, Surname = surname, ArrivalDate = arrivalDate, LeavingDate = leavingDate, PeopleCount = peopleCount});
+            return View(toAvailability, new AllHotelsModel { FirstName = firstName, Surname = surname, ArrivalDate = arrivalDate, LeavingDate = leavingDate, PeopleCount = peopleCount, HotelID = hotelID});
         }
     }
 }

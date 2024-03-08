@@ -27,6 +27,7 @@ namespace YourPlace.Models
         public List<Room> Rooms { get; set; }
         public decimal TotalPrice { get; set; }
 
+        public int HotelID { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
         public Reservation Reservation { get; set; }

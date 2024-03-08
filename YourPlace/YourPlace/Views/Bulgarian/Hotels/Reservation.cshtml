@@ -36,7 +36,12 @@
             <div>
                 @using (Html.BeginForm("CheckAvailability", "Reservations", FormMethod.Post))
                 {
-                    <input type="hidden" value="@Model.HotelModel.HotelID" />
+                    <div class="form-group">
+                        <label asp-for="HotelID">ID на хотел</label>
+                        <input asp-for="HotelID" class="form-control" type="text" />
+                        <span asp-validation-for="HotelID" class="text-danger"></span>
+                    </div>
+                   
                     <div class="form-group">
                         <label asp-for="FirstName">Име</label>
                         <input asp-for="FirstName" class="form-control" type="text" />
