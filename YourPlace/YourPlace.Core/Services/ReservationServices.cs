@@ -58,7 +58,7 @@ namespace YourPlace.Core.Services
                 {
                     reservations.AsNoTrackingWithIdentityResolution();
                 }
-                return await reservations.SingleOrDefaultAsync(x => x.HotelID == key);
+                return await reservations.SingleOrDefaultAsync(x => x.ReservationID == key);
             }
             catch (Exception)
             {
@@ -82,7 +82,7 @@ namespace YourPlace.Core.Services
                 throw;
             }
         }
-
+        
         public async Task UpdateAsync(Reservation item)
         {
             try
@@ -114,23 +114,11 @@ namespace YourPlace.Core.Services
                 throw;
             }
         }
-        public async Task<List<Reservation>> FindReservationsForHotel(int hotelID)
-        {
-            try
-            {
-                List<Reservation> reservations = await ReadAllAsync();
-                List<Reservation> reservationsForHotel = reservations.Where(x => x.HotelID == hotelID).ToList();
-                return reservationsForHotel;
-            }
-            catch
-            {
-                throw;
-            }
-        }
+
         #endregion
 
 
-        
+        #region old code
         public async Task<bool> CompareTotalCountWithFamilyMembersCount(List<Family> families, int totalCount) //something like js function
         {
             try
@@ -427,5 +415,36 @@ namespace YourPlace.Core.Services
             }
             return success;
         }
+        #endregion
+
+        #region new code in progress
+        public async Task<List<Reservation>> FindReservationsForHotel(int hotelID)
+        {
+            try
+            {
+                List<Reservation> reservations = await ReadAllAsync();
+                List<Reservation> reservationsForHotel = reservations.Where(x => x.HotelID == hotelID).ToList();
+                return reservationsForHotel;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        //GETALLROOMSINHOTEL();
+        //public async Task<List<Room>> FreeRoomsCheck(int hotelID, DateOnly arrivalDate, DateOnly leavingDate)
+        //{
+        //    List<Reservation> reservationsForHotel = await FindReservationsForHotel(hotelID);
+        //    foreach(Reservation reservation in reservationsForHotel)
+        //    {
+        //        if(leavingDate < reservation.ArrivalDate || arrivalDate > reservation.LeavingDate)
+        //        {
+
+        //        }
+        //    }
+        //}
+        #endregion
     }
 }
+

@@ -16,9 +16,11 @@ namespace YourPlace.Core.Services
     public class RoomServices : IDbCRUD<Room, int>
     {
         private readonly YourPlaceDbContext _dbContext;
-        public RoomServices(YourPlaceDbContext dbContext)
+        private readonly HotelsServices _hotelsServices;
+        public RoomServices(YourPlaceDbContext dbContext, HotelsServices hotelsServices)
         {
             _dbContext = dbContext;   
+            _hotelsServices = hotelsServices;
         }
         #region CRUD For Rooms
         public async Task CreateAsync(Room room)
@@ -104,5 +106,22 @@ namespace YourPlace.Core.Services
             }
         }
         #endregion
+
+        public async Task<List<Room>> GetAllRoomsInHotel(int hotelID)
+        {
+            Hotel hotel = await _hotelsServices.ReadAsync(hotelID);
+            List<Room> roomList = await ReadAllAsync();
+            List<Room> roomsInHotel = new List<Room>();
+
+            foreach(Room room in roomList)
+            {
+                if(room.HotelID == hotelID)
+                {
+                    roomsInHotel.Add(room);
+                }
+            }
+            return roomsInHotel;
+
+        }
     }
 }

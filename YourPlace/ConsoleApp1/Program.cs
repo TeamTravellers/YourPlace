@@ -149,13 +149,13 @@ ReservationServices reservationServices = new ReservationServices(dbContext, hot
 #endregion
 //FIRST METHOD TESTED: WORKS
 #region Rooms seeding
-RoomServices roomServices = new RoomServices(dbContext);
-decimal price = 250;
-int count = 4;
-int hotelId = 8;
-int count1 = 9;
-Room room = new Room(RoomTypes.maisonette, price, count, hotelId, count1);
-await roomServices.CreateAsync(room);
+RoomServices roomServices = new RoomServices(dbContext, hotelsServices);
+//decimal price = 250;
+//int count = 4;
+//int hotelId = 8;
+//int count1 = 9;
+//Room room = new Room(RoomTypes.maisonette, price, count, hotelId, count1);
+//await roomServices.CreateAsync(room);
 //await roomAvailabilityServices.FillAvailability(9);
 #endregion
 
@@ -222,4 +222,12 @@ await roomServices.CreateAsync(room);
 //{
 //    Console.WriteLine(room.ToString());
 //}
+#endregion
+
+#region testing
+List<Room> roomList = await roomServices.GetAllRoomsInHotel(9);
+foreach(Room room1 in roomList)
+{
+    Console.WriteLine(room1.ToString());
+}
 #endregion
