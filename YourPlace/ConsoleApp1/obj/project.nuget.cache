@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gpzx8Rz3a6eGhBPTsIhzfxMei7YPXb/vOi02bPsBYMZO3Bim1T9G9hj//BfbNYwNHd80DZgMM6fn0mnm6XLwbQ==",
+  "dgSpecHash": "9JKuNSM8wlWMICsMoTG/n5PwJebKoDYqlsl2PyH0LqM+LC9vwBAsR915HO+Ch6LsVQ9/z5P9WkoaGWOGEu+7xA==",
   "success": true,
-  "projectFilePath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj",
+  "projectFilePath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aneli\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\aneli\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

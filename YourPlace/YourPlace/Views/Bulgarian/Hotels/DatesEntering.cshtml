@@ -1,0 +1,122 @@
+﻿@model ReservationModel
+
+@{
+    int i = 0;
+    ViewData["Title"] = Model.HotelModel.HotelName;
+    Layout = "_LayoutNoFilter";
+    DateTime tomorrow = DateTime.Today.AddDays(1);
+    string tomorrowDateString = tomorrow.ToString("yyyy-MM-dd");
+
+
+}
+
+<input type="hidden" id="hotelImages" value="@Model.HotelImages.Count" />
+
+
+<link rel="stylesheet" type="text/css" href="~/css/offers.css" />
+
+<div class="row">
+    <div class="container3">
+        <div class="slideshow-container">
+            @foreach (var image in Model.HotelImages)
+            {
+                <div id="@("mySlides" + i.ToString())">
+                    <a class="prev" onclick="plusSlides(@(i - 1))">❮</a>
+                    <div class="numbertext">@(Model.HotelImages.IndexOf(image) + 1)/ @Model.HotelImages.Count()</div>
+                    <img src="~/Images/AdditionalImages/@image.ImageURL" style="width:100%" />
+
+                    <a class="next" onclick="plusSlides(@(i + 1))">❯</a>
+                </div>
+                <!-- @(i++); -->
+            }
+
+        </div>
+        <br>
+
+        <div class="container-text">
+            @if (Model.HotelModel != null)
+            {
+                <h2>@Model.HotelModel.HotelName</h2>
+                <p>@Model.HotelModel.Town, @Model.HotelModel.Country</p>
+                <p>@Model.HotelModel.Rating/10</p>
+                <p>@Model.HotelModel.Details</p>
+                <br />
+            }
+            else
+            {
+                <p>Hotel is null.</p>
+            }
+        </div>
+    </div>
+</div>
+
+<div>
+    @using (Html.BeginForm("FreeRoomsCheck", "Reservations", FormMethod.Post))
+    {
+        <div class="form-group">
+            <label asp-for="HotelID">ID на хотел</label>
+            <input asp-for="HotelID" class="form-control" type="text" />
+            <span asp-validation-for="HotelID" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ArrivalDate">Дата на пристигане:</label>
+            <input asp-for="ArrivalDate" id="arrivalDate" class="form-control" type="date" min="@DateTime.Today.ToString("yyyy-MM-dd")" value="@DateTime.Today.ToString("yyyy-MM-dd")" placeholder="Select Arrival Date" />
+            <span asp-validation-for="ArrivalDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LeavingDate">Дата на напускане:</label>
+            <input asp-for="LeavingDate" id="leavingDate" class="form-control" type="date" min="@tomorrowDateString" value="@tomorrowDateString" placeholder="Select Leaving Date" />
+            <span asp-validation-for="LeavingDate" class="text-danger"></span>
+        </div>
+        <br />
+        <button type="submit" id="submit-button" class="btn btn-primary">Виж наличностите</button>
+       
+    }
+</div>
+<script>
+    let slidesCount = document.getElementById("hotelImages").value;
+    let slides = [];
+
+    document.addEventListener("DOMContentLoaded", function () {
+        loadSlides();
+        showSlides(0);
+    });
+
+    function loadSlides() {
+        for (let i = 0; i < slidesCount; i++) {
+            slides.push(document.getElementById("mySlides" + i));
+        }
+    }
+
+    function plusSlides(n) {
+        showSlides(n);
+    }
+
+    function showSlides(n) {
+        if (n >= slides.length) { n = 0; }
+        if (n < 0) { n = slides.length - 1; }
+
+        for (let i = 0; i < slides.length; i++) {
+            if (i != n) {
+                slides[i].style.display = "none";
+            }
+            else {
+                slides[n].style.display = "block";
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        document.getElementById('submit-button').addEventListener('click', function (event) {
+            var arrivalDate = new Date(document.getElementById('arrivalDate').value);
+            var leavingDate = new Date(document.getElementById('leavingDate').value);
+
+            if (arrivalDate >= leavingDate) {
+                alert('Дата на напускане трябва да бъде по-късна от датата на пристигане.');
+                event.preventDefault();
+            }
+        });
+    });
+</script>

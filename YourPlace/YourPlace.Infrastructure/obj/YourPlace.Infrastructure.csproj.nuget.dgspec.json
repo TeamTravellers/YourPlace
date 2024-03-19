@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {}
+    "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
+    "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj",
         "projectName": "YourPlace.Infrastructure",
-        "projectPath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj",
+        "projectPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\aneli\\.nuget\\packages\\",
-        "outputPath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\obj\\",
+        "outputPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aneli\\AppData\\Roaming\\NuGet\\NuGet.Config",

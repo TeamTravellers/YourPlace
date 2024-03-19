@@ -28,7 +28,8 @@ namespace YourPlace.Infrastructure.Data
 
         public DbSet<Categories> Categories { get; set; }
         public DbSet<RoomAvailability> RoomsAvailability { get; set;}
-
+        
+        public DbSet<ReservedRoom> ReservedRooms { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
@@ -54,11 +55,13 @@ namespace YourPlace.Infrastructure.Data
             modelBuilder.Entity<Preferences>().Property(r => r.Company).HasConversion<string>();
             modelBuilder.Entity<Preferences>().Property(r => r.Pricing).HasConversion<string>();
 
-            modelBuilder.Entity<Image>().HasOne(h => h.Hotel).WithMany().HasForeignKey(h => h.HotelID).IsRequired().OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Image>().HasOne(h => h.Hotel).WithMany().HasForeignKey(h => h.HotelID).IsRequired().OnDelete(DeleteBehavior.Cascade);
             //modelBuilder.Entity<Preferences>().HasOne(h => h.User).WithMany().HasForeignKey(p => p.UserId).IsRequired().OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Categories>().HasOne(c => c.Hotel).WithMany().HasForeignKey(c => c.HotelID).IsRequired().OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Reservation>().HasOne(r => r.Hotel).WithMany().HasForeignKey(r => r.HotelID).IsRequired().OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<RoomAvailability>().HasOne(r => r.Hotel).WithMany().HasForeignKey(r => r.HotelID).IsRequired().OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Categories>().HasOne(c => c.Hotel).WithMany().HasForeignKey(c => c.HotelID).IsRequired().OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<Reservation>().HasOne(r => r.Hotel).WithMany().HasForeignKey(r => r.HotelID).IsRequired().OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<RoomAvailability>().HasOne(r => r.Hotel).WithMany().HasForeignKey(r => r.HotelID).IsRequired().OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<ReservedRoom>().HasOne(r => r.Reservation).WithMany().HasForeignKey(r => r.ReservationID).IsRequired().OnDelete(DeleteBehavior.Restrict);
+            //modelBuilder.Entity<ReservedRoom>().HasOne(r => r.Room).WithMany().HasForeignKey(r => r.RoomID).IsRequired().OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(modelBuilder);
         }

@@ -39,7 +39,7 @@ namespace YourPlace.Core.Services
         {
             try
             {
-                Hotel hotel = await _hotelsServices.ReadAsync(key);
+                //Hotel hotel = await _hotelsServices.ReadAsync(key);
                 IQueryable<RoomAvailability> availability = _dbContext.RoomsAvailability;
                 if (useNavigationalProperties)
                 {

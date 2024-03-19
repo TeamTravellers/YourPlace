@@ -37,23 +37,28 @@ namespace YourPlace.Infrastructure.Data.Entities
         [Required]
         public Hotel Hotel { get; set; }
 
-        [Required]
-        public int RoomID { get; set; }
-        public List<Room> ReservedRooms { get; set; }
+        [NotMapped]
+        public List<RoomAvailability> roomsAvailability { get; set; }
+
+        [NotMapped]
+        public List<RoomSelection> ReservedRooms { get; set; }
+
+        [NotMapped]
         public List<Family> Families { get; set; }
         public Reservation()
         {
 
         }
-        public Reservation(string firstName, string surname, DateOnly arrivalDate, DateOnly leavingDate, int peopleCount, int hotelID, int roomID)
+        public Reservation(string firstName, string surname, DateOnly arrivalDate, DateOnly leavingDate, decimal price, int peopleCount, int hotelID, List<RoomSelection> reservedRooms)
         {
             FirstName = firstName;
             Surname = surname;
             ArrivalDate = arrivalDate;
             LeavingDate = leavingDate;
+            Price = price;
             PeopleCount = peopleCount;
             HotelID = hotelID;
-            RoomID = roomID;
+            ReservedRooms = reservedRooms;
         }
         //public Reservation(string firstName, string surname, DateOnly arrivalDate, DateOnly leavingDate, int peopleCount, decimal price, int hotelID, int roomID)
         //{

@@ -8504,11 +8504,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
+      "projectUniqueName": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
       "projectName": "YourPlace.Core",
-      "projectPath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
+      "projectPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
       "packagesPath": "C:\\Users\\aneli\\.nuget\\packages\\",
-      "outputPath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Core\\obj\\",
+      "outputPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\aneli\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -8525,8 +8525,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
-              "projectPath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj"
+            "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj"
             }
           }
         }

@@ -89,22 +89,22 @@ HotelsServices hotelsServices = new HotelsServices(dbContext);
 #endregion
 
 #region CategoriesSeeding
-HotelCategoriesServices hotelCategoriesServices = new HotelCategoriesServices(dbContext);
+//HotelCategoriesServices hotelCategoriesServices = new HotelCategoriesServices(dbContext);
 
-Categories category1 = new Categories(Location.Mountain, Tourism.Relax, Atmosphere.Calm, Company.Family, Pricing.Lux, 8);
-await hotelCategoriesServices.CreateAsync(category1);
+//Categories category1 = new Categories(Location.Mountain, Tourism.Relax, Atmosphere.Calm, Company.Family, Pricing.Lux, 8);
+//await hotelCategoriesServices.CreateAsync(category1);
 
-Categories category2 = new Categories(Location.Sea, Tourism.Adventure, Atmosphere.Party, Company.Group, Pricing.Modern, 9);
-await hotelCategoriesServices.CreateAsync(category2);
+//Categories category2 = new Categories(Location.Sea, Tourism.Adventure, Atmosphere.Party, Company.Group, Pricing.Modern, 9);
+//await hotelCategoriesServices.CreateAsync(category2);
 
-Categories category3 = new Categories(Location.Village, Tourism.Relax, Atmosphere.Both, Company.Group, Pricing.Lux, 10);
-await hotelCategoriesServices.CreateAsync(category3);
+//Categories category3 = new Categories(Location.Village, Tourism.Relax, Atmosphere.Both, Company.Group, Pricing.Lux, 10);
+//await hotelCategoriesServices.CreateAsync(category3);
 
-Categories category4 = new Categories(Location.LargeCity, Tourism.Shopping, Atmosphere.Neither, Company.OnePerson, Pricing.InTheMiddle, 11);
-await hotelCategoriesServices.CreateAsync(category4);
+//Categories category4 = new Categories(Location.LargeCity, Tourism.Shopping, Atmosphere.Neither, Company.OnePerson, Pricing.InTheMiddle, 11);
+//await hotelCategoriesServices.CreateAsync(category4);
 
-Categories category5 = new Categories(Location.LargeCity, Tourism.Shopping, Atmosphere.Party, Company.Individual, Pricing.Cheap, 12);
-await hotelCategoriesServices.CreateAsync(category5);
+//Categories category5 = new Categories(Location.LargeCity, Tourism.Shopping, Atmosphere.Party, Company.Individual, Pricing.Cheap, 12);
+//await hotelCategoriesServices.CreateAsync(category5);
 #endregion
 #region Preferences
 //PreferencesServices userQuestionsServices = new PreferencesServices(dbContext);
@@ -120,9 +120,10 @@ await hotelCategoriesServices.CreateAsync(category5);
 //    Console.WriteLine(hotelche.ToString());
 //}
 #endregion
+RoomServices roomServices = new RoomServices(dbContext, hotelsServices);
 RoomAvailabiltyServices roomAvailabilityServices = new RoomAvailabiltyServices(dbContext, hotelsServices);
 Filters filters = new Filters(dbContext, hotelsServices, roomAvailabilityServices);
-ReservationServices reservationServices = new ReservationServices(dbContext, hotelsServices, roomAvailabilityServices, filters);
+ReservationServices reservationServices = new ReservationServices(dbContext, hotelsServices, roomServices, roomAvailabilityServices, filters);
 
 
 #region CompareTotalCountWithFamilyMembersCount
@@ -149,7 +150,7 @@ ReservationServices reservationServices = new ReservationServices(dbContext, hot
 #endregion
 //FIRST METHOD TESTED: WORKS
 #region Rooms seeding
-RoomServices roomServices = new RoomServices(dbContext, hotelsServices);
+//RoomServices roomServices = new RoomServices(dbContext, hotelsServices);
 //decimal price = 250;
 //int count = 4;
 //int hotelId = 8;
@@ -225,9 +226,45 @@ RoomServices roomServices = new RoomServices(dbContext, hotelsServices);
 #endregion
 
 #region testing
-List<Room> roomList = await roomServices.GetAllRoomsInHotel(9);
-foreach(Room room1 in roomList)
-{
-    Console.WriteLine(room1.ToString());
-}
+//List<Room> roomList = await roomServices.GetAllRoomsInHotel(9);
+//foreach(Room room1 in roomList)
+//{
+//    Console.WriteLine(room1.ToString());
+//}
 #endregion
+//public int ID { get; set; }
+//[Required]
+//public int ReservationID { get; set; }
+//[Required]
+//public int RoomID { get; set; }
+
+//public int Count { get; set; }
+//[Required]
+//public int HotelID { get; set; }
+
+//ReservedRoom reservedRoom1 = new ReservedRoom(25, 1, 4, 9);
+//await reservationServices.CreateReservedRoomAsync(reservedRoom1);
+
+//ReservedRoom reservedRoom2 = new ReservedRoom(26, 2, 5, 9);
+//await reservationServices.CreateReservedRoomAsync(reservedRoom2);
+
+//ReservedRoom reservedRoom3 = new ReservedRoom(27, 4, 4, 9);
+//await reservationServices.CreateReservedRoomAsync(reservedRoom3);
+
+//ReservedRoom reservedRoom4 = new ReservedRoom(28, 5, 2, 9);
+//await reservationServices.CreateReservedRoomAsync(reservedRoom4);
+
+//List<Tuple<Room, int>> result = await reservationServices.FindFreeRooms(9, new DateOnly(2024, 03, 29), new DateOnly(2024, 04, 08));
+//foreach (Tuple<Room, int> item in result)
+//{
+//    Console.WriteLine(item.Item1.ToString());
+//    Console.WriteLine(item.Item2);
+//    Console.WriteLine();
+//}
+ 
+List<RoomSelection> chosenRooms = new List<RoomSelection>();
+chosenRooms.Add(new RoomSelection(4, 1));
+chosenRooms.Add(new RoomSelection(5, 1));
+
+decimal totalPrice = await reservationServices.CalculatePrice(new DateOnly(2024, 03, 29), new DateOnly(2024, 03, 30), chosenRooms);
+Console.WriteLine(totalPrice);

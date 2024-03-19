@@ -20,6 +20,9 @@ namespace YourPlace.Infrastructure.Data.Entities
         public int Availability {  get; set; }
 
         [Required]
+        public int RoomID { get; set; }
+
+        [Required]
         public RoomTypes Type { get; set; }
 
         [NotMapped]
