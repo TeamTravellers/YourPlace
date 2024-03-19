@@ -33,7 +33,7 @@ namespace YourPlace.Infrastructure.Data.Entities
         [ForeignKey("Hotel")]
         public int HotelID { get; set; }
 
-        [Required]
+        [NotMapped]
         public Hotel Hotel { get; set; }
         public Categories()
         {

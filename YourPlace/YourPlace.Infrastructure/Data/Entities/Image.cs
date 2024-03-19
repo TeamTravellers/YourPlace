@@ -12,10 +12,14 @@ namespace YourPlace.Infrastructure.Data.Entities
     {
         [Key]
         public int ImageID { get; set; }
+
+        [Required]
         public string ImageURL {  get; set; }
 
-        [ForeignKey("Hotel")]
+        [ForeignKey("HotelID")]
         public int HotelID { get; set; }
+
+        [NotMapped]
         public Hotel Hotel { get; set; }
 
         public Image()

@@ -121,26 +121,6 @@ body {
     <title>YourPlace</title>
 </head>
 
-@* <body>
-    <div class="row">
-        <div class="container3">
-            <img src="~/Images/check-mark (1).png" class="check-mark"/>
-            <br />
-            <h2><b>Completed Reservation</b></h2>
-            <p>@Model.HotelID</p>
-            <label>Име</label>
-            <p>@Model.FirstName @Model.Surname</p>
-            <label>Дата на пристигане</label>
-            <p>@Model.ArrivalDate</p>
-            <label>Дата на напускане</label>
-            <p>@Model.LeavingDate</p>
-            <label>Брой хора</label>
-            <p>@Model.PeopleCount</p>
-        </div>
-    </div>
-</body>
-</html> *@
-
 <div class="main">
         <section class="main-body">
             
@@ -225,7 +205,6 @@ body {
         var numberInputs = document.querySelectorAll('.number-input');
         var allInputsZero = true;
 
-        // Check if any input is not zero
         numberInputs.forEach(function (input) {
             if (parseInt(input.value) !== 0) {
                 allInputsZero = false;
@@ -233,10 +212,9 @@ body {
             }
         })
 
-        // If all inputs are zero, trigger alert and prevent form submission
         if (allInputsZero) {
-            alert("All inputs are 0.");
-            event.preventDefault(); // Prevent form submission
+            alert("Задали сте некоректен брой стаи!");
+            event.preventDefault(); 
         }
     });
 </script>

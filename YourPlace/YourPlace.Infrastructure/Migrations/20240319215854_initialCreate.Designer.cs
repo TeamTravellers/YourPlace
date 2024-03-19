@@ -12,8 +12,8 @@ using YourPlace.Infrastructure.Data;
 namespace YourPlace.Infrastructure.Migrations
 {
     [DbContext(typeof(YourPlaceDbContext))]
-    [Migration("20240311220215_newDetails")]
-    partial class newDetails
+    [Migration("20240319215854_initialCreate")]
+    partial class initialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,6 +50,26 @@ namespace YourPlace.Infrastructure.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            Name = "Traveller",
+                            NormalizedName = "Traveller"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            Name = "Hotel Manager",
+                            NormalizedName = "HotelManager"
+                        },
+                        new
+                        {
+                            Id = "3",
+                            Name = "Admin",
+                            NormalizedName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -194,6 +214,58 @@ namespace YourPlace.Infrastructure.Migrations
                     b.HasIndex("HotelID");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            CategoryID = 1,
+                            Atmosphere = "Calm",
+                            Company = "Family",
+                            HotelID = 1,
+                            Location = "Sea",
+                            Pricing = "Lux",
+                            Tourism = "Culture"
+                        },
+                        new
+                        {
+                            CategoryID = 2,
+                            Atmosphere = "Party",
+                            Company = "Group",
+                            HotelID = 2,
+                            Location = "Mountain",
+                            Pricing = "InTheMiddle",
+                            Tourism = "Adventure"
+                        },
+                        new
+                        {
+                            CategoryID = 3,
+                            Atmosphere = "Both",
+                            Company = "OnePerson",
+                            HotelID = 3,
+                            Location = "LargeCity",
+                            Pricing = "Cheap",
+                            Tourism = "Shopping"
+                        },
+                        new
+                        {
+                            CategoryID = 4,
+                            Atmosphere = "Neither",
+                            Company = "Individual",
+                            HotelID = 4,
+                            Location = "Village",
+                            Pricing = "Modern",
+                            Tourism = "Relax"
+                        },
+                        new
+                        {
+                            CategoryID = 5,
+                            Atmosphere = "Party",
+                            Company = "Family",
+                            HotelID = 5,
+                            Location = "Sea",
+                            Pricing = "InTheMiddle",
+                            Tourism = "Adventure"
+                        });
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Hotel", b =>
@@ -234,6 +306,63 @@ namespace YourPlace.Infrastructure.Migrations
                     b.HasKey("HotelID");
 
                     b.ToTable("Hotels");
+
+                    b.HasData(
+                        new
+                        {
+                            HotelID = 1,
+                            Address = "ул. Юндола 20",
+                            Country = "България",
+                            Details = "Хотелът е с чудесен изглед към гората. Има неограничен безплатен Wi-Fi и удобен паркинг. Хотелът разполага с три вътрешни басейна и един външен.",
+                            HotelName = "Arte Spa Hotel",
+                            MainImageURL = "Arte.jpg",
+                            Rating = 9.6999999999999993,
+                            Town = "Велинград"
+                        },
+                        new
+                        {
+                            HotelID = 2,
+                            Address = "ул. Ропотамо 12",
+                            Country = "България",
+                            Details = "Апартаменти Роуз Гардънс се намират на 50 метра от плажа. Включват сезонен външен басейн и сезонен ресторант, безплатен Wi-Fi и сезонен спа център.",
+                            HotelName = "Rose Garden",
+                            MainImageURL = "RoseGarden.jpg",
+                            Rating = 8.5,
+                            Town = "Поморие"
+                        },
+                        new
+                        {
+                            HotelID = 3,
+                            Address = "ул. Горна Баня",
+                            Country = "България",
+                            Details = "Хотелът предлага безплатен високоскоростен WI-FI. Има спа център и 3 вътрешни басейна, както и 2 външни - един за деца, един за възрастни.",
+                            HotelName = "Therme",
+                            MainImageURL = "Therme.jpg",
+                            Rating = 9.0999999999999996,
+                            Town = "Баня"
+                        },
+                        new
+                        {
+                            HotelID = 4,
+                            Address = "Flower str.",
+                            Country = "Франция",
+                            Details = "Прекрасна гледка към Айфеловата кула. Храната е високо качество, а стаите са прекрасни.",
+                            HotelName = "La Fleur",
+                            MainImageURL = "LaFleur.jpg",
+                            Rating = 9.5,
+                            Town = "Paris"
+                        },
+                        new
+                        {
+                            HotelID = 5,
+                            Address = "Monte Carlo str.",
+                            Country = "САЩ",
+                            Details = "Хотел Las Vegas Royal предлага всякакви по вид занимания - от масажи до турнири по тенис и футбол. All-Inclisuve с включена храна и напитки",
+                            HotelName = "Las Vegas Royal",
+                            MainImageURL = "RoyalLasVegas.jpg",
+                            Rating = 7.9000000000000004,
+                            Town = "Las Vegas"
+                        });
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Image", b =>
@@ -247,9 +376,6 @@ namespace YourPlace.Infrastructure.Migrations
                     b.Property<int>("HotelID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("HotelID1")
-                        .HasColumnType("int");
-
                     b.Property<string>("ImageURL")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -258,9 +384,99 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("HotelID");
 
-                    b.HasIndex("HotelID1");
-
                     b.ToTable("Images");
+
+                    b.HasData(
+                        new
+                        {
+                            ImageID = 1,
+                            HotelID = 1,
+                            ImageURL = "Arte1.jpg"
+                        },
+                        new
+                        {
+                            ImageID = 2,
+                            HotelID = 1,
+                            ImageURL = "Arte2.jpg"
+                        },
+                        new
+                        {
+                            ImageID = 3,
+                            HotelID = 1,
+                            ImageURL = "Arte3.jpg"
+                        },
+                        new
+                        {
+                            ImageID = 4,
+                            HotelID = 2,
+                            ImageURL = "RoseGarden1.jpg"
+                        },
+                        new
+                        {
+                            ImageID = 5,
+                            HotelID = 2,
+                            ImageURL = "RoseGarden2.jpg"
+                        },
+                        new
+                        {
+                            ImageID = 6,
+                            HotelID = 2,
+                            ImageURL = "RoseGarden3.jpg"
+                        },
+                        new
+                        {
+                            ImageID = 7,
+                            HotelID = 2,
+                            ImageURL = "RoseGarden4.jpg"
+                        },
+                        new
+                        {
+                            ImageID = 8,
+                            HotelID = 3,
+                            ImageURL = "Therme1.jpg"
+                        },
+                        new
+                        {
+                            ImageID = 9,
+                            HotelID = 3,
+                            ImageURL = "Therme2.jpg"
+                        },
+                        new
+                        {
+                            ImageID = 10,
+                            HotelID = 3,
+                            ImageURL = "Therme3.jpg"
+                        },
+                        new
+                        {
+                            ImageID = 11,
+                            HotelID = 4,
+                            ImageURL = "LaFleur1.jpg"
+                        },
+                        new
+                        {
+                            ImageID = 12,
+                            HotelID = 4,
+                            ImageURL = "LaFleur2.jpg"
+                        },
+                        new
+                        {
+                            ImageID = 13,
+                            HotelID = 4,
+                            ImageURL = "LaFleur3.jpg"
+                        },
+                        new
+                        {
+                            ImageID = 14,
+                            HotelID = 5,
+                            ImageURL = "LasVegasRoyal1.jpg"
+                        },
+                        new
+                        {
+                            ImageID = 15,
+                            HotelID = 5,
+                            ImageURL = "LasVegasRoyal2.jpg"
+                        });
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Preferences", b =>
@@ -332,6 +548,63 @@ namespace YourPlace.Infrastructure.Migrations
                     b.HasIndex("HotelID");
 
                     b.ToTable("Reservations");
+
+                    b.HasData(
+                        new
+                        {
+                            ReservationID = 1,
+                            ArrivalDate = new DateOnly(2024, 3, 20),
+                            FirstName = "Иван",
+                            HotelID = 1,
+                            LeavingDate = new DateOnly(2024, 3, 25),
+                            PeopleCount = 2,
+                            Price = 500.00m,
+                            Surname = "Петров"
+                        },
+                        new
+                        {
+                            ReservationID = 2,
+                            ArrivalDate = new DateOnly(2024, 4, 10),
+                            FirstName = "Мария",
+                            HotelID = 2,
+                            LeavingDate = new DateOnly(2024, 4, 15),
+                            PeopleCount = 1,
+                            Price = 300.00m,
+                            Surname = "Иванова"
+                        },
+                        new
+                        {
+                            ReservationID = 3,
+                            ArrivalDate = new DateOnly(2024, 5, 10),
+                            FirstName = "Петър",
+                            HotelID = 1,
+                            LeavingDate = new DateOnly(2024, 5, 15),
+                            PeopleCount = 3,
+                            Price = 750.00m,
+                            Surname = "Иванов"
+                        },
+                        new
+                        {
+                            ReservationID = 4,
+                            ArrivalDate = new DateOnly(2024, 6, 20),
+                            FirstName = "Гергана",
+                            HotelID = 2,
+                            LeavingDate = new DateOnly(2024, 6, 25),
+                            PeopleCount = 2,
+                            Price = 600.00m,
+                            Surname = "Петрова"
+                        },
+                        new
+                        {
+                            ReservationID = 5,
+                            ArrivalDate = new DateOnly(2024, 7, 1),
+                            FirstName = "Стефан",
+                            HotelID = 3,
+                            LeavingDate = new DateOnly(2024, 7, 5),
+                            PeopleCount = 1,
+                            Price = 200.00m,
+                            Surname = "Георгиев"
+                        });
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.ReservedRoom", b =>
@@ -361,6 +634,64 @@ namespace YourPlace.Infrastructure.Migrations
                     b.HasIndex("RoomID");
 
                     b.ToTable("ReservedRooms");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Count = 1,
+                            HotelID = 1,
+                            ReservationID = 1,
+                            RoomID = 1
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Count = 1,
+                            HotelID = 1,
+                            ReservationID = 1,
+                            RoomID = 2
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Count = 1,
+                            HotelID = 2,
+                            ReservationID = 2,
+                            RoomID = 3
+                        },
+                        new
+                        {
+                            ID = 4,
+                            Count = 2,
+                            HotelID = 1,
+                            ReservationID = 3,
+                            RoomID = 1
+                        },
+                        new
+                        {
+                            ID = 5,
+                            Count = 1,
+                            HotelID = 2,
+                            ReservationID = 4,
+                            RoomID = 4
+                        },
+                        new
+                        {
+                            ID = 6,
+                            Count = 1,
+                            HotelID = 3,
+                            ReservationID = 5,
+                            RoomID = 6
+                        },
+                        new
+                        {
+                            ID = 7,
+                            Count = 1,
+                            HotelID = 3,
+                            ReservationID = 5,
+                            RoomID = 7
+                        });
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Room", b =>
@@ -390,6 +721,98 @@ namespace YourPlace.Infrastructure.Migrations
                     b.HasKey("RoomID");
 
                     b.ToTable("Rooms");
+
+                    b.HasData(
+                        new
+                        {
+                            RoomID = 1,
+                            CountInHotel = 5,
+                            HotelID = 1,
+                            MaxPeopleCount = 2,
+                            Price = 100.00m,
+                            Type = "studio"
+                        },
+                        new
+                        {
+                            RoomID = 2,
+                            CountInHotel = 10,
+                            HotelID = 1,
+                            MaxPeopleCount = 2,
+                            Price = 150.00m,
+                            Type = "doubleRoom"
+                        },
+                        new
+                        {
+                            RoomID = 3,
+                            CountInHotel = 8,
+                            HotelID = 2,
+                            MaxPeopleCount = 3,
+                            Price = 200.00m,
+                            Type = "tripleRoom"
+                        },
+                        new
+                        {
+                            RoomID = 4,
+                            CountInHotel = 3,
+                            HotelID = 2,
+                            MaxPeopleCount = 4,
+                            Price = 300.00m,
+                            Type = "deluxeRoom"
+                        },
+                        new
+                        {
+                            RoomID = 5,
+                            CountInHotel = 2,
+                            HotelID = 3,
+                            MaxPeopleCount = 6,
+                            Price = 400.00m,
+                            Type = "maisonette"
+                        },
+                        new
+                        {
+                            RoomID = 6,
+                            CountInHotel = 5,
+                            HotelID = 3,
+                            MaxPeopleCount = 2,
+                            Price = 120.00m,
+                            Type = "studio"
+                        },
+                        new
+                        {
+                            RoomID = 7,
+                            CountInHotel = 3,
+                            HotelID = 4,
+                            MaxPeopleCount = 2,
+                            Price = 90.00m,
+                            Type = "studio"
+                        },
+                        new
+                        {
+                            RoomID = 8,
+                            CountInHotel = 5,
+                            HotelID = 4,
+                            MaxPeopleCount = 2,
+                            Price = 120.00m,
+                            Type = "doubleRoom"
+                        },
+                        new
+                        {
+                            RoomID = 9,
+                            CountInHotel = 4,
+                            HotelID = 5,
+                            MaxPeopleCount = 3,
+                            Price = 180.00m,
+                            Type = "tripleRoom"
+                        },
+                        new
+                        {
+                            RoomID = 10,
+                            CountInHotel = 2,
+                            HotelID = 5,
+                            MaxPeopleCount = 4,
+                            Price = 250.00m,
+                            Type = "deluxeRoom"
+                        });
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.RoomAvailability", b =>
@@ -491,6 +914,26 @@ namespace YourPlace.Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "3c6e4261-1052-4061-b9d3-e0450f02f94c",
+                            Email = "admin@gmail.com",
+                            EmailConfirmed = true,
+                            FirstName = "Admin",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@GMAIL.COM",
+                            NormalizedUserName = "Admin",
+                            PasswordHash = "AQAAAAIAAYagAAAAELjpMLk75xz7tlKYy+E6ScVt2JzutJxwQTO4PeJ9O+GFrChyLvHbAlEd52WWveISjA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            Surname = "User",
+                            TwoFactorEnabled = false,
+                            UserName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -549,7 +992,7 @@ namespace YourPlace.Infrastructure.Migrations
                     b.HasOne("YourPlace.Infrastructure.Data.Entities.Hotel", "Hotel")
                         .WithMany()
                         .HasForeignKey("HotelID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Hotel");
@@ -557,17 +1000,11 @@ namespace YourPlace.Infrastructure.Migrations
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Image", b =>
                 {
-                    b.HasOne("YourPlace.Infrastructure.Data.Entities.Hotel", "Hotel")
-                        .WithMany()
-                        .HasForeignKey("HotelID")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("YourPlace.Infrastructure.Data.Entities.Hotel", null)
                         .WithMany("Images")
-                        .HasForeignKey("HotelID1");
-
-                    b.Navigation("Hotel");
+                        .HasForeignKey("HotelID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Reservation", b =>
@@ -575,7 +1012,7 @@ namespace YourPlace.Infrastructure.Migrations
                     b.HasOne("YourPlace.Infrastructure.Data.Entities.Hotel", "Hotel")
                         .WithMany()
                         .HasForeignKey("HotelID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Hotel");
@@ -605,7 +1042,7 @@ namespace YourPlace.Infrastructure.Migrations
                     b.HasOne("YourPlace.Infrastructure.Data.Entities.Hotel", "Hotel")
                         .WithMany()
                         .HasForeignKey("HotelID")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Hotel");

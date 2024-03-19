@@ -1,7 +1,10 @@
 ﻿@model AllHotelsModel
 @{
     ViewData["Title"] = "Filter";
+    DateTime tomorrow = DateTime.Today.AddDays(1);
+    string tomorrowDateString = tomorrow.ToString("yyyy-MM-dd");
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -116,19 +119,26 @@
                     <button class="btn" onclick="changeNumberOfPeople(1)">+</button>
                 </div>
 
-                <label for="date-from" @* asp-for="ArrivalDate" *@>Дата на настаняване:</label>
-                <input class="date-input" type="date" id="date-from" min="" onchange="setMinDate('date-to', this.value)" value="@(Model == null ? "" : Model.ArrivalDate)">
-                <label for="date-to" @* asp-for="LeavingDate" *@>Дата на напускане:</label>
-                <input class="date-input" type="date" id="date-to" min="" onchange="setMaxDate('date-from', this.value)" value="@(Model == null ? "" : Model.LeavingDate)">
+            <div class="form-group">
+                <label asp-for="ArrivalDate">Дата на пристигане:</label>
+                <input asp-for="ArrivalDate" id="arrivalDate" class="form-control" type="date" min="@DateTime.Today.ToString("yyyy-MM-dd")" value="@DateTime.Today.ToString("yyyy-MM-dd")" placeholder="Select Arrival Date" />
+                <span asp-validation-for="ArrivalDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="LeavingDate">Дата на напускане:</label>
+                <input asp-for="LeavingDate" id="leavingDate" class="form-control" type="date" min="@tomorrowDateString" value="@tomorrowDateString" placeholder="Select Leaving Date" />
+                <span asp-validation-for="LeavingDate" class="text-danger"></span>
+            </div>
                 <br>
                 <button class="clear" onclick="clearFilters()">Изчисти</button>
 
                 <form class="filters" asp-controller="Sorting" asp-action="Filter" method="post">
-                        <input type="hidden" id="hidden-price" name="price">
-                        <input type="hidden" id="hidden-country" name="country">
-                        <input type="hidden" id="hidden-peopleCount" name="peopleCount">
-                        <input type="hidden" id="hidden-date-from" name="date-from">
-                        <input type="hidden" id="hidden-date-to" name="date-to">
+                        <input type="hidden" id="hidden-price" name="price" asp-for="Price">
+                        <input type="hidden" id="hidden-country" name="country" asp-for="Country">
+                        <input type="hidden" id="hidden-peopleCount" name="peopleCount" asp-for="PeopleCount">
+                        <input type="hidden" id="hidden-date-from" name="date-from" asp-for="ArrivalDate">
+                        <input type="hidden" id="hidden-date-to" name="date-to" asp-for="LeavingDate">
                         <button type="submit" class="apply">Приложи</button>
                    
                  </form> 
@@ -172,24 +182,25 @@
             document.getElementById('date-to').value = '';
         }
 
-        const priceInput = document.getElementById('price');
-        const selectedPrice = document.getElementById('selected-price');
+        var priceInput = document.getElementById('price');
+        var selectedPrice = document.getElementById('selected-price');
         
-        const hiddenPriceInput = document.getElementById('hidden-price');
+        var hiddenPriceInput = document.getElementById('hidden-price');
 
         priceInput.addEventListener('input', (event) => {
             selectedPrice.textContent = event.target.value;
             hiddenPriceInput.value = event.target.value;
         });
 
-        const countryInput = document.getElementById('country');
-        const hiddenCountryInput = document.getElementById('hidden-country');
+        var countryInput = document.getElementById('country');
+        var hiddenCountryInput = document.getElementById('hidden-country');
 
         countryInput.addEventListener('input', (event) => {
             hiddenCountryInput.value = event.target.value;
         })
 
-        const numOfPeopleInput = document.getElementById('num-of-people');
+        var numOfPeopleInput = document.getElementById('num-of-people');
+        var hiddenPeopleCountInput = document.getElementById('hidden-peopleCount');
         function changeNumberOfPeople(change) {
             let currentValue = parseInt(numOfPeopleInput.value, 10);
             currentValue += change;
@@ -199,18 +210,16 @@
             }
 
             numOfPeopleInput.value = currentValue;
+            hiddenPeopleCountInput.value = currentValue;
+            console.log(hiddenPeopleCountInput.value);
         }
-        const hiddenPeopleCountInput = document.getElementById('hidden-peopleCount');
+        
 
-        numOfPeopleInput.addEventListener('input', (event) => {
-            hiddenPeopleCountInput.value = event.target.value;
-        })
+        var dateFromInput = document.getElementById('date-from');
+        var hiddenDateFromInput = document.getElementById('hidden-date-from');
 
-        const dateFromInput = document.getElementById('date-from');
-        const hiddenDateFromInput = document.getElementById('hidden-date-from');
-
-        const dateToInput = document.getElementById('date-to');
-        const hiddenDateToInput = document.getElementById('hidden-date-to');
+        var dateToInput = document.getElementById('date-to');
+        var hiddenDateToInput = document.getElementById('hidden-date-to');
 
         dateFromInput.addEventListener('input', (event) => {
             hiddenDateFromInput.value = event.target.value;

@@ -34,17 +34,12 @@ namespace YourPlace.Infrastructure.Data.Entities
         [ForeignKey("Hotel")]
         public int HotelID { get; set; }
 
-        [Required]
+        [NotMapped]
         public Hotel Hotel { get; set; }
 
         [NotMapped]
-        public List<RoomAvailability> roomsAvailability { get; set; }
+        public List<RoomSelection> ReservedRooms { get; set; } //пазят се всички резервирани стаи за дадената резервация
 
-        [NotMapped]
-        public List<RoomSelection> ReservedRooms { get; set; }
-
-        [NotMapped]
-        public List<Family> Families { get; set; }
         public Reservation()
         {
 
@@ -60,29 +55,5 @@ namespace YourPlace.Infrastructure.Data.Entities
             HotelID = hotelID;
             ReservedRooms = reservedRooms;
         }
-        //public Reservation(string firstName, string surname, DateOnly arrivalDate, DateOnly leavingDate, int peopleCount, decimal price, int hotelID, int roomID)
-        //{
-        //    FirstName = firstName;
-        //    Surname = surname;
-        //    ArrivalDate = arrivalDate;
-        //    LeavingDate = leavingDate;
-        //    PeopleCount = peopleCount;
-        //    Price = price;
-        //    HotelID = hotelID;
-        //    RoomID = roomID;
-        //}
-        //public Reservation(string firstName, string surname, DateOnly arrivalDate, DateOnly leavingDate, int peopleCount, decimal price, int hotelID, List<Room> reservedRooms, List<Family> families)
-        //{
-        //    FirstName = firstName;
-        //    Surname = surname;
-        //    ArrivalDate = arrivalDate;
-        //    LeavingDate = leavingDate;
-        //    PeopleCount = peopleCount;
-        //    Price = price;
-        //    HotelID = hotelID;
-        //    ReservedRooms = reservedRooms;
-        //    Families = families;
-        //}
-
     }
 }

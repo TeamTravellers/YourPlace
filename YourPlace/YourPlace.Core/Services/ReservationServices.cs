@@ -27,7 +27,6 @@ namespace YourPlace.Core.Services
         private readonly RoomAvailabiltyServices _roomAvailabiltyServices;
         private readonly Filters _filters;
 
-        private readonly List<Family> CreatedFamilies = new List<Family>();
         public ReservationServices(YourPlaceDbContext dbContext, HotelsServices hotelsServices, RoomServices roomServices, RoomAvailabiltyServices roomAvailabiltyServices, Filters filters)
         {
             _dbContext = dbContext;
@@ -209,7 +208,7 @@ namespace YourPlace.Core.Services
 
         #endregion
 
-        #region new code in progress
+        #region Logic for reservations
         public async Task<List<Reservation>> FindReservationsForHotel(int hotelID)
         {
             try

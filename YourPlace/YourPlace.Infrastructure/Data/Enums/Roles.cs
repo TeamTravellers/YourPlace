@@ -10,6 +10,7 @@ namespace YourPlace.Infrastructure.Data.Enums
     public enum Roles
     {
         HotelManager,
-        Traveller
+        Traveller,
+        Admin
     }
 }

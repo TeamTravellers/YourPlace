@@ -34,8 +34,11 @@ namespace YourPlace.Infrastructure.Data.Entities
         [NotMapped]
         public string UserId { get; set; }
 
+        ///<summary>
+        /// в следващ етап от развитието на приложението за всеки потребител ще се пазят неговите предпочитания и той ще може да ги редактира
+        /// това е удобно и с цел персонализирани реклами и оферти
+        /// </summary>
 
-        //public User User { get; set; }
         public Preferences()
         {
 
@@ -47,7 +50,6 @@ namespace YourPlace.Infrastructure.Data.Entities
             Atmosphere = atmosphere;
             Company = company;
             Pricing = pricing;
-            //UserId = UserId;
         }
     }
 }

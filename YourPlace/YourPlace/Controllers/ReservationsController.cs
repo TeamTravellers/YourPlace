@@ -136,7 +136,7 @@ namespace YourPlace.Controllers
             {
                 StatusCode(404, $"Съжаляваме, но резервацията Ви не е успешна. Опитайте отново по-късно! \n Sorry, but your reservations was not successful. Please, try again later!");
             }
-            return View(toReservationResult);
+            return View(toReservationResult, new ReservationModel { FirstName = firstName, Surname = surname, PeopleCount = peopleCount, ArrivalDate = arrivalDate, LeavingDate = leavingDate, TotalPrice = totalPrice});
         }
     }
 }

@@ -10,6 +10,9 @@ namespace YourPlace.Infrastructure.Data.Entities
 {
     public class ReservedRoom
     {
+        /// <summary>
+        /// обект, който свързва резервацията и всяка една резервирана стая; улеснява работата на базата данни и логиката
+        /// </summary>
         [Key]
         public int ID { get; set; }
         [Required]
@@ -20,8 +23,11 @@ namespace YourPlace.Infrastructure.Data.Entities
         public int Count { get; set; }
         [Required]
         public int HotelID { get; set; }
-        
+
+        [NotMapped]
         public Reservation Reservation { get; set; }
+
+        [NotMapped]
         public Room Room { get; set; }
 
         public ReservedRoom()

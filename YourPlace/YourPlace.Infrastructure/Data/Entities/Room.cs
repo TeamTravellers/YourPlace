@@ -22,10 +22,10 @@ namespace YourPlace.Infrastructure.Data.Entities
         public decimal Price { get; set; }
 
         [Required]
-        public int MaxPeopleCount { get; set; }
+        public int MaxPeopleCount { get; set; } //максималният брой хора, които побира стаята
 
         [Required]
-        public int CountInHotel { get; set; }
+        public int CountInHotel { get; set; } 
 
         [ForeignKey("Hotel")]
         public int HotelID { get; set; }

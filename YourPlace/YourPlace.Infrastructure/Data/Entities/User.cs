@@ -12,12 +12,12 @@ namespace YourPlace.Infrastructure.Data.Entities
 {
     public class User : IdentityUser
     {
+        [Required]
         public string FirstName { get; set; }
 
-        
+        [Required]
         public string Surname { get; set; }
 
-        //public Preferences Preferences { get; set; }
         public User()
         { 
 
@@ -30,7 +30,6 @@ namespace YourPlace.Infrastructure.Data.Entities
             this.NormalizedEmail = email.ToUpper();
             this.FirstName = firstName;
             this.Surname = surname;
-            //this.Preferences = Preferences;
         }
     }
 }

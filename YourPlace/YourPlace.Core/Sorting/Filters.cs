@@ -25,10 +25,13 @@ namespace YourPlace.Core.Sorting
         }
         public async Task<List<Hotel>> FilterByCountry(string country)
         {
-            return await _dbContext.Hotels.Where(x => x.Country == country).ToListAsync();
+            List<Hotel> hotels = await _hotelsServices.ReadAllAsync();
+            var resultList = hotels.Where(x => x.Country == country).ToList();
+            return resultList;
         }
         public async Task<List<Hotel>> FilterByPeopleCount(int count)
         {
+            Console.WriteLine(count);
             var hotels = await _hotelsServices.ReadAllAsync();
             var filteredHotels = new List<Hotel>();
             foreach (var hotel in hotels)
@@ -45,12 +48,14 @@ namespace YourPlace.Core.Sorting
         public async Task<List<Hotel>> FilterByPrice(decimal price)
         {
             var rooms = await _dbContext.Rooms.Where(x => x.Price <= price).ToListAsync();
-            var filteredHotels = new List<Hotel>();
+            var resultList = new List<Hotel>();
+
             foreach (var room in rooms)
             {
-                filteredHotels = await _dbContext.Hotels.Where(x => x.HotelID == room.HotelID).Distinct().ToListAsync();
+                var filteredHotels = await _dbContext.Hotels.Where(x => x.HotelID == room.HotelID).ToListAsync();
+                resultList.AddRange(filteredHotels);
             }
-            return filteredHotels;
+            return resultList;
         }
         public async Task<List<Hotel>> FilterByDates(DateOnly arrivingDate, DateOnly leavingDate)
         {
