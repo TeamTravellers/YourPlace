@@ -121,7 +121,7 @@ namespace YourPlace.Core.Services
                 }
             }
             return roomsInHotel;
-
         }
+
     }
 }

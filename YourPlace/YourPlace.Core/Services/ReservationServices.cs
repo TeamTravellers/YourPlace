@@ -243,21 +243,9 @@ namespace YourPlace.Core.Services
             List<Reservation> reservationsForHotel = await FindReservationsForHotel(hotelID);
             //List<RoomAvailability> roomsAvailability = await _roomAvailabiltyServices.ReadAsync(hotelID);
             List<ReservedRoom> reservedRooms = await FindReservedRoomsForHotel(hotelID);
-            List<Room> busyRooms = new List<Room>();
 
             List<Tuple<Room, int>> resultList = new List<Tuple<Room, int>>();
-            int count = 0;
             
-            foreach(var reservedRoom in reservedRooms)
-            {
-                Room room = await _roomServices.ReadAsync(reservedRoom.RoomID);
-                busyRooms.Add(room);
-            }
-            foreach(var reservedRoom in reservedRooms)
-            {
-                var currentRoomType = busyRooms.Where(x => x.RoomID == reservedRoom.RoomID);
-                count += reservedRoom.Count;
-            }
             foreach (var reservedRoom in reservedRooms)
             {
                 Room room = await _roomServices.ReadAsync(reservedRoom.RoomID);

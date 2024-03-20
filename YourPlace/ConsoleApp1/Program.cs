@@ -261,10 +261,31 @@ ReservationServices reservationServices = new ReservationServices(dbContext, hot
 //    Console.WriteLine(item.Item2);
 //    Console.WriteLine();
 //}
- 
-List<RoomSelection> chosenRooms = new List<RoomSelection>();
-chosenRooms.Add(new RoomSelection(4, 1));
-chosenRooms.Add(new RoomSelection(5, 1));
 
-decimal totalPrice = await reservationServices.CalculatePrice(new DateOnly(2024, 03, 29), new DateOnly(2024, 03, 30), chosenRooms);
-Console.WriteLine(totalPrice);
+//List<RoomSelection> chosenRooms = new List<RoomSelection>();
+//chosenRooms.Add(new RoomSelection(4, 1));
+//chosenRooms.Add(new RoomSelection(5, 1));
+
+//decimal totalPrice = await reservationServices.CalculatePrice(new DateOnly(2024, 03, 29), new DateOnly(2024, 03, 30), chosenRooms);
+//Console.WriteLine(totalPrice);
+
+//string country = "САЩ";
+//var list = await filters.FilterByCountry(country);
+//foreach(var item in list)
+//{
+//    Console.WriteLine(item.ToString());
+//}  
+
+//int count = 7;
+//var list = await filters.FilterByPeopleCount(count);
+//foreach (var item in list)
+//{
+//    Console.WriteLine(item.ToString());
+//}
+
+decimal price = 120;
+var list = await filters.FilterByPrice(price);
+foreach (var item in list)
+{
+    Console.WriteLine(item.ToString());
+}

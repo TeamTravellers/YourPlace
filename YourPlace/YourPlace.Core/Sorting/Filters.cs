@@ -16,12 +16,15 @@ namespace YourPlace.Core.Sorting
         private readonly YourPlaceDbContext _dbContext;
         private readonly HotelsServices _hotelsServices;
         private readonly RoomAvailabiltyServices _roomAvailabiltyServices;
-
-        public Filters(YourPlaceDbContext dbContext, HotelsServices hotelsServices, RoomAvailabiltyServices roomAvailabiltyServices)
+        private readonly ReservationServices _reservationsServices;
+        private readonly RoomServices _roomServices;
+        public Filters(YourPlaceDbContext dbContext, HotelsServices hotelsServices, RoomAvailabiltyServices roomAvailabiltyServices, ReservationServices reservationsServices, RoomServices roomServices)
         {
             _dbContext = dbContext;
             _hotelsServices = hotelsServices;
             _roomAvailabiltyServices = roomAvailabiltyServices;
+            _reservationsServices = reservationsServices;
+            _roomServices = roomServices;
         }
         public async Task<List<Hotel>> FilterByCountry(string country)
         {
@@ -52,34 +55,87 @@ namespace YourPlace.Core.Sorting
 
             foreach (var room in rooms)
             {
-                var filteredHotels = await _dbContext.Hotels.Where(x => x.HotelID == room.HotelID).ToListAsync();
-                resultList.AddRange(filteredHotels);
+                Hotel hotel =  _dbContext.Hotels.FirstOrDefault(x => x.HotelID == room.HotelID);
+                if (!resultList.Any(x => x.HotelID == hotel.HotelID))
+                {
+                    resultList.Add(hotel);
+                }
             }
             return resultList;
         }
-        public async Task<List<Hotel>> FilterByDates(DateOnly arrivingDate, DateOnly leavingDate)
+        public async Task<List<Hotel>> FilterByDates(DateOnly arrivalDate, DateOnly leavingDate)
         {
-            var reservations = await _dbContext.Reservations.ToListAsync();
-            var freeRooms = new List<Room>();
-            var filteredHotels = new List<Hotel>();
+         
+           List<Hotel> filteredHotels = await HotelsWithFreeRooms(arrivalDate, leavingDate);
+           return filteredHotels;
+        }
+       
+        public async Task<List<Tuple<Room, int>>> FindAllFreeRooms(DateOnly arrivalDate, DateOnly leavingDate)
+        {
+            List<ReservedRoom> reservedRooms = await _reservationsServices.ReadAllReservedRoomsAsync();
 
-            foreach (var reservation in reservations)
+            List<Tuple<Room, int>> resultList = new List<Tuple<Room, int>>();
+
+            foreach (var reservedRoom in reservedRooms)
             {
-                if (arrivingDate < leavingDate && leavingDate < reservation.ArrivalDate || leavingDate > arrivingDate && arrivingDate > reservation.LeavingDate)
+                Room room = await _roomServices.ReadAsync(reservedRoom.RoomID);
+
+                Reservation reservation = await _reservationsServices.ReadAsync(reservedRoom.ReservationID);
+                int roomCountInHotel = room.CountInHotel;
+
+                if (arrivalDate > reservation.LeavingDate || leavingDate < reservation.ArrivalDate)
                 {
-                    filteredHotels = await _dbContext.Hotels.Where(x => x.HotelID == reservation.HotelID).ToListAsync();
+                    Tuple<Room, int> roomCount = Tuple.Create(room, room.CountInHotel);
+                    if (!resultList.Contains(roomCount))
+                    {
+                        resultList.Add(roomCount);
+                    }
+                }
+                else
+                if (leavingDate >= reservation.ArrivalDate && leavingDate <= reservation.LeavingDate)
+                {
+                    int freeRoomsCount = room.CountInHotel - reservedRoom.Count;
+                    if (freeRoomsCount > 0)
+                    {
+                        Tuple<Room, int> roomCount = Tuple.Create(room, freeRoomsCount);
+                        if (!resultList.Contains(roomCount))
+                        {
+                            resultList.Add(roomCount);
+                        }
+                    }
+                }
+                else
+                if (reservation.ArrivalDate >= arrivalDate && reservation.LeavingDate <= leavingDate || arrivalDate >= reservation.ArrivalDate && arrivalDate <= reservation.LeavingDate)
+                {
+                    int freeRoomsCount = room.CountInHotel - reservedRoom.Count;
+                    if (freeRoomsCount > 0)
+                    {
+                        Tuple<Room, int> roomCount = Tuple.Create(room, freeRoomsCount);
+                        if (!resultList.Contains(roomCount))
+                        {
+                            resultList.Add(roomCount);
+                        }
+                    }
                 }
             }
-            //foreach(var room in freeRooms)
-            //{
-            //    filteredHotels = await _dbContext.Hotels.Where(x => x.HotelID == room.HotelID).Distinct().ToListAsync();
-            //}
+            //resultList = resultList.Distinct().ToList();
+            var finalRoomList = await _reservationsServices.CheckCount(resultList);
+
+            return finalRoomList;
+        }
+        public async Task<List<Hotel>> HotelsWithFreeRooms(DateOnly arrivalDate, DateOnly leavingDate)
+        {
+            List<Tuple<Room, int>> roomList = await FindAllFreeRooms(arrivalDate, leavingDate);
+            List<Hotel> filteredHotels = new List<Hotel>();
+            foreach(var room in roomList)
+            {
+                Hotel hotel = await _hotelsServices.ReadAsync(room.Item1.HotelID);
+                if (!filteredHotels.Any(x => x.HotelID == hotel.HotelID))
+                {
+                    filteredHotels.Add(hotel);
+                }
+            }
             return filteredHotels;
         }
-        //public async Task<List<Hotel>> FilterByOpportunityForPets(int hotelID)
-        //{
-
-        //}
-
     }
 }

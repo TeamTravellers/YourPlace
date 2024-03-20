@@ -115,7 +115,7 @@
                 <label class="filter-label" for="num-of-people" @* asp-for="PeopleCount" *@>Брой хора:</label>
                 <div>
                     <button class="btn" onclick="changeNumberOfPeople(-1)">-</button>
-                    <input class="number-input" type="number" id="num-of-people" value="1" value="@(Model == null ? "" : Model.PeopleCount)">
+                    <input class="number-input" type="number" id="num-of-people" value="1" value="@(Model == null ? "" : Model.PeopleCount)" disabled>
                     <button class="btn" onclick="changeNumberOfPeople(1)">+</button>
                 </div>
 
@@ -190,6 +190,7 @@
         priceInput.addEventListener('input', (event) => {
             selectedPrice.textContent = event.target.value;
             hiddenPriceInput.value = event.target.value;
+            console.log(hiddenPriceInput.value);
         });
 
         var countryInput = document.getElementById('country');
@@ -197,6 +198,7 @@
 
         countryInput.addEventListener('input', (event) => {
             hiddenCountryInput.value = event.target.value;
+            console.log(hiddenCountryInput.value);
         })
 
         var numOfPeopleInput = document.getElementById('num-of-people');
