@@ -30,7 +30,13 @@ namespace YourPlace.Core.Sorting
             _hotelsServices = hotelServices;
             _userManager = userManager;
         }
-        public async Task<Dictionary<int, int>> GetPreferencesCount(Preferences preference)
+
+        /// <summary>
+        /// сравняваме нашите предпочитания с категориите, в които попада всеки един хотел
+        /// </summary>
+        /// <param name="preference"></param>
+        /// <returns></returns>
+        public async Task<Dictionary<int, int>> GetPreferencesCount(Preferences preference) 
         {
             try
             {
@@ -89,6 +95,11 @@ namespace YourPlace.Core.Sorting
 
         }
 
+        /// <summary>
+        /// чрез този метод намираме предпочитаните хотели, като ги подрежда по ред на предпочитанията
+        /// </summary>
+        /// <param name="preference"></param>
+        /// <returns></returns>
         public async Task<List<Hotel>> GetPreferedHotels(Preferences preference)
         {
             List<Hotel> preferedHotels = new List<Hotel>();
@@ -181,7 +192,7 @@ namespace YourPlace.Core.Sorting
                 throw;
             }
            
-        }
+        } //ще бъде интегрирано на по-късен етап
         public async Task<List<Hotel>> GetPreferedHotel(string userID)
         {
             Dictionary<Hotel, int> matchingPreferences = await GetUserPreferencesCount(userID);

@@ -115,19 +115,19 @@
                 <label class="filter-label" for="num-of-people" @* asp-for="PeopleCount" *@>Брой хора:</label>
                 <div>
                     <button class="btn" onclick="changeNumberOfPeople(-1)">-</button>
-                    <input class="number-input" type="number" id="num-of-people" value="1" value="@(Model == null ? "" : Model.PeopleCount)" disabled>
+                    <input class="number-input" type="number" id="num-of-people" value="0" value="@(Model == null ? "" : Model.PeopleCount)" disabled>
                     <button class="btn" onclick="changeNumberOfPeople(1)">+</button>
                 </div>
 
             <div class="form-group">
                 <label asp-for="ArrivalDate">Дата на пристигане:</label>
-                <input asp-for="ArrivalDate" id="arrivalDate" class="form-control" type="date" min="@DateTime.Today.ToString("yyyy-MM-dd")" value="@DateTime.Today.ToString("yyyy-MM-dd")" placeholder="Select Arrival Date" />
+                <input asp-for="ArrivalDate" id="arrivalDate" class="form-control" type="date" min="@DateTime.Today.ToString("yyyy-MM-dd")" value="0" placeholder="Select Arrival Date" />
                 <span asp-validation-for="ArrivalDate" class="text-danger"></span>
             </div>
 
             <div class="form-group">
                 <label asp-for="LeavingDate">Дата на напускане:</label>
-                <input asp-for="LeavingDate" id="leavingDate" class="form-control" type="date" min="@tomorrowDateString" value="@tomorrowDateString" placeholder="Select Leaving Date" />
+                <input asp-for="LeavingDate" id="leavingDate" class="form-control" type="date" min="@tomorrowDateString" value="0" placeholder="Select Leaving Date" />
                 <span asp-validation-for="LeavingDate" class="text-danger"></span>
             </div>
                 <br>
@@ -177,7 +177,7 @@
             document.getElementById('price').value = 0;
             document.getElementById('selected-price').innerText = '0';
             document.getElementById('country').value = '';
-            document.getElementById('num-of-people').value = 1;
+            document.getElementById('num-of-people').value = 0;
             document.getElementById('date-from').value = '';
             document.getElementById('date-to').value = '';
         }
@@ -215,13 +215,14 @@
             hiddenPeopleCountInput.value = currentValue;
             console.log(hiddenPeopleCountInput.value);
         }
-        
 
-        var dateFromInput = document.getElementById('date-from');
+
+        var dateFromInput = document.getElementById('arrivalDate'); 
         var hiddenDateFromInput = document.getElementById('hidden-date-from');
 
-        var dateToInput = document.getElementById('date-to');
+        var dateToInput = document.getElementById('leavingDate');
         var hiddenDateToInput = document.getElementById('hidden-date-to');
+
 
         dateFromInput.addEventListener('input', (event) => {
             hiddenDateFromInput.value = event.target.value;
@@ -231,19 +232,44 @@
             hiddenDateToInput.value = event.target.value;
         });
 
-        function setMinDate(elementId, minValue) {
-            const element = document.getElementById(elementId);
-            element.setAttribute('min', minValue);
-        }
+       
+   
+        var applyForm = document.querySelector('.filters');
 
-        function setMaxDate(elementId, maxValue) {
-            const element = document.getElementById(elementId);
-            element.setAttribute('max', maxValue);
-        }
+        applyForm.addEventListener('submit', function (event) {
+            var inputs = document.querySelectorAll('.filter-input, #arrivalDate, #leavingDate');
+            var isEmpty = true;
 
-        
+            inputs.forEach(function (input) {
+                if (input.type === 'date') {
+                    if (input.value !== '') {
+                        isEmpty = false;
+                    }
+                } else if (input.type === 'range' && input.value !== '0') {
+                    isEmpty = false;
+                } else if (input.type === 'text' && input.value.trim() !== '') {
+                    isEmpty = false;
+                } else if (input.type === 'number' && input.value !== '0') {
+                    isEmpty = false;
+                }
+            });
 
-      
+            if (isEmpty) {
+                event.preventDefault(); 
+                alert('Моля, попълнете формуляра!');
+            }
+        });
+
+        document.getElementById('submit-button').addEventListener('submit', function (event) {
+            var arrivalDate = new Date(document.getElementById('arrivalDate').value);
+            var leavingDate = new Date(document.getElementById('leavingDate').value);
+
+            if (arrivalDate >= leavingDate) {
+                alert('Дата на напускане трябва да бъде по-късна от датата на пристигане.');
+                event.preventDefault();
+            }
+        });
+
     </script>
 </body>
 </html>

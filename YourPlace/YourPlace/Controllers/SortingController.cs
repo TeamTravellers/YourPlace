@@ -37,33 +37,9 @@ namespace YourPlace.Controllers
         //filters the hotels according the set filters in the filters menu
         public async Task<IActionResult> Filter(AllHotelsModel model)
         {
-            List<Hotel> hotels = new List<Hotel>();
-
-            if (model.Country != null)
-            {
-                List<Hotel> filteredByCountry = await _filters.FilterByCountry(model.Country);
-                hotels.AddRange(filteredByCountry);
-            }
-            if (model.PeopleCount != 0)
-            {
-                List<Hotel> filteredByPeopleCount = await _filters.FilterByPeopleCount(model.PeopleCount);
-                hotels.AddRange(filteredByPeopleCount);
-            }
-            if (model.Price != 0)
-            {
-                List<Hotel> filteredByPrice = await _filters.FilterByPrice(model.Price);
-                hotels.AddRange(filteredByPrice);
-            }
-            if (model.ArrivalDate != null && model.LeavingDate != null)
-            {
-                List<Hotel> filteredByDates = await _filters.FilterByDates(model.ArrivalDate, model.LeavingDate);
-                hotels.AddRange(filteredByDates);
-            }
-            
-            hotels = hotels.Distinct().ToList();
+            List<Hotel> hotels = await _filters.ApplyFilters(model.Country, model.PeopleCount, model.Price, model.ArrivalDate, model.LeavingDate);
             return View(toMain, new AllHotelsModel { Hotels = hotels });
         }
-        //returns the submit page view
         public IActionResult ToSubmitPage()
         {
             return View(toSubmitPage);

@@ -15,6 +15,8 @@ using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.Data;
 
+//ИЗПОЛЗВАМЕ ТОЗИ СЛОЙ НА НАШЕТО ПРИЛОЖЕНИЕ НАЙ-ВЕЧЕ ЗА ТЕСТВАНЕ НА ФУНКЦИОНАЛНОСТТА НА ПРИЛОЖЕНИЕТО НИ
+
 #region manage seeding layer
 IdentityOptions options = new IdentityOptions();
 options.Password.RequireDigit = false;
@@ -39,6 +41,7 @@ UserManager<User> userManager = new UserManager<User>(
     new Logger<UserManager<User>>(new LoggerFactory())
     );
 #endregion
+
 
 #region seeding
 #region UserSeeding
@@ -122,9 +125,8 @@ HotelsServices hotelsServices = new HotelsServices(dbContext);
 #endregion
 RoomServices roomServices = new RoomServices(dbContext, hotelsServices);
 RoomAvailabiltyServices roomAvailabilityServices = new RoomAvailabiltyServices(dbContext, hotelsServices);
-Filters filters = new Filters(dbContext, hotelsServices, roomAvailabilityServices);
-ReservationServices reservationServices = new ReservationServices(dbContext, hotelsServices, roomServices, roomAvailabilityServices, filters);
-
+ReservationServices reservationServices = new ReservationServices(dbContext, hotelsServices, roomServices, roomAvailabilityServices);
+Filters filters = new Filters(dbContext, hotelsServices, roomAvailabilityServices, reservationServices, roomServices);
 
 #region CompareTotalCountWithFamilyMembersCount
 
@@ -283,9 +285,15 @@ ReservationServices reservationServices = new ReservationServices(dbContext, hot
 //    Console.WriteLine(item.ToString());
 //}
 
-decimal price = 120;
-var list = await filters.FilterByPrice(price);
-foreach (var item in list)
-{
-    Console.WriteLine(item.ToString());
-}
+//decimal price = 120;
+//var list = await filters.FilterByPrice(price);
+//foreach (var item in list)
+//{
+//    Console.WriteLine(item.ToString());
+//}
+
+//var hotels = await filters.ApplyFilters("Франция", 0, 0, new DateOnly(2024, 03, 20), new DateOnly(2024, 03, 21));
+//foreach(var hotel in hotels)
+//{
+//    Console.WriteLine(hotel.ToString());
+//}

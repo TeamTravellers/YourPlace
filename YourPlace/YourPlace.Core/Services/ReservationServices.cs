@@ -19,7 +19,7 @@ using NuGet.Versioning;
 
 namespace YourPlace.Core.Services
 {
-    public class ReservationServices : IReservation, IDbCRUD<Reservation, int>
+    public class ReservationServices : IDbCRUD<Reservation, int>
     {
         private readonly YourPlaceDbContext _dbContext;
         private readonly HotelsServices _hotelsServices;

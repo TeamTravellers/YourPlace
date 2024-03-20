@@ -92,15 +92,18 @@ body {
     bottom: 100%;
 }
 
-.save-btn {
-    position: absolute;
-    left: 700px;
-    top: 17px
+.submit {
+    position: relative;
+    left: 20%;
+    top: 50%;
 }
 .clear-btn{
         position: absolute;
         left: 800px;
         top: 17px;
+}
+.btn{
+    top: 70%;
 }
 
 .button-options {
@@ -163,8 +166,8 @@ body {
                         <input type="hidden" id="rooms-id-@Model.AvailableRooms[i].Item1.RoomID" name="ChosenRooms[@i].RoomID" value="@Model.AvailableRooms[i].Item1.RoomID" asp-for="ChosenRoomID" />
                         <input type="hidden" id="hidden-chosen-roomCount-@Model.AvailableRooms[i].Item1.RoomID" name="ChosenRooms[@i].ChosenCount" asp-for="ChosenRoomCount" />
                     }
-                    
-                    <button type="submit" class="btn" id="reserve-btn">Резервирай</button>
+
+                    <button type="submit" class="btn btn-outline-success" id="reserve-btn">Резервирай</button>
                 </form>
                 
             </div>

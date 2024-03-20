@@ -63,7 +63,7 @@ namespace YourPlace.Core.Services
                 IQueryable<Hotel> hotels = _dbContext.Hotels;
                 if (isReadOnly)
                 {
-                    //hotels = hotels.AsNoTrackingWithIdentityResolution();
+                    hotels = hotels.AsNoTrackingWithIdentityResolution();
                 }
                 return await hotels.ToListAsync();
             }
