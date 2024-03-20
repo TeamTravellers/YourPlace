@@ -25,15 +25,13 @@ namespace YourPlace.Core.Services
         private readonly HotelsServices _hotelsServices;
         private readonly RoomServices _roomServices;
         private readonly RoomAvailabiltyServices _roomAvailabiltyServices;
-        private readonly Filters _filters;
 
-        public ReservationServices(YourPlaceDbContext dbContext, HotelsServices hotelsServices, RoomServices roomServices, RoomAvailabiltyServices roomAvailabiltyServices, Filters filters)
+        public ReservationServices(YourPlaceDbContext dbContext, HotelsServices hotelsServices, RoomServices roomServices, RoomAvailabiltyServices roomAvailabiltyServices)
         {
             _dbContext = dbContext;
             _hotelsServices = hotelsServices;
             _roomServices = roomServices;
             _roomAvailabiltyServices = roomAvailabiltyServices;
-            _filters = filters;
         }
         #region CRUD For Reservations
         public async Task CreateAsync(Reservation reservation)
