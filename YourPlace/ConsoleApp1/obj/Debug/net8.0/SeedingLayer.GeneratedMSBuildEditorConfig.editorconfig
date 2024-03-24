@@ -16,6 +16,6 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SeedingLayer
-build_property.ProjectDir = D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\ConsoleApp1\
+build_property.ProjectDir = C:\Users\Eli\Desktop\Reservation-Manager\YourPlace\ConsoleApp1\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

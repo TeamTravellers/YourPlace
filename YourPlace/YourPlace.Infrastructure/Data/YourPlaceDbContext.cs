@@ -13,6 +13,8 @@ using System.Diagnostics.Metrics;
 using Microsoft.AspNetCore.Identity;
 
 
+
+
 namespace YourPlace.Infrastructure.Data
 {
     public class YourPlaceDbContext : IdentityDbContext<User>
