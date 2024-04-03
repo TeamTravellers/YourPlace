@@ -3,7 +3,7 @@
 @using YourPlace.Infrastructure.Data.Enums;
 
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Регистрация";
 }
 <head>
    @*  <meta name="google-signin-client_id" content="657954048976-psj504rnils7e6isbss9jr6up525ssdl.apps.googleusercontent.com">
@@ -16,55 +16,57 @@
 <div class="row">
     <div class="col-md-4">
         <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h2>Create a new account.</h2>
+            <h2>Създаване на профил.</h2>
             <hr />
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
-                <input asp-for="Input.FirstName" class="form-control" autocomplete="firstName" aria-required="true" placeholder="First Name" />
-                <label asp-for="Input.FirstName">First Name</label>
+                <input asp-for="Input.FirstName" class="form-control" autocomplete="firstName" aria-required="true" placeholder="Име" />
+                <label asp-for="Input.FirstName">Име</label>
                 <span asp-validation-for="Input.FirstName" class="text-danger"></span>
             </div>
             
             <div class="form-floating mb-3">
-                <input asp-for="Input.Surname" class="form-control" autocomplete="surname" aria-required="true" placeholder="Surname" required />
-                <label asp-for="Input.Surname">Surname</label>
+                <input asp-for="Input.Surname" class="form-control" autocomplete="surname" aria-required="true" placeholder="Фамилия" required />
+                <label asp-for="Input.Surname">Фамилия</label>
                 <span asp-validation-for="Input.Surname" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
-                <input asp-for="Input.Username" class="form-control" autocomplete="username" aria-required="true" placeholder="Username" />
-                <label asp-for="Input.Username">Username</label>
+                <input asp-for="Input.Username" class="form-control" autocomplete="username" aria-required="true" placeholder="Потребителско име" />
+                <label asp-for="Input.Username">Потребителско име</label>
                 <span asp-validation-for="Input.Username" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
                 <input asp-for="Input.Email" class="form-control" autocomplete="email" aria-required="true" placeholder="name@example.com" />
-                <label asp-for="Input.Email">Email</label>
+                <label asp-for="Input.Email">Имейл</label>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
                 <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.Password">Password</label>
+                <label asp-for="Input.Password">Парола</label>
                 <span asp-validation-for="Input.Password" class="text-danger"></span>
             </div>
             <div class="form-floating mb-3">
                 <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
-                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                <label asp-for="Input.ConfirmPassword">Потвърди паролата</label>
                 <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
             </div>
 
             <div class="form-floating mb-3">
-                <select asp-for="Input.Role" asp-items="Html.GetEnumSelectList<Roles>()" class="form-control" autocomplete="role" aria-required="true">
-                    <option value="">Select Role</option>
+                <select asp-for="Input.Role" class="form-control" autocomplete="role" aria-required="true">
+                    <option value="" hidden>Изберете роля</option>
+                    <option value="Traveller">Пътешественик</option>
+                    <option value="Manager">Хотелиер</option>
                 </select>
-                <label asp-for="Input.Role">Role</label>
+                <label asp-for="Input.Role">Роля</label>
                 <span asp-validation-for="Input.Role" class="text-danger"></span>
             </div>
 
-            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Регистрация</button>
         </form>
     </div>
     <div class="col-md-6 col-md-offset-2">
         <section>
-            <h3>Use another service to register.</h3>
+            <h3>Регистрация чрез:</h3>
             <hr />
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
@@ -83,7 +85,7 @@
                             <p>
                                 @foreach (var provider in Model.ExternalLogins!)
                                 {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Регистрация чрез: @provider.DisplayName account">@provider.DisplayName</button>
                                 }
                             </p>
                         </div>

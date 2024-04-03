@@ -1296,3 +1296,6 @@ D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\Console
 D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\ConsoleApp1\obj\Debug\net8.0\SeedingLayer.pdb
 D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\ConsoleApp1\obj\Debug\net8.0\SeedingLayer.genruntimeconfig.cache
 D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\ConsoleApp1\obj\Debug\net8.0\ref\SeedingLayer.dll
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\ConsoleApp1\bin\Debug\net8.0\Facebook.dll
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\ConsoleApp1\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Facebook.dll
+D:\Aneliya\My Projects\TeamTravellers\YourPlace\YourPlace\ConsoleApp1\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll

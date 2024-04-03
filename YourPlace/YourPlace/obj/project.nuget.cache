@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tkycjlI/jZPU9zUE++SKn1c3tRegzdvQ7ptdzXJQU3e34dzytmwSzfgfjJGVJRpZQMAWoME4Jt0wNN3CqY6LjQ==",
+  "dgSpecHash": "BCqr0WNTET2Xtboz9xsv7UBHOlm4gQImq56hAGfdnmN8h8bPeTkL8eG3FtSwHVAeJmApFnUAG89D3slkdAF71Q==",
   "success": true,
-  "projectFilePath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace\\YourPlace.csproj",
+  "projectFilePath": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\YourPlace.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aneli\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\aneli\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

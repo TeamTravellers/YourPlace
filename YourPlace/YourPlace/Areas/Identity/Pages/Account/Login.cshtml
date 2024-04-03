@@ -2,7 +2,7 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Вход";
 }
 <head>
 @* <meta name="google-signin-client_id" content="657954048976-psj504rnils7e6isbss9jr6up525ssdl.apps.googleusercontent.com">
@@ -14,17 +14,17 @@
     <div class="col-md-4">
         <section>
             <form id="account" method="post">
-                <h2>Use a local account to log in.</h2>
+                <h2>Влезте в профила си.</h2>
                 <hr />
                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                 <div class="form-floating mb-3">
                     <input asp-for="Input.Email" class="form-control" autocomplete="email" aria-required="true" placeholder="name@example.com" />
-                    <label asp-for="Input.Email" class="form-label">Email</label>
+                    <label asp-for="Input.Email" class="form-label">Имейл</label>
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
-                    <label asp-for="Input.Password" class="form-label">Password</label>
+                    <label asp-for="Input.Password" class="form-label">Парола</label>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="checkbox mb-3">
@@ -35,18 +35,18 @@
                 </div>
                 <div>
                     <form asp-controller="Home" asp-action="toMainBg">
-                        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                        <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Вход</button>
                     </form>  
                 </div>
                 <div>
                     <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Нямате профил?</a>
                     </p>
                     <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Забравена парола?</a>
                     </p>
                     <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Повторно изпращане на имейл за потвърждение</a>
                     </p>
                 </div>
             </form>
@@ -54,7 +54,7 @@
     </div>
     <div class="col-md-6 col-md-offset-2">
         <section>
-            <h3>Use another service to log in.</h3>
+            <h3>Вход чрез:</h3>
             <hr />
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
@@ -75,7 +75,7 @@
                             <p>
                                 @foreach (var provider in Model.ExternalLogins!)
                                 {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Влизане чрез @provider.DisplayName account">@provider.DisplayName</button>
                                 }
                             </p>
                         </div>
