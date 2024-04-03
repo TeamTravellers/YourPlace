@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "9JKuNSM8wlWMICsMoTG/n5PwJebKoDYqlsl2PyH0LqM+LC9vwBAsR915HO+Ch6LsVQ9/z5P9WkoaGWOGEu+7xA==",
+  "dgSpecHash": "Rfn1yXPnuqn4eGmF8Hc8bTvVN78d4sCWEqwEVZiu4EVoI/NC11vEp+MNokSMopcTCgZxY4hQAxcRgWuazW14+Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj",
+  "projectFilePath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\aneli\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\aneli\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\aneli\\.nuget\\packages\\facebook\\7.0.6\\facebook.7.0.6.nupkg.sha512",
     "C:\\Users\\aneli\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\aneli\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\aneli\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",
@@ -60,6 +61,8 @@
     "C:\\Users\\aneli\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\aneli\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.2.0\\microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
     "C:\\Users\\aneli\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\aneli\\.nuget\\packages\\microsoft.aspnetcore.authentication.facebook\\8.0.3\\microsoft.aspnetcore.authentication.facebook.8.0.3.nupkg.sha512",
+    "C:\\Users\\aneli\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\8.0.3\\microsoft.aspnetcore.authentication.google.8.0.3.nupkg.sha512",
     "C:\\Users\\aneli\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.1\\microsoft.aspnetcore.authorization.8.0.1.nupkg.sha512",
     "C:\\Users\\aneli\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.1\\microsoft.aspnetcore.components.8.0.1.nupkg.sha512",
     "C:\\Users\\aneli\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\8.0.1\\microsoft.aspnetcore.components.analyzers.8.0.1.nupkg.sha512",
@@ -201,5 +204,16 @@
     "C:\\Users\\aneli\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\aneli\\.nuget\\packages\\system.windows.extensions\\7.0.0\\system.windows.extensions.7.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Facebook 7.0.6' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Facebook",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

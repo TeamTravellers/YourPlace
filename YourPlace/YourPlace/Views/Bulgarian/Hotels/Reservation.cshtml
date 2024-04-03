@@ -7,7 +7,11 @@
 }
 <link rel="stylesheet" type="text/css" href="~/css/reservation.css" />
 
-
+<style>
+    .row{
+        padding-top: 10%;
+    }
+</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,11 +26,6 @@
             <div>
                 @using (Html.BeginForm("CreateReservation", "Reservations", FormMethod.Post))
                 {
-                    <div class="form-group">
-                        <label asp-for="HotelID">ID на хотел</label>
-                        <input asp-for="HotelID" class="form-control" type="text" value="@Model.HotelID" />
-                        <span asp-validation-for="HotelID" class="text-danger"></span>
-                    </div>
                     <input type="hidden" value="@Model.ArrivalDate" asp-for="ArrivalDate"/>
                     <input type="hidden" value="@Model.LeavingDate" asp-for="LeavingDate" />
                     <input type="hidden" value="@Model.TotalPrice" asp-for="TotalPrice" />
@@ -46,8 +45,18 @@
                         <span asp-validation-for="Surname" class="text-danger"></span>
                     </div>
                     <div class="form-group">
+                        <label asp-for="PhoneNumber">Телефонен номер:</label>
+                        <input asp-for="PhoneNumber" class="form-control" type="tel" />
+                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Email">Имейл:</label>
+                        <input asp-for="Email" class="form-control" type="email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="PeopleCount">Брой хора:</label>
-                        <input asp-for="PeopleCount" class="form-control" type="text" />
+                        <input asp-for="PeopleCount" class="form-control" type="number" min="1" />
                         <span asp-validation-for="PeopleCount" class="text-danger"></span>
                     </div>
                     <button type="submit" class="btn">Резервирай</button>

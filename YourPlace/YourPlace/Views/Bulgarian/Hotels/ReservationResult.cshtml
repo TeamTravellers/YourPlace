@@ -6,30 +6,43 @@
     <title>YourPlace</title>
 </head>
 <style>
-    .check-mark{
+    .check-mark {
         width: 100px;
         height: 100px;
     }
-    .container3{
+
+    .container3 {
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+        padding-top: 10%; 
     }
 </style>
 <body>
     <div class="row">
         <div class="container3">
-            <img src="~/Images/check-mark (1).png" class="check-mark"/>
+            <img src="~/Images/check-mark (1).png" class="check-mark" />
             <br />
             <h2><b>Резервацията е направена успешно!</b></h2>
+
             <label>Име</label>
             <p>@Model.FirstName @Model.Surname</p>
+
             <label>Дата на пристигане</label>
             <p>@Model.ArrivalDate</p>
             <label>Дата на напускане</label>
             <p>@Model.LeavingDate</p>
+
+            <label>Телефонен номер:</label>
+            <p>@Model.PhoneNumber</p>
+
+            <label>Имейл</label>
+            <p>@Model.Email</p>
+
             <label>Брой хора</label>
             <p>@Model.PeopleCount</p>
+
             <label>Цена</label>
             <p>@Model.TotalPrice</p>
         </div>

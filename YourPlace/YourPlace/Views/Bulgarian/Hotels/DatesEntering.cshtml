@@ -9,6 +9,25 @@
 
 
 }
+<style>
+    .btn {
+        border: 1px solid #6667b0;
+        background: #6b43ff;
+        color: #fff;
+        line-height: 30px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: 800;
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+
+        .btn:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
+</style>
 
 <input type="hidden" id="hotelImages" value="@Model.HotelImages.Count" />
 
@@ -47,32 +66,37 @@
                 <p>Hotel is null.</p>
             }
         </div>
+
+        @using (Html.BeginForm("FreeRoomsCheck", "Reservations", FormMethod.Post))
+        {
+            <div class="reservation-container">
+                <div class="form-group">
+                    <input asp-for="HotelID" class="form-control" type="hidden" />
+                    <span asp-validation-for="HotelID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ArrivalDate">Дата на пристигане:</label>
+                    <input asp-for="ArrivalDate" id="arrivalDate" class="form-control" type="date" min="@DateTime.Today.ToString("yyyy-MM-dd")" value="@DateTime.Today.ToString("yyyy-MM-dd")" placeholder="Select Arrival Date" />
+                    <span asp-validation-for="ArrivalDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="LeavingDate">Дата на напускане:</label>
+                    <input asp-for="LeavingDate" id="leavingDate" class="form-control" type="date" min="@tomorrowDateString" value="@tomorrowDateString" placeholder="Select Leaving Date" />
+                    <span asp-validation-for="LeavingDate" class="text-danger"></span>
+                </div>
+                <br />
+                <button type="submit" id="submit-button" class="btn">Виж наличностите</button>
+
+            </div>
+
+        }
+
     </div>
 </div>
 
 <div>
-    @using (Html.BeginForm("FreeRoomsCheck", "Reservations", FormMethod.Post))
-    {
-        <div class="form-group">
-            <input asp-for="HotelID" class="form-control" type="hidden" />
-            <span asp-validation-for="HotelID" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="ArrivalDate">Дата на пристигане:</label>
-            <input asp-for="ArrivalDate" id="arrivalDate" class="form-control" type="date" min="@DateTime.Today.ToString("yyyy-MM-dd")" value="@DateTime.Today.ToString("yyyy-MM-dd")" placeholder="Select Arrival Date" />
-            <span asp-validation-for="ArrivalDate" class="text-danger"></span>
-        </div>
-
-        <div class="form-group">
-            <label asp-for="LeavingDate">Дата на напускане:</label>
-            <input asp-for="LeavingDate" id="leavingDate" class="form-control" type="date" min="@tomorrowDateString" value="@tomorrowDateString" placeholder="Select Leaving Date" />
-            <span asp-validation-for="LeavingDate" class="text-danger"></span>
-        </div>
-        <br />
-        <button type="submit" id="submit-button" class="btn btn-primary">Виж наличностите</button>
-       
-    }
 </div>
 <script>
     let slidesCount = document.getElementById("hotelImages").value;

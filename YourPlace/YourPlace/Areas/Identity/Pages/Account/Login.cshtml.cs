@@ -1,4 +1,4 @@
-﻿// Licensed to the .NET Foundation under one or more agreements.
+// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable disable
 
@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using YourPlace.Infrastructure.Data.Entities;
 using YourPlace.Core.Services;
+using YourPlace.Infrastructure.Data.Enums;
 
 namespace YourPlace.Areas.Identity.Pages.Account
 {
@@ -119,12 +120,29 @@ namespace YourPlace.Areas.Identity.Pages.Account
 
                 if (resultTupple.Item1.Succeeded)
                 {
+                    User user = resultTupple.Item2;
                     // Use the following code if you are calling userManager.PasswordValidators[0].ValidateAsync(..)
-                    await _signInManager.SignInAsync(resultTupple.Item2, new AuthenticationProperties());
+                    await _signInManager.SignInAsync(user, new AuthenticationProperties());
 
-                    // Else if you want to validate credentials here, wit signInManager:
-                    await _signInManager.PasswordSignInAsync(resultTupple.Item2, Input.Password, Input.RememberMe, lockoutOnFailure: true);
-
+                    // Else if you want to validate credentials here, with signInManager:
+                    await _signInManager.PasswordSignInAsync(user, Input.Password, Input.RememberMe, lockoutOnFailure: true);
+                    if(user != null)
+                    {
+                        var roles = await _signInManager.UserManager.GetRolesAsync(user);
+                        foreach (var role in roles)
+                        {
+                            Console.WriteLine("ROLE: " + role);
+                        }
+                        if (roles.Contains(Roles.Manager.ToString()))
+                        {
+                            return RedirectToAction("Index", "ManagerMenu", new { firstName = user.FirstName, lastName = user.Surname, managerID = user.Id });
+                        }
+                        else
+                        if (roles.Contains(Roles.Traveller.ToString()))
+                        {
+                            return RedirectToAction("ToMainBg", "Home");
+                        }
+                    }
                     _logger.LogInformation("User logged successfully!");
                     return LocalRedirect(returnUrl);
                 }

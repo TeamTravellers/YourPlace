@@ -9,6 +9,8 @@ namespace YourPlace.Models
         public int HotelID { get; set; }
         public string FirstName { get; set; }
         public string Surname { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Email { get; set; }
         public int PeopleCount { get; set; }
         public DateOnly ArrivalDate { get; set; }
         public DateOnly LeavingDate { get; set; }

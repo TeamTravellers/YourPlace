@@ -73,7 +73,7 @@ namespace YourPlace.Infrastructure.Data
             #region Seeding
             modelBuilder.Entity<IdentityRole>().HasData(
              new IdentityRole { Id = "1", Name = "Traveller", NormalizedName = "Traveller" },
-             new IdentityRole { Id = "2", Name = "Hotel Manager", NormalizedName = "HotelManager" },
+             new IdentityRole { Id = "2", Name = "Manager", NormalizedName = "Manager" },
              new IdentityRole { Id = "3", Name = "Admin", NormalizedName = "Admin" }
             );
 

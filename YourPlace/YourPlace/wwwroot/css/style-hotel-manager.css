@@ -1,0 +1,272 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Mulish', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    padding-top: 30%;
+}
+
+.logo {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-svg {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.logo a {
+    font-size: 35px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #222;
+    padding-left: 50px;
+}
+
+.container {
+    display: grid;
+    position: relative;
+    width: 60%;
+    padding: 40px 32px;
+    border-radius: 8px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: transparent;
+}
+    .container::-webkit-scrollbar {
+       display:none;
+    }
+
+    .container h1 {
+        font-size: 1.6rem;
+    }
+
+    .container .social-login {
+        display: flex;
+        gap: 16px;
+        margin-top: 20px;
+    }
+
+        .container .social-login button {
+            padding: 8px;
+            width: 100%;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #323760;
+            border: 1px solid #6667b0;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+            .container .social-login button i {
+                font-size: 26px;
+            }
+
+            .container .social-login button:hover {
+                color: #6b43ff;
+                border-color: #6b43ff;
+            }
+
+    .container .divider {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+        .container .divider .line {
+            height: 1px;
+            width: 100%;
+            background: #1d1d1d;
+            opacity: 0.2;
+            margin: 30px 0 16px;
+        }
+
+    .container form label {
+        color: #1d1d1d;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 0.03rem;
+        display: block;
+        margin-top: 12px;
+        width: 50%;
+        float: left;
+        text-align: left;
+    }
+
+    .container form .custome-input {
+        position: relative;
+        width: 50%;
+        float: left;
+    }
+
+        .container form .custome-input input {
+            color: #1d1d1d;
+            font-size: 16px;
+            font-weight: 500;
+            width: calc(100% - 20px);
+            height: 46px;
+            letter-spacing: 0.03rem;
+            border: 1px solid #1d1d1d;
+            background: transparent;
+            outline: none;
+            border-radius: 8px;
+            padding-left: 20px;
+            transition: all 0.3s ease;
+        }
+
+            .container form .custome-input input:focus {
+                border-color: #5222fd;
+            }
+
+        .container form .custome-input i {
+            position: absolute;
+            font-size: 28px;
+            right: 10px;
+            top: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .container form .custome-input input:focus + i {
+            color: #5222fd;
+        }
+
+.login {
+    display: block;
+    margin-top: 20px;
+    width: 50%;
+    background: #6b43ff;
+    color: #fff;
+    border: none;
+    line-height: 50px;
+    font-size: 18px;
+    letter-spacing: 0.025em;
+    cursor: pointer;
+    font-weight: 800;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+    .login:hover {
+        background: #5222fd;
+    }
+
+.container .links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+    .container .links a {
+        color: #6b43ff;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        text-underline-offset: 6px;
+        text-decoration-color: #6b43ff;
+    }
+
+        .container .links a:hover {
+            text-decoration: underline;
+        }
+
+.container form label[for="dropdown"] {
+    position: relative;
+    color: #1d1d1d;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 0.03rem;
+    display: block;
+    margin-top: 12px;
+}
+
+.container form .custome-input.dropdown {
+    position: relative;
+    width: 50%;
+    float: right;
+}
+
+    .container form .custome-input.dropdown select {
+        color: #1d1d1d;
+        font-size: 16px;
+        font-weight: 500;
+        width: calc(100% - 40px);
+        height: 46px;
+        letter-spacing: 0.03rem;
+        border: 1px solid #1d1d1d;
+        background: transparent;
+        outline: none;
+        border-radius: 8px;
+        padding-left: 20px;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+    }
+
+    .container form .custome-input.dropdown i {
+        position: absolute;
+        font-size: 24px;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: #1d1d1d;
+    }
+
+.preferences {
+    display: flex;
+    width: 200%;
+    flex-direction: column;
+    align-content: space-around;
+}
+
+#description {
+    width: 100%;
+    min-height: 100px;
+    resize: vertical;
+}
+
+#add-room-btn,
+#signup {
+    width: 200px;
+    margin: 10px auto;
+}
+
+form {
+    flex: 1;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons-form {
+    display: flex;
+    flex-direction: row;
+}

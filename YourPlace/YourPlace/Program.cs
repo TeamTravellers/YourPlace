@@ -7,6 +7,8 @@ using YourPlace.Infrastructure.Data.Entities;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using YourPlace.Core.Services;
 using YourPlace.Core.Sorting;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication.Facebook;
 
 public class Program
 {
@@ -20,7 +22,22 @@ public class Program
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
         builder.Services.AddDbContext<YourPlaceDbContext>(options => options.UseSqlServer(connectionString));
 
-        
+
+        builder.Services.AddAuthentication()
+          .AddGoogle(options =>
+          {
+              options.ClientId = "657954048976-psj504rnils7e6isbss9jr6up525ssdl.apps.googleusercontent.com";
+              options.ClientSecret = "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";
+              options.CallbackPath = "/signin-google";
+          })
+          .AddFacebook(options =>
+           {
+            options.AppId = "1619903765518790";
+            options.AppSecret = "ce36c91361dae351b528482a95f906ad";
+            
+          });
+
+
         builder.Services.AddScoped<UserServices, UserServices>();
         //builder.Services.AddScoped<IEmailSender, EmailSender>();
         builder.Services.AddScoped<HotelsServices>();
@@ -64,6 +81,7 @@ public class Program
             options.AccessDeniedPath = "/Idenity/Account/AccessDenied";
             options.SlidingExpiration = true;
         });
+
         
         var app = builder.Build();
 

@@ -4,6 +4,10 @@
 @{
     ViewData["Title"] = "Log in";
 }
+<head>
+@* <meta name="google-signin-client_id" content="657954048976-psj504rnils7e6isbss9jr6up525ssdl.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script> *@
+</head>
 
 <h1 style="padding-top: 5rem !important">@ViewData["Title"]</h1>
 <div class="row">
@@ -56,6 +60,8 @@
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
                     <div>
+                       // <div class="g-signin2" data-onsuccess="onSignIn">
+                       // </div>
                         <p>
                             There are no external authentication services configured. See this <a href="https://go.microsoft.com/fwlink/?LinkID=532715">article
                             about setting up this ASP.NET application to support logging in via external services</a>.

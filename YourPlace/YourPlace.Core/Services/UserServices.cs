@@ -33,9 +33,9 @@ namespace YourPlace.Core.Services
                 { 
                     return new Tuple<IdentityResult, User>(result, user);
                 }
-                if (role == Roles.HotelManager)
+                if (role == Roles.Manager)
                 {
-                    await _userManager.AddToRoleAsync(user, Roles.HotelManager.ToString());
+                    await _userManager.AddToRoleAsync(user, Roles.Manager.ToString());
                 }
                 else
                 {

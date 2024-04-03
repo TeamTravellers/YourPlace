@@ -243,7 +243,7 @@ namespace YourPlace.Core.Services
             List<ReservedRoom> reservedRooms = await FindReservedRoomsForHotel(hotelID);
 
             List<Tuple<Room, int>> resultList = new List<Tuple<Room, int>>();
-            
+            int freeRoomsCount = 0;
             foreach (var reservedRoom in reservedRooms)
             {
                 Room room = await _roomServices.ReadAsync(reservedRoom.RoomID);
@@ -262,7 +262,7 @@ namespace YourPlace.Core.Services
                 else
                 if(leavingDate >= reservation.ArrivalDate && leavingDate <= reservation.LeavingDate)
                 {
-                    int freeRoomsCount = room.CountInHotel - reservedRoom.Count;
+                    freeRoomsCount = room.CountInHotel - reservedRoom.Count;
                     if (freeRoomsCount > 0)
                     {
                         Tuple<Room, int> roomCount = Tuple.Create(room, freeRoomsCount);
@@ -275,7 +275,7 @@ namespace YourPlace.Core.Services
                 else
                 if(reservation.ArrivalDate >= arrivalDate && reservation.LeavingDate <= leavingDate || arrivalDate >= reservation.ArrivalDate && arrivalDate <= reservation.LeavingDate)
                 {
-                    int freeRoomsCount = room.CountInHotel - reservedRoom.Count;
+                    freeRoomsCount = room.CountInHotel - reservedRoom.Count;
                     if (freeRoomsCount > 0)
                     {
                         Tuple<Room, int> roomCount = Tuple.Create(room, freeRoomsCount);

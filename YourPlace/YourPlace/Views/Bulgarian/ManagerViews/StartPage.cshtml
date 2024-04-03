@@ -1,0 +1,23 @@
+﻿@using YourPlace.Models.ManagerModels;
+@model HotelCreateModel;
+@{
+    Layout = "_LayoutForManagers";
+    ViewData["Title"] = "Manager's Page";
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/YourPlace.styles.css" asp-append-version="true" />
+<style>
+    .container3{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        padding-top: 10%;
+    }
+    
+</style>
+<div class="container3">
+    <h1 class="heading">Здравейте, @Model.FirstName @Model.LastName!</h1>
+</div>

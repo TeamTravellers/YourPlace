@@ -46,6 +46,19 @@
           }
         }
       },
+      "Facebook/7.0.6": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Facebook.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/Facebook.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -713,6 +726,38 @@
             "related": ".xml"
           }
         }
+      },
+      "Microsoft.AspNetCore.Authentication.Facebook/8.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Facebook.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
+      "Microsoft.AspNetCore.Authentication.Google/8.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.AspNetCore.Authentication.Google.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Microsoft.AspNetCore.Authorization/8.0.1": {
         "type": "package",
@@ -3411,6 +3456,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Facebook": "7.0.6",
+          "Microsoft.AspNetCore.Authentication.Facebook": "8.0.3",
+          "Microsoft.AspNetCore.Authentication.Google": "8.0.3",
           "Microsoft.AspNetCore.Components.QuickGrid": "8.0.1",
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": "8.0.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.1",
@@ -3432,6 +3480,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
+          "Facebook": "7.0.6",
+          "Microsoft.AspNetCore.Authentication.Facebook": "8.0.3",
+          "Microsoft.AspNetCore.Authentication.Google": "8.0.3",
           "Microsoft.AspNetCore.Components.QuickGrid": "8.0.1",
           "Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter": "8.0.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "8.0.1",
@@ -3486,6 +3537,38 @@
         "azureicon.png",
         "lib/netstandard2.0/Azure.Identity.dll",
         "lib/netstandard2.0/Azure.Identity.xml"
+      ]
+    },
+    "Facebook/7.0.6": {
+      "sha512": "D9nlWZb88S4U+eh1pUDQ+AkSkiht6m0eFpxKFddZnQSSFTnncvDMBEnNODy4fOIOjWQIiOXRVbuY04jCPyWqkw==",
+      "type": "package",
+      "path": "facebook/7.0.6",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "facebook.7.0.6.nupkg.sha512",
+        "facebook.nuspec",
+        "lib/net35-client/Facebook.dll",
+        "lib/net35-client/Facebook.xml",
+        "lib/net40-client/Facebook.dll",
+        "lib/net40-client/Facebook.xml",
+        "lib/net45/Facebook.dll",
+        "lib/net45/Facebook.xml",
+        "lib/portable-win81+wpa81/Facebook.dll",
+        "lib/portable-win81+wpa81/Facebook.xml",
+        "lib/sl5/Facebook.dll",
+        "lib/sl5/Facebook.xml",
+        "lib/win8/Facebook.dll",
+        "lib/win8/Facebook.xml",
+        "lib/wp71/Facebook.dll",
+        "lib/wp71/Facebook.xml",
+        "lib/wp8/Facebook.dll",
+        "lib/wp8/Facebook.xml",
+        "lib/wp81/Facebook.dll",
+        "lib/wp81/Facebook.xml",
+        "readme.txt",
+        "serializers/JsonNetSerializer.cs"
       ]
     },
     "Humanizer/2.14.1": {
@@ -4284,6 +4367,36 @@
         "lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Core.xml",
         "microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
         "microsoft.aspnetcore.authentication.core.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Facebook/8.0.3": {
+      "sha512": "2iQKQRG2xYPcCPU1oRzERhVXSkzfYVaTO0oljJSQAbtK3V2c6E6tMZMP6ATG9eKalcVSeZIMCOu5wkk5Cq9pzg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.facebook/8.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.Facebook.dll",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.Facebook.xml",
+        "microsoft.aspnetcore.authentication.facebook.8.0.3.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.facebook.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Google/8.0.3": {
+      "sha512": "1JpMMwSXg2E806ujk6xaAJfAmexDGsMSsryT2vFXQdKHpIOXYtikg9EFWR2LKPH9p8MOwicGWdKWpdOTsft07g==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.google/8.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.Google.dll",
+        "lib/net8.0/Microsoft.AspNetCore.Authentication.Google.xml",
+        "microsoft.aspnetcore.authentication.google.8.0.3.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.google.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Authorization/8.0.1": {
@@ -9194,6 +9307,9 @@
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Facebook >= 7.0.6",
+      "Microsoft.AspNetCore.Authentication.Facebook >= 8.0.3",
+      "Microsoft.AspNetCore.Authentication.Google >= 8.0.3",
       "Microsoft.AspNetCore.Identity >= 2.2.0",
       "YourPlace.Core >= 1.0.0",
       "YourPlace.Infrastructure >= 1.0.0"
@@ -9205,11 +9321,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj",
+      "projectUniqueName": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj",
       "projectName": "SeedingLayer",
-      "projectPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj",
+      "projectPath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj",
       "packagesPath": "C:\\Users\\aneli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\ConsoleApp1\\obj\\",
+      "outputPath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\aneli\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9226,11 +9342,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj": {
-              "projectPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj"
+            "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj": {
+              "projectPath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj"
             },
-            "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj"
+            "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
+              "projectPath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj"
             }
           }
         }
@@ -9245,6 +9361,18 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Facebook": {
+            "target": "Package",
+            "version": "[7.0.6, )"
+          },
+          "Microsoft.AspNetCore.Authentication.Facebook": {
+            "target": "Package",
+            "version": "[8.0.3, )"
+          },
+          "Microsoft.AspNetCore.Authentication.Google": {
+            "target": "Package",
+            "version": "[8.0.3, )"
+          },
           "Microsoft.AspNetCore.Identity": {
             "target": "Package",
             "version": "[2.2.0, )"
@@ -9269,5 +9397,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Facebook 7.0.6' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Facebook",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

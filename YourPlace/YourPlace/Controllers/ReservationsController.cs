@@ -126,7 +126,7 @@ namespace YourPlace.Controllers
             }
             return View(toReservation, new ReservationModel { HotelID = hotelID, ArrivalDate = arrivalDate, LeavingDate = leavingDate, TotalPrice = totalPrice, ChosenRooms = chosenRooms});
         }
-        public async Task<IActionResult> CreateReservation([Bind("FirstName")] string firstName, [Bind("Surname")] string surname, [Bind("ArrivalDate")] DateOnly arrivalDate, [Bind("LeavingDate")] DateOnly leavingDate, [Bind("peopleCount")] int peopleCount, [Bind("TotalPrice")] decimal totalPrice, [Bind("hotelID")] int hotelID, [Bind("ChosenRooms")] List<RoomSelection> chosenRooms)
+        public async Task<IActionResult> CreateReservation([Bind("FirstName")] string firstName, [Bind("Surname")] string surname, [Bind("ArrivalDate")] DateOnly arrivalDate, [Bind("LeavingDate")] DateOnly leavingDate, [Bind("peopleCount")] int peopleCount, [Bind("PhoneNumber")] string phoneNumber, [Bind("Email")] string email, [Bind("TotalPrice")] decimal totalPrice, [Bind("hotelID")] int hotelID, [Bind("ChosenRooms")] List<RoomSelection> chosenRooms)
         {
             try
             { 
@@ -136,7 +136,7 @@ namespace YourPlace.Controllers
             {
                 StatusCode(404, $"Съжаляваме, но резервацията Ви не е успешна. Опитайте отново по-късно! \n Sorry, but your reservations was not successful. Please, try again later!");
             }
-            return View(toReservationResult, new ReservationModel { FirstName = firstName, Surname = surname, PeopleCount = peopleCount, ArrivalDate = arrivalDate, LeavingDate = leavingDate, TotalPrice = totalPrice});
+            return View(toReservationResult, new ReservationModel { FirstName = firstName, Surname = surname, PeopleCount = peopleCount, PhoneNumber = phoneNumber, Email = email, ArrivalDate = arrivalDate, LeavingDate = leavingDate, TotalPrice = totalPrice});
         }
     }
 }

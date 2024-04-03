@@ -94,3 +94,51 @@ C:\Users\Eli\Desktop\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\
 C:\Users\Eli\Desktop\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.pdb
 C:\Users\Eli\Desktop\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.genruntimeconfig.cache
 C:\Users\Eli\Desktop\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\ref\YourPlace.Infrastructure.dll
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.dll.config
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.deps.json
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.runtimeconfig.json
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.dll
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.pdb
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.csproj.AssemblyReference.cache
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.AssemblyInfoInputs.cache
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.AssemblyInfo.cs
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.sourcelink.json
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.dll
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\refint\YourPlace.Infrastructure.dll
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.pdb
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.genruntimeconfig.cache
+D:\Aneliya\My Projects\Reservation-Manager\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\ref\YourPlace.Infrastructure.dll
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.dll.config
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.deps.json
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.runtimeconfig.json
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.dll
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.pdb
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.AssemblyInfo.cs
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.sourcelink.json
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.dll
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\refint\YourPlace.Infrastructure.dll
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.pdb
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.genruntimeconfig.cache
+C:\Users\Сотко\Documents\GitHub\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\ref\YourPlace.Infrastructure.dll
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.dll.config
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.deps.json
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.runtimeconfig.json
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.dll
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\bin\Debug\net8.0\YourPlace.Infrastructure.pdb
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.csproj.AssemblyReference.cache
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.AssemblyInfoInputs.cache
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.AssemblyInfo.cs
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.sourcelink.json
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.dll
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\refint\YourPlace.Infrastructure.dll
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.pdb
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\YourPlace.Infrastructure.genruntimeconfig.cache
+D:\Github\Reservation-Manager\YourPlace\YourPlace.Infrastructure\obj\Debug\net8.0\ref\YourPlace.Infrastructure.dll

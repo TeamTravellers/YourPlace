@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj": {}
+    "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj": {
+    "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj",
+        "projectUniqueName": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj",
         "projectName": "SeedingLayer",
-        "projectPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj",
+        "projectPath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\ConsoleApp1\\SeedingLayer.csproj",
         "packagesPath": "C:\\Users\\aneli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\ConsoleApp1\\obj\\",
+        "outputPath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aneli\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj": {
-                "projectPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj"
+              "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj": {
+                "projectPath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj"
               },
-              "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj"
+              "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
+                "projectPath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj"
               }
             }
           }
@@ -47,6 +47,18 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Facebook": {
+              "target": "Package",
+              "version": "[7.0.6, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Facebook": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
             "Microsoft.AspNetCore.Identity": {
               "target": "Package",
               "version": "[2.2.0, )"
@@ -72,14 +84,14 @@
         }
       }
     },
-    "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj": {
+    "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
+        "projectUniqueName": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
         "projectName": "YourPlace.Core",
-        "projectPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
+        "projectPath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Core\\YourPlace.Core.csproj",
         "packagesPath": "C:\\Users\\aneli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Core\\obj\\",
+        "outputPath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aneli\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -96,8 +108,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj"
+              "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
+                "projectPath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj"
               }
             }
           }
@@ -112,6 +124,18 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Facebook": {
+              "target": "Package",
+              "version": "[7.0.6, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Facebook": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
             "Microsoft.AspNetCore.Components.QuickGrid": {
               "target": "Package",
               "version": "[8.0.1, )"
@@ -177,14 +201,14 @@
         }
       }
     },
-    "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
+    "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj",
+        "projectUniqueName": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj",
         "projectName": "YourPlace.Infrastructure",
-        "projectPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj",
+        "projectPath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Infrastructure\\YourPlace.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\aneli\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aneli\\Desktop\\Team Travellers\\Project\\YourPlace\\YourPlace.Infrastructure\\obj\\",
+        "outputPath": "D:\\Aneliya\\My Projects\\Reservation-Manager\\Reservation-Manager\\YourPlace\\YourPlace.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aneli\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -213,6 +237,18 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Facebook": {
+              "target": "Package",
+              "version": "[7.0.6, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Facebook": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "Microsoft.AspNetCore.Authentication.Google": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
             "Microsoft.AspNetCore.Components.QuickGrid": {
               "target": "Package",
               "version": "[8.0.1, )"

@@ -1,0 +1,196 @@
+﻿@using YourPlace.Models.ManagerModels;
+@using YourPlace.Infrastructure.Data.Enums;
+@model HotelCreateModel
+@{
+    Layout = "_LayoutForManagers";
+    ViewData["Title"] = "Manager's Page";
+}
+<style>
+    .rooms {
+        max-height: 200px; /* Set the maximum height for the div */
+        overflow-y: auto; /* Enable vertical scrolling */
+    }
+
+    .room-type {
+        margin-bottom: 10px;
+    }
+
+    .room-input {
+        display: flex;
+        gap: 10px;
+    }
+
+        .room-input input[type="text"],
+        .room-input input[type="number"] {
+            flex: 1;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+            .room-input input[type="text"]:focus,
+            .room-input input[type="number"]:focus {
+                outline: none;
+                border-color: #007bff;
+                box-shadow: 0 0 5px #007bff;
+            }
+
+    .small-input {
+        width: calc(33.33% - 5px); /* Reduced width for smaller input fields */
+        margin-right: 5px; /* Reduced margin for smaller spacing */
+    }
+
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="~/css/style-hotel-manager.css">
+    <title>YourPlace</title>
+</head>
+
+<body>
+    <h1>Създаване на хотел</h1>
+    <div class="form-container">
+        <form asp-action="CreateHotel" asp-controller="ManagerMenu" enctype="multipart/form-data">
+            <label for="email">Име на хотела:</label>
+            <div class="custome-input">
+                <input type="text" name="HotelName" placeholder="Име на хотела" autocomplete="off" asp-for="HotelName">
+            </div>
+            <label for="address">Местоположение:</label>
+            <div class="custome-input">
+                <input type="text" name="Address" placeholder="Местоположение" autocomplete="off" asp-for="Address">
+            </div>
+            <label for="town">Град:</label>
+            <div class="custome-input">
+                <input type="text" name="Town" placeholder="Град" autocomplete="off" asp-for="Town">
+            </div>
+            <label for="password">Държава:</label>
+            <div class="custome-input">
+                <input type="text" name="Country" placeholder="Държава" asp-for="Country">
+            </div>
+            <label for="password">Рейтинг:</label>
+            <div class="custome-input">
+                <input type="text" name="Rating" placeholder="Рейтинг" asp-for="Rating">
+            </div>
+            <label for="password">Описание:</label>
+            <div class="custome-input">
+                <textarea name="Details" placeholder="Описание" id="description" asp-for="Details"></textarea>
+            </div>
+            <div class="image">
+                <input type="file" name="imgfile" />
+                <h4>@ViewData["Message"]</h4>
+            </div>
+            <br>
+            <div class="preferences">
+                <div class="checks">
+                    <input type="checkbox" name="perfs" id="perfs-checkbox">
+                    <span>Разрешени животни</span>
+                </div>
+                <br>
+                <div class="custome-input dropdown">
+                    <select id="dropdown" name="Location" asp-for="Location">
+                        <option hidden selected> Хотелът се намира в близост до: </option>
+                        <option value="@Location.Sea">Море</option>
+                        <option value="@Location.Mountain">Планина</option>
+                        <option value="@Location.LargeCity">Голям град</option>
+                        <option value="@Location.Village">Село</option>
+                    </select>
+                </div>
+                <br>
+                <div class="custome-input dropdown">
+                    <select id="dropdown" name="Tourism" asp-for="Tourism">
+                        <option hidden selected> Тип почивка, която хората могат да намерят в хотела или околностите: </option>
+                        <option value="@Tourism.Culture">Култура</option>
+                        <option value="@Tourism.Shopping">Пазаруване</option>
+                        <option value="@Tourism.Adventure">Приключение</option>
+                        <option value="@Tourism.Relax">Релакс</option>
+                    </select>
+                </div>
+                <br>
+                <div class="custome-input dropdown">
+                    <select id="dropdown" name="Atmosphere" asp-for="Atmosphere">
+                        <option hidden  selected> Хотелът е подходящ за почивка тип: </option>
+                        <option value="@Atmosphere.Calm">Спокойствие</option>
+                        <option value="@Atmosphere.Party">Парти</option>
+                        <option value="@Atmosphere.Both">И двете</option>
+                        <option value="@Atmosphere.Neither">Нито едното</option>
+                    </select>
+                </div>
+                <br>
+                <div class="custome-input dropdown">
+                    <select id="dropdown" name="Company" asp-for="Company">
+                        <option hidden selected> Хотелът е подходящ за почивка тип: </option>
+                        <option value="@Company.Family">Семейна</option>
+                        <option value="@Company.OnePerson">С един човек</option>
+                        <option value="@Company.Individual">Самостоятелна</option>
+                        <option value="@Company.Group">Групова</option>
+                    </select>
+                </div>
+                <br>
+                <div class="custome-input dropdown">
+                    <select id="dropdown" name="Pricing" asp-for="Pricing">
+                        <option hidden selected> Хотелът е: </option>
+                        <option value="@Pricing.Lux">Луксозен</option>
+                        <option value="@Pricing.Cheap">Бюджетен</option>
+                        <option value="@Pricing.Modern">Модерен</option>
+                        <option value="@Pricing.InTheMiddle">Средна класа</option>
+                    </select>
+                </div>
+            </div>
+            <div class="rooms">
+                <div class="room">
+                    <br>
+                    <h4>Добавете стаи в хотела:</h4>
+                    <div class="room-type">
+                        <div class="room-input">
+                            <input type="text" name="RoomsInHotel[0].Type" value="@RoomTypes.studio" placeholder="Студио" asp-for="RoomsInHotel[0].Type"/>
+                            <input type="number" name="RoomsInHotel[0].CountInHotel" min="0" max="100" placeholder="Брой на студио" asp-for="RoomsInHotel[0].CountInHotel" />
+                            <input type="number" name="RoomsInHotel[0].Price" step="0.01" min="0" placeholder="Цена на студио (в BGN)" asp-for="RoomsInHotel[0].Price" />
+                        </div>
+                    </div>
+                    <div class="room-type">
+                        <div class="room-input">
+                            <input type="text" name="RoomsInHotel[1].Type" value="@RoomTypes.doubleRoom" placeholder="Двойна стая" asp-for="RoomsInHotel[1].Type" />
+                            <input type="number" name="RoomsInHotel[1].CountInHotel" min="0" max="100" placeholder="Брой на двойни стаи" asp-for="RoomsInHotel[1].CountInHotel" />
+                            <input type="number" name="RoomsInHotel[1].Price" step="0.01" min="0" placeholder="Цена на двойни стаи (в BGN)" asp-for="RoomsInHotel[1].Price" />
+                        </div>
+                    </div>
+                    <div class="room-type">
+                        <div class="room-input">
+                            <input type="text" name="RoomsInHotel[2].Type" value="@RoomTypes.tripleRoom" placeholder="Тройна стая" asp-for="RoomsInHotel[2].Type" />
+                            <input type="number" name="RoomsInHotel[2].CountInHotel" min="0" max="100" placeholder="Брой на тройни стаи" asp-for="RoomsInHotel[2].CountInHotel" />
+                            <input type="number" name="RoomsInHotel[2].Price" step="0.01" min="0" placeholder="Цена на тройни стаи (в BGN)" asp-for="RoomsInHotel[2].Price" />
+                        </div>
+                    </div>
+                    <div class="room-type">
+                        <div class="room-input">
+                            <input type="text" name="RoomsInHotel[3].Type" value="@RoomTypes.deluxeRoom" placeholder="Стая делукс" asp-for="RoomsInHotel[3].Type" />
+                            <input type="number" name="RoomsInHotel[3].CountInHotel" min="0" max="100" placeholder="Брой на стаи делукс" asp-for="RoomsInHotel[3].CountInHotel" />
+                            <input type="number" name="RoomsInHotel[3].Price" step="0.01" min="0" placeholder="Цена на стаи делукс (в BGN)" asp-for="RoomsInHotel[3].Price" />
+                        </div>
+                    </div>
+                    <div class="room-type">
+                        <div class="room-input">
+                            <input type="text" name="RoomsInHotel[4].Type" value="@RoomTypes.maisonette" placeholder="Мезонет" asp-for="RoomsInHotel[4].Type" />
+                            <input type="number" name="RoomsInHotel[4].CountInHotel" min="0" max="100" placeholder="Брой на мезонет" asp-for="RoomsInHotel[4].CountInHotel" />
+                            <input type="number" name="RoomsInHotel[4].Price" step="0.01" min="0" placeholder="Цена на мезонет (в BGN)" asp-for="RoomsInHotel[4].Price" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="buttons-form">
+                <button type="submit" id="signup" class="login">Създаване на хотел</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

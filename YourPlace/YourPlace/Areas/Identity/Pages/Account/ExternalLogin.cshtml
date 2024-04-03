@@ -1,17 +1,17 @@
 ﻿@page
+@using YourPlace.Infrastructure.Data.Enums
 @model ExternalLoginModel
 @{
     ViewData["Title"] = "Register";
 }
 
-<h1>@ViewData["Title"]</h1>
+<h1 style="padding-top: 5rem !important">@ViewData["Title"]</h1>
 <h2 id="external-login-title">Associate your @Model.ProviderDisplayName account.</h2>
 <hr />
 
 <p id="external-login-description" class="text-info">
     You've successfully authenticated with <strong>@Model.ProviderDisplayName</strong>.
-    Please enter an email address for this site below and click the Register button to finish
-    logging in.
+    Please enter your information below to complete the registration.
 </p>
 
 <div class="row">
@@ -19,14 +19,37 @@
         <form asp-page-handler="Confirmation" asp-route-returnUrl="@Model.ReturnUrl" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
             <div class="form-floating mb-3">
-                <input asp-for="Input.Email" class="form-control" autocomplete="email" placeholder="Please enter your email."/>
+                <input asp-for="Input.FirstName" class="form-control" placeholder="First Name" />
+                <label asp-for="Input.FirstName" class="form-label"></label>
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Surname" class="form-control"  placeholder="Surname" />
+                <label asp-for="Input.Surname" class="form-label"></label>
+                <span asp-validation-for="Input.Surname" class="text-danger"></span>
+            </div>
+             <div class="form-floating mb-3">
+                <input asp-for="Input.Username" class="form-control" placeholder="Username" />
+                <label asp-for="Input.Username" class="form-label"></label>
+                <span asp-validation-for="Input.Username" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Email" class="form-control" autocomplete="email" placeholder="Email Address" />
                 <label asp-for="Input.Email" class="form-label"></label>
                 <span asp-validation-for="Input.Email" class="text-danger"></span>
             </div>
+             @* <div class="form-floating mb-3">
+                <select asp-for="Input.Role" asp-items="Html.GetEnumSelectList<Roles>()" class="form-control" autocomplete="role" aria-required="true">
+                    <option value="">Select Role</option>
+                </select>
+                <label asp-for="Input.Role">Role</label>
+                <span asp-validation-for="Input.Role" class="text-danger"></span>
+            </div> *@
             <button type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
         </form>
     </div>
 </div>
+
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

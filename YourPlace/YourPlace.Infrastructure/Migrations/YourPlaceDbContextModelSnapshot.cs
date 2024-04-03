@@ -58,8 +58,8 @@ namespace YourPlace.Infrastructure.Migrations
                         new
                         {
                             Id = "2",
-                            Name = "Hotel Manager",
-                            NormalizedName = "HotelManager"
+                            Name = "Manager",
+                            NormalizedName = "Manager"
                         },
                         new
                         {
@@ -210,7 +210,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("HotelID");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new
@@ -293,6 +293,9 @@ namespace YourPlace.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("ManagerID")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<double>("Rating")
                         .HasColumnType("float");
 
@@ -302,7 +305,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasKey("HotelID");
 
-                    b.ToTable("Hotels", (string)null);
+                    b.ToTable("Hotels");
 
                     b.HasData(
                         new
@@ -381,7 +384,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("HotelID");
 
-                    b.ToTable("Images", (string)null);
+                    b.ToTable("Images");
 
                     b.HasData(
                         new
@@ -506,7 +509,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasKey("PreferencesID");
 
-                    b.ToTable("Preferences", (string)null);
+                    b.ToTable("Preferences");
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.Reservation", b =>
@@ -544,7 +547,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("HotelID");
 
-                    b.ToTable("Reservations", (string)null);
+                    b.ToTable("Reservations");
 
                     b.HasData(
                         new
@@ -630,7 +633,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("RoomID");
 
-                    b.ToTable("ReservedRooms", (string)null);
+                    b.ToTable("ReservedRooms");
 
                     b.HasData(
                         new
@@ -717,7 +720,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasKey("RoomID");
 
-                    b.ToTable("Rooms", (string)null);
+                    b.ToTable("Rooms");
 
                     b.HasData(
                         new
@@ -837,7 +840,7 @@ namespace YourPlace.Infrastructure.Migrations
 
                     b.HasIndex("HotelID");
 
-                    b.ToTable("RoomsAvailability", (string)null);
+                    b.ToTable("RoomsAvailability");
                 });
 
             modelBuilder.Entity("YourPlace.Infrastructure.Data.Entities.User", b =>
@@ -917,14 +920,14 @@ namespace YourPlace.Infrastructure.Migrations
                         {
                             Id = "1",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3c6e4261-1052-4061-b9d3-e0450f02f94c",
+                            ConcurrencyStamp = "a3116379-b5bd-4ad2-8e44-6267f60afaa5",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Admin",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "Admin",
-                            PasswordHash = "AQAAAAIAAYagAAAAELjpMLk75xz7tlKYy+E6ScVt2JzutJxwQTO4PeJ9O+GFrChyLvHbAlEd52WWveISjA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGnMOaGLestUMHlYEhw0zr35pVBl+NOHYqUPEtyzL4XEFKQXedAWAd/YfDCAtJt7Uw==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             Surname = "User",
