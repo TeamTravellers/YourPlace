@@ -101,12 +101,20 @@
       "PackagePath": "staticwebassets\\Images\\MainImages\\RoyalLasVegas.jpg"
     },
     {
+      "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\MainImages\\Screenshot 2023-03-11 005518.png",
+      "PackagePath": "staticwebassets\\Images\\MainImages\\Screenshot 2023-03-11 005518.png"
+    },
+    {
       "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\MainImages\\SerenaResidence.jpg",
       "PackagePath": "staticwebassets\\Images\\MainImages\\SerenaResidence.jpg"
     },
     {
       "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\MainImages\\Therme.jpg",
       "PackagePath": "staticwebassets\\Images\\MainImages\\Therme.jpg"
+    },
+    {
+      "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\MainImages\\Хотел Самоков.jpg",
+      "PackagePath": "staticwebassets\\Images\\MainImages\\Хотел Самоков.jpg"
     },
     {
       "Id": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\check-mark (1).png",

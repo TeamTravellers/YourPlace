@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "uoUWw5aeMi9Pro1O6HyQCF4euvEi8WpvDboyydOH0AU=",
+  "Hash": "28cU9Sd9HsAjLCmKdcXosji5YyRwHGuEo6nBWkttFWw=",
   "Source": "YourPlace",
   "BasePath": "_content/YourPlace",
   "Mode": "Default",
@@ -1784,6 +1784,25 @@
       "OriginalItemSpec": "wwwroot\\Images\\Logo.png"
     },
     {
+      "Identity": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\MainImages\\Хотел Самоков.jpg",
+      "SourceId": "YourPlace",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\",
+      "BasePath": "_content/YourPlace",
+      "RelativePath": "Images/MainImages/Хотел Самоков.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\MainImages\\Хотел Самоков.jpg"
+    },
+    {
       "Identity": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\MainImages\\Arte.jpg",
       "SourceId": "YourPlace",
       "SourceType": "Discovered",
@@ -1896,6 +1915,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\MainImages\\RoyalLasVegas.jpg"
+    },
+    {
+      "Identity": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\MainImages\\Screenshot 2023-03-11 005518.png",
+      "SourceId": "YourPlace",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\",
+      "BasePath": "_content/YourPlace",
+      "RelativePath": "Images/MainImages/Screenshot 2023-03-11 005518.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\MainImages\\Screenshot 2023-03-11 005518.png"
     },
     {
       "Identity": "D:\\Aneliya\\My Projects\\TeamTravellers\\YourPlace\\YourPlace\\YourPlace\\wwwroot\\Images\\MainImages\\SerenaResidence.jpg",
